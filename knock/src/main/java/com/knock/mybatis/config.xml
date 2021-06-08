@@ -6,6 +6,12 @@
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
+	<typeAliases>
+		<typeAlias type="com.knock.model.vo.CampaignIngVO" alias="CampaignIngVO"></typeAlias>
+		<typeAlias type="com.knock.model.vo.ProposalVO" alias="ProposalVO"></typeAlias>
+		<typeAlias type="com.knock.model.vo.CampaignNomineeVO" alias="NomineeVO"></typeAlias>
+		
+	</typeAliases>
 
 	<environments default="development">
 		<environment id="development">

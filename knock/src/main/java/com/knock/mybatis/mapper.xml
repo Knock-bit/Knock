@@ -3,33 +3,41 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="USER">
-	<!-- CAMPAIGN -->
-	<!-- 진행중인 캠페인 목록 불러오기 -->
-	
+
+
 	<!-- namespace를 여러 개 사용할 수 없을까?
 	namespace를 campaign으로 바꿔야 작동.. -->
-	<select id="list" resultType="campaignIngVO">
+	
+	<!--  CampaignIng -->
+	<select id="ingList" resultType="CampaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
   		  FROM CAMPAIGN_ING
   	</select>
-
   	
-	<!-- 진행중인 캠페인 하나 불러오기 -->
-  	<select id="one" parameterType="int" resultType="campaignIngVO">
+  	<select id="ingOne" parameterType="int" resultType="CampaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
   		  FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX = ${campaign_idx}
   	</select>
   	
-  	  	
-	<!-- 한 캠페인에 참여중인 이용자 닉네임 목록 불러오기 -->
   	<select id="participant" parameterType="int" resultType="string">
   		SELECT NICKNAME FROM USERS
   		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_ING_USER
 		 WHERE CAMPAIGN_IDX = #{campaign_idx})
   	</select>
-
+  	
+  	<!-- 캠페인 제안 -->
+  	<insert id="insert" parameterType="ProposalVO">
+  		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, TITLE, USER_IDX)
+				VALUES (PROPOSAL_IDX_SEQ.nextval, #{goal}, #{goal_point}, #{p_content}, #{title}, #{user_idx})
+  	</insert>
+  	
+  	<!-- 펀딩중 캠페인  -->
+  	<select id="ingList" resultType="NomineeVO">
+  	
+  	</select>
+  	
 </mapper>
