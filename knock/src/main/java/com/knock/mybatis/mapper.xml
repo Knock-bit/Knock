@@ -40,5 +40,16 @@
   		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_ING_USER
 		 WHERE CAMPAIGN_IDX = #{campaign_idx})
   	</select>
+  
+    	<!-- 캠페인 제안 -->
+  	<insert id="insert" parameterType="ProposalVO">
+  		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, TITLE, USER_IDX)
+				VALUES (PROPOSAL_IDX_SEQ.nextval, #{goal}, #{goal_point}, #{p_content}, #{title}, #{user_idx})
+  	</insert>
+  	
+  	<!-- 펀딩중 캠페인  -->
+  	<select id="ingList" resultType="NomineeVO">
+  	
+  	</select>
 
 </mapper>

@@ -18,7 +18,7 @@ ${campaignIng.campaign_idx }번<br>
 <div class="camp2">
 ${campaignIng.goal }
 <br>
-키워드. 어려워서 비워둠
+키워드는 어렵다
 </div>
 <div class="emblem">
 엠블럼 자리

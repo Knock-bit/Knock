@@ -50,7 +50,6 @@ import javax.servlet.http.HttpSession;
 import com.knock.model.command.Command;
 import com.knock.model.command.campaign.CampaignListCommand;
 import com.knock.model.command.campaign.CampaignOneCommand;
-import com.knock.model.command.campaign.CampaignProposalCommand;
 
 
 @WebServlet("/controller")
@@ -77,14 +76,15 @@ public class FrontController extends HttpServlet{
 		String type = request.getParameter("type");
 		System.out.println("> type: " + type);
 		Command command = null;
-		
-			   if ("cList".equals(type)) {
-			command = new CampaignListCommand();
-		} else if ("cOne".equals(type)) {
-			command = new CampaignOneCommand();
-		} else if ("cProposal".equals(type)) {
-			command = new CampaignProposalCommand();
-		}
+
+		// 컨트롤러 분리해놓을거면 안 씀
+//			   if ("cList".equals(type)) {
+//			command = new CampaignListCommand();
+//		} else if ("cOne".equals(type)) {
+//			command = new CampaignOneCommand();
+//		} else if ("cProposal".equals(type)) {
+//			command = new CampaignProposalCommand();
+//		}
 		String path = command.exec(request, response);
 		
 		System.out.println(path);
