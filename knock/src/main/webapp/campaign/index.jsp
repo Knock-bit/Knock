@@ -11,6 +11,6 @@
 <body>
 <a href="${contextPath }/campaign?type=nomineeList">현재 펀딩중인 캠페인</a>
 <a href="${contextPath }/campaign?type=ingList">현재 진행중인 캠페인</a>
-<a href="campaignForm.jsp">캠페인 제안하기</a>
+<a href="proposalForm.jsp">캠페인 제안하기</a>
 </body>
 </html>

@@ -15,7 +15,8 @@ public class NomineeListCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<CampaignNomineeVO> nomineeList = CampaignNomineeDAO.list();
-		return null;
+		request.setAttribute("nomineeList", nomineeList);
+		return "nominee.jsp";
 	}
 
 }
