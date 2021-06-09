@@ -24,7 +24,7 @@
     </environment>
   </environments>
   <mappers>
-  <mapper resource="com/connect/mybatis/campaignmapper.xml"/>
-    <mapper resource="com/connect/mybatis/mapper.xml"/>
+  <mapper resource="com/knock/mybatis/campaignmapper.xml"/>
+    <mapper resource="com/knock/mybatis/mapper.xml"/>
   </mappers>
   </configuration>
