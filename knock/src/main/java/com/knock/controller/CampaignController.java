@@ -24,14 +24,14 @@ public class CampaignController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> FrontController.doGet() ½ÇÇà");
+		System.out.println(">> FrontController.doGet() ì‹¤í–‰");
 		String type = request.getParameter("type");
 		System.out.println(type);
 		doHandle(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> FrontController.doPost() ?½ÇÇà");
+		System.out.println(">> FrontController.doPost() ì‹¤í–‰");
 //		doGet(request, response);
 		doHandle(request, response);
 	}
@@ -57,7 +57,7 @@ public class CampaignController extends HttpServlet{
 		
 		System.out.println(path);
 		if(path == null||path.equals("")) {
-			System.out.println("path°ª nullÀÌ°Å³ª ºóÄ­");
+			System.out.println("pathê°€ ë¹ˆì¹¸ì´ê±°ë‚˜ nullì„");
 			return;
 		} else {
 			request.getRequestDispatcher(path).forward(request, response);			

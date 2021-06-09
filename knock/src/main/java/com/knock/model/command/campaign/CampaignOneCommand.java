@@ -22,7 +22,7 @@ public class CampaignOneCommand implements Command {
 
 		request.setAttribute("campaignIng", campaignIng);
 		request.setAttribute("ing_userList", ing_userList);
-		return "campaignView.jsp";
+		return "campaign/campaignView.jsp";
 	}
 
 }

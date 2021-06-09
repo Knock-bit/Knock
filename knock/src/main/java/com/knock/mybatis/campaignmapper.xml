@@ -13,8 +13,8 @@
 	<select id="ingList" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
-  		  FROM CAMPAIGN_ING
+        	   C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
+  		  FROM CAMPAIGN_ING WHERE STATUS = 1
   	</select>
 
   	
@@ -22,7 +22,7 @@
   	<select id="ingOne" parameterType="int" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
+        	   STATUS, C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
   		  FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX = ${campaign_idx}
   	</select>
   	
@@ -36,8 +36,8 @@
   
     	<!-- 캠페인 제안 -->
   	<insert id="insert" parameterType="ProposalVO">
-  		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, TITLE, USER_IDX)
-				VALUES (PROPOSAL_IDX_SEQ.nextval, #{goal}, #{goal_point}, #{p_content}, #{title}, #{user_idx})
+  		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, P_TITLE, USER_IDX)
+				VALUES (PROPOSAL_IDX_SEQ.nextval, #{goal}, #{goal_point}, #{p_content}, #{p_title}, #{user_idx})
   	</insert>
   	
   	<!-- 펀딩중 캠페인  -->
