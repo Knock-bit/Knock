@@ -26,7 +26,7 @@ public class CampaignIngVO {
 	public CampaignIngVO(String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
 			String emblem) {
-		super();
+		
 		this.title = title;
 		this.c_content = c_content;
 		this.goal = goal;
@@ -47,7 +47,7 @@ public class CampaignIngVO {
 	public CampaignIngVO(int campaign_idx, String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
 			String emblem) {
-		super();
+		
 		this.campaign_idx = campaign_idx;
 		this.title = title;
 		this.c_content = c_content;

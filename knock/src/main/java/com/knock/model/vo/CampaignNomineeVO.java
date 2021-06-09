@@ -19,16 +19,13 @@ public class CampaignNomineeVO {
 	private int user_idx;
 	
 	public CampaignNomineeVO() {
-		// TODO Auto-generated constructor stub
+		
 	}
-	
-	
-	
 	
 	public CampaignNomineeVO(String goal, String title, String c_content, int campaign_idx, Date end_time,
 			Date start_time, int collected_point, String status, String c_file, String c_category, int goal_point,
 			int proposal_idx, int user_idx) {
-		super();
+		
 		this.goal = goal;
 		this.title = title;
 		this.c_content = c_content;
@@ -44,13 +41,10 @@ public class CampaignNomineeVO {
 		this.user_idx = user_idx;
 	}
 
-
-
-
 	public CampaignNomineeVO(int nominee_idx, String goal, String title, String c_content, int campaign_idx,
 			Date end_time, Date start_time, int collected_point, String status, String c_file, String c_category,
 			int goal_point, int proposal_idx, int user_idx) {
-		super();
+		
 		this.nominee_idx = nominee_idx;
 		this.goal = goal;
 		this.title = title;

@@ -20,7 +20,7 @@ public class CampaignIngDAO {
 	
 	
 	public static List<CampaignIngVO> list(){
-		SqlSession ss = DBService.getFactory().openSession();
+		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> campaignIngList = ss.selectList("campaign.ingList");
 		ss.close();
 		for (CampaignIngVO campaignIng : campaignIngList) {

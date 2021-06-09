@@ -17,12 +17,12 @@ public class ProposalCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> Proposal Command ½ÇÇà");
+		System.out.println(">> Proposal Command ì‹¤í–‰");
 		String p_title = request.getParameter("p_title");
 		String goal = request.getParameter("goal");
 		int goal_point = Integer.parseInt(request.getParameter("goal_point"));
 		String p_content = request.getParameter("p_content");
-		int user_idx = Integer.parseInt(request.getParameter("user_idx")); //ÀÌ°Ç ³ªÁß¿¡ session¿¡¼­ ¹Şµµ·Ï.
+		int user_idx = Integer.parseInt(request.getParameter("user_idx")); //ì´ê±´ ë‚˜ì¤‘ì— ì„¸ì…˜ìœ¼ë¡œ ë°›ê¸°
 
 		ProposalVO proposal = new ProposalVO();
 		proposal.setGoal(goal);
