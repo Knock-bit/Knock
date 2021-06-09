@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.knock.model.vo.CampaignIngVO;
-import com.knock.model.vo.CampaignNomineeVO;
+import com.knock.model.vo.NomineeVO;
 import com.knock.model.vo.ProposalVO;
 import com.knock.model.command.Command;
 import com.knock.model.dao.ProposalDAO;
@@ -33,7 +33,7 @@ public class ProposalCommand implements Command {
 		
 		ProposalDAO.insert(proposal);
 		
-		return "campaign/index.jsp";
+		return "campaign/proposalResult.jsp";
 	}
 
 }

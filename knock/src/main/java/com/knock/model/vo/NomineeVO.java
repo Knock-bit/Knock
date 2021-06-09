@@ -2,7 +2,7 @@ package com.knock.model.vo;
 
 import java.sql.Date;
 
-public class CampaignNomineeVO {
+public class NomineeVO {
 	private int nominee_idx;
 	private String goal;
 	private String title;
@@ -18,11 +18,11 @@ public class CampaignNomineeVO {
 	private int proposal_idx;
 	private int user_idx;
 	
-	public CampaignNomineeVO() {
+	public NomineeVO() {
 		
 	}
 	
-	public CampaignNomineeVO(String goal, String title, String c_content, int campaign_idx, Date end_time,
+	public NomineeVO(String goal, String title, String c_content, int campaign_idx, Date end_time,
 			Date start_time, int collected_point, String status, String c_file, String c_category, int goal_point,
 			int proposal_idx, int user_idx) {
 		
@@ -41,7 +41,7 @@ public class CampaignNomineeVO {
 		this.user_idx = user_idx;
 	}
 
-	public CampaignNomineeVO(int nominee_idx, String goal, String title, String c_content, int campaign_idx,
+	public NomineeVO(int nominee_idx, String goal, String title, String c_content, int campaign_idx,
 			Date end_time, Date start_time, int collected_point, String status, String c_file, String c_category,
 			int goal_point, int proposal_idx, int user_idx) {
 		

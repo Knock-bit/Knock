@@ -13,7 +13,8 @@
 	}
 </script>
 </head>
-<body>
+<body>	
+	<%@ include file="tempinclude.jsp" %>
 	<form id="campaignForm" method="post" action="${contextPath}/campaign?type=proposal">
 		<table>
 			<thead>
