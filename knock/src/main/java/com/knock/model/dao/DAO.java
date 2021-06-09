@@ -1,5 +1,6 @@
 package com.knock.model.dao;
 
-public class DAO {
+public class dao{
+	String daodoa = null;
 
 }
