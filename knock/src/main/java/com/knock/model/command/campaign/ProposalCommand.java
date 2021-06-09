@@ -33,7 +33,7 @@ public class ProposalCommand implements Command {
 		
 		ProposalDAO.insert(proposal);
 		
-		return "index.jsp";
+		return "campaign/index.jsp";
 	}
 
 }

@@ -17,7 +17,7 @@ public class CampaignListCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<CampaignIngVO> campaignIngList = CampaignIngDAO.list();
 		request.setAttribute("campaignIngList", campaignIngList);
-		return "campaignIng.jsp";
+		return "campaign/campaignIng.jsp";
 	}
 
 }
