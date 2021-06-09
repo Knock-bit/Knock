@@ -21,7 +21,7 @@ public class CampaignIngDAO {
 	
 	public static List<CampaignIngVO> list(){
 		SqlSession ss = DBService.getFactory().openSession();
-		List<CampaignIngVO> campaignIngList = ss.selectList("campaignIng.list");
+		List<CampaignIngVO> campaignIngList = ss.selectList("campaign.ingList");
 		ss.close();
 		for (CampaignIngVO campaignIng : campaignIngList) {
 			System.out.println(campaignIng.getTitle());
@@ -32,14 +32,14 @@ public class CampaignIngDAO {
 
 	public static CampaignIngVO one(int campaign_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
-		CampaignIngVO campaignIng = ss.selectOne("campaignIng.one", campaign_idx);
+		CampaignIngVO campaignIng = ss.selectOne("campaign.ingOne", campaign_idx);
 		ss.close();
 		return campaignIng;
 	}
 
 	public static List<String> participant(int campaign_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
-		List<String> userList = ss.selectList("campaignIng.participant", campaign_idx);
+		List<String> userList = ss.selectList("campaign.participant", campaign_idx);
 		ss.close();
 		return userList;
 	}

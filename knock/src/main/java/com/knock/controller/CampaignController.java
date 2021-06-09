@@ -46,9 +46,9 @@ public class CampaignController extends HttpServlet{
 		
 			   if ("ingList".equals(type)) {
 			command = new CampaignListCommand();
-		} else if ("one".equals(type)) {
+		} else if ("ingOne".equals(type)) {
 			command = new CampaignOneCommand();
-		} else if ("insert".equals(type)) {
+		} else if ("proposal".equals(type)) {
 			command = new ProposalCommand();
 		} else if ("nomineeList".equals(type)) {
 			command = new NomineeListCommand();
