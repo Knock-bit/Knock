@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="member">
-	<!-- 회원가입시 입력받기 -->
+	회원가입시 입력받기
 	<insert id = "joinMember" parameterType="com.member.vo.MemberVO">
 		INSERT INTO USERS(USER_IDX, USER_ID, NAME, PWD, NICKNAME, EMAIL, PHONE, BIRTH) 
 		VALUES(USER_IDX_SEQ.NEXTVAL, #{user_id}, #{name}, #{pwd}, #{nickname}, #{email}, #{phone}, TO_DATE(#{birth}, 'YYYY-MM-DD'))
@@ -12,11 +13,11 @@
 </mapper>
 
 <mapper namespace="USER">
-	<!-- CAMPAIGN -->
-	<!-- 진행중인 캠페인 목록 불러오기 -->
+	CAMPAIGN
+	진행중인 캠페인 목록 불러오기
 	
-	<!-- namespace를 여러 개 사용할 수 없을까?
-	namespace를 campaign으로 바꿔야 작동.. -->
+	namespace를 여러 개 사용할 수 없을까?
+	namespace를 campaign으로 바꿔야 작동..
 	<select id="list" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
@@ -25,7 +26,7 @@
   	</select>
 
   	
-	<!-- 진행중인 캠페인 하나 불러오기 -->
+	진행중인 캠페인 하나 불러오기
   	<select id="one" parameterType="int" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
@@ -34,22 +35,20 @@
   	</select>
   	
   	  	
-	<!-- 한 캠페인에 참여중인 이용자 닉네임 목록 불러오기 -->
+	한 캠페인에 참여중인 이용자 닉네임 목록 불러오기
   	<select id="participant" parameterType="int" resultType="string">
   		SELECT NICKNAME FROM USERS
   		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_ING_USER
 		 WHERE CAMPAIGN_IDX = #{campaign_idx})
   	</select>
   
-    	<!-- 캠페인 제안 -->
+    	캠페인 제안
   	<insert id="insert" parameterType="ProposalVO">
   		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, TITLE, USER_IDX)
 				VALUES (PROPOSAL_IDX_SEQ.nextval, #{goal}, #{goal_point}, #{p_content}, #{title}, #{user_idx})
   	</insert>
   	
-  	<!-- 펀딩중 캠페인  -->
+  	펀딩중 캠페인 
   	<select id="ingList" resultType="NomineeVO">
   	
-  	</select>
-
-</mapper>
+  	</select> -->
