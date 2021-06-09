@@ -48,7 +48,7 @@
 		              </form>
               	  </c:if>
               	  <c:if test="${!empty check }">
-              	  	  이미 펀딩한 캠페인입니다.
+              	  	  펀딩해주셔서 감사합니다.
               	  </c:if>
 	              
               </div>
