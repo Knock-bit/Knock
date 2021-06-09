@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.knock.command.Command;
-import com.knock.command.mypage.MyInfoBtnCommand;
-import com.knock.command.mypage.MyInfoUpdateCommand;
-import com.knock.command.mypage.MypageListCommand;
+import com.knock.model.command.Command;
+import com.knock.model.command.mypage.MyInfoBtnCommand;
+import com.knock.model.command.mypage.MyInfoUpdateCommand;
+import com.knock.model.command.mypage.MypageListCommand;
 
 
 @WebServlet("/userctr")

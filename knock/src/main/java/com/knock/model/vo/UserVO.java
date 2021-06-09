@@ -1,4 +1,4 @@
-package com.knock.vo;
+package com.knock.model.vo;
 
 import java.util.Date;
 
