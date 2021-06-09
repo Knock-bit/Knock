@@ -1,9 +1,9 @@
-package com.knock.dao;
+package com.knock.model.dao;
 
-import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSession; 
 
 
-import com.knock.vo.UserVO;
+import com.knock.model.vo.UserVO;
 import com.knock.mybatis.DBService;
 
 

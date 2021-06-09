@@ -1,14 +1,14 @@
-package com.knock.command.mypage;
+package com.knock.model.command.mypage;
 
-import java.io.IOException; 
+import java.io.IOException;  
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.knock.command.Command;
-import com.knock.dao.UserDAO;
-import com.knock.vo.UserVO;
+import com.knock.model.command.Command;
+import com.knock.model.dao.UserDAO;
+import com.knock.model.vo.UserVO;
 
 public class MyInfoBtnCommand implements Command{
 
