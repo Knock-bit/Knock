@@ -18,7 +18,7 @@ public class ProposalCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> Proposal Command ½ÇÇà");
-		String title = request.getParameter("title");
+		String p_title = request.getParameter("p_title");
 		String goal = request.getParameter("goal");
 		int goal_point = Integer.parseInt(request.getParameter("goal_point"));
 		String p_content = request.getParameter("p_content");
@@ -28,7 +28,7 @@ public class ProposalCommand implements Command {
 		proposal.setGoal(goal);
 		proposal.setGoal_point(goal_point);
 		proposal.setP_content(p_content);
-		proposal.setTitle(title);
+		proposal.setP_title(p_title);
 		proposal.setUser_idx(user_idx);
 		
 		ProposalDAO.insert(proposal);

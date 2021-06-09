@@ -13,7 +13,7 @@
 	<select id="ingList" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
+        	   STATUS, C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
   		  FROM CAMPAIGN_ING
   	</select>
 
@@ -22,7 +22,7 @@
   	<select id="ingOne" parameterType="int" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
+        	   STATUS, C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
   		  FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX = ${campaign_idx}
   	</select>
   	

@@ -20,9 +20,6 @@ public class ProposalVO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-	
 	public ProposalVO(String p_title, String p_content, String goal, int goal_point, String p_file, int user_idx,
 			String p_keyword1, String p_keyword2, String p_keyword3) {
 		super();

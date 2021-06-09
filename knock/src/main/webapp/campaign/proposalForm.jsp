@@ -17,7 +17,7 @@
 			<thead>
 				<tr>
 					<td> 캠페인 이름 </td> 
-					<td> <input type="text" name="title" placeholder="캠페인 이름을 입력하세요 "></td>
+					<td> <input type="text" name="p_title" placeholder="캠페인 이름을 입력하세요 "></td>
 				</tr>
 			<tbody>
 				<tr>
