@@ -12,7 +12,7 @@
 </script>
 </head>
 <body>
-	<form id="campaignForm" method="post" action="campaign?type=insert">
+	<form id="campaignForm" method="post" action="campaign?type=proposal">
 		<table>
 			<thead>
 				<tr>

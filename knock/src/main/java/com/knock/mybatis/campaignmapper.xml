@@ -10,7 +10,7 @@
 	
 	<!-- namespace를 여러 개 사용할 수 없을까?
 	namespace를 campaign으로 바꿔야 작동.. -->
-	<select id="list" resultType="campaignIngVO">
+	<select id="ingList" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
@@ -19,7 +19,7 @@
 
   	
 	<!-- 진행중인 캠페인 하나 불러오기 -->
-  	<select id="one" parameterType="int" resultType="campaignIngVO">
+  	<select id="ingOne" parameterType="int" resultType="campaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
@@ -41,7 +41,4 @@
   	</insert>
   	
   	<!-- 펀딩중 캠페인  -->
-  	<select id="ingList" resultType="NomineeVO">
-  	
-  	</select>
   </mapper>

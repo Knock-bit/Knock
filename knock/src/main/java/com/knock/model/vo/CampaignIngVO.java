@@ -3,23 +3,50 @@ package com.knock.model.vo;
 import java.sql.Date;
 
 public class CampaignIngVO {
+	
 	int campaign_idx;
-	String title, c_content, goal;
+	String title;
+	String c_content; 
+	String goal;
 	Date end_date;
 	int base_point;
 	int estimated_point;
 	char status;
 	String c_file;
-	int keyword_idx;
 	int c_category;
+	int c_totpoint;
+	int user_idx;
 	String emblem;
 	
 	public CampaignIngVO() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public CampaignIngVO(String title, String c_content, String goal, Date end_date, int base_point,
+			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
+			String emblem) {
+		super();
+		this.title = title;
+		this.c_content = c_content;
+		this.goal = goal;
+		this.end_date = end_date;
+		this.base_point = base_point;
+		this.estimated_point = estimated_point;
+		this.status = status;
+		this.c_file = c_file;
+		this.c_category = c_category;
+		this.c_totpoint = c_totpoint;
+		this.user_idx = user_idx;
+		this.emblem = emblem;
+	}
+
+
+
+
 	public CampaignIngVO(int campaign_idx, String title, String c_content, String goal, Date end_date, int base_point,
-			int estimated_point, char status, String c_file, int keyword_idx, int c_category, String emblem) {
+			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
+			String emblem) {
 		super();
 		this.campaign_idx = campaign_idx;
 		this.title = title;
@@ -30,8 +57,9 @@ public class CampaignIngVO {
 		this.estimated_point = estimated_point;
 		this.status = status;
 		this.c_file = c_file;
-		this.keyword_idx = keyword_idx;
 		this.c_category = c_category;
+		this.c_totpoint = c_totpoint;
+		this.user_idx = user_idx;
 		this.emblem = emblem;
 	}
 	public int getCampaign_idx() {
@@ -88,17 +116,23 @@ public class CampaignIngVO {
 	public void setC_file(String c_file) {
 		this.c_file = c_file;
 	}
-	public int getKeyword_idx() {
-		return keyword_idx;
-	}
-	public void setKeyword_idx(int keyword_idx) {
-		this.keyword_idx = keyword_idx;
-	}
 	public int getC_category() {
 		return c_category;
 	}
 	public void setC_category(int c_category) {
 		this.c_category = c_category;
+	}
+	public int getC_totpoint() {
+		return c_totpoint;
+	}
+	public void setC_totpoint(int c_totpoint) {
+		this.c_totpoint = c_totpoint;
+	}
+	public int getUser_idx() {
+		return user_idx;
+	}
+	public void setUser_idx(int user_idx) {
+		this.user_idx = user_idx;
 	}
 	public String getEmblem() {
 		return emblem;
@@ -106,6 +140,8 @@ public class CampaignIngVO {
 	public void setEmblem(String emblem) {
 		this.emblem = emblem;
 	}
+	
+	
 	
 	
 }

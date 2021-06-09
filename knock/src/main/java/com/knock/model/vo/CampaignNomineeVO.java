@@ -3,6 +3,7 @@ package com.knock.model.vo;
 import java.sql.Date;
 
 public class CampaignNomineeVO {
+	private int nominee_idx;
 	private String goal;
 	private String title;
 	private String c_content;
@@ -12,24 +13,22 @@ public class CampaignNomineeVO {
 	private int collected_point; 
 	private String status; 
 	private String c_file;
-	private int keyword_idx;
 	private String c_category;
 	private int goal_point;
+	private int proposal_idx;
+	private int user_idx;
 	
-	
-	// 캠페인 제안
-	public CampaignNomineeVO(String goal, String title, String c_content, String c_file, int goal_point) {
-		this.goal = goal;
-		this.title = title;
-		this.c_content = c_content;
-		this.c_file = c_file;
-		this.goal_point = goal_point;
+	public CampaignNomineeVO() {
+		// TODO Auto-generated constructor stub
 	}
 	
-	// 전체
+	
+	
+	
 	public CampaignNomineeVO(String goal, String title, String c_content, int campaign_idx, Date end_time,
-			Date start_time, int collected_point, String status, String c_file, int keyword_idx, String c_category,
-			int goal_point) {
+			Date start_time, int collected_point, String status, String c_file, String c_category, int goal_point,
+			int proposal_idx, int user_idx) {
+		super();
 		this.goal = goal;
 		this.title = title;
 		this.c_content = c_content;
@@ -39,9 +38,39 @@ public class CampaignNomineeVO {
 		this.collected_point = collected_point;
 		this.status = status;
 		this.c_file = c_file;
-		this.keyword_idx = keyword_idx;
 		this.c_category = c_category;
 		this.goal_point = goal_point;
+		this.proposal_idx = proposal_idx;
+		this.user_idx = user_idx;
+	}
+
+
+
+
+	public CampaignNomineeVO(int nominee_idx, String goal, String title, String c_content, int campaign_idx,
+			Date end_time, Date start_time, int collected_point, String status, String c_file, String c_category,
+			int goal_point, int proposal_idx, int user_idx) {
+		super();
+		this.nominee_idx = nominee_idx;
+		this.goal = goal;
+		this.title = title;
+		this.c_content = c_content;
+		this.campaign_idx = campaign_idx;
+		this.end_time = end_time;
+		this.start_time = start_time;
+		this.collected_point = collected_point;
+		this.status = status;
+		this.c_file = c_file;
+		this.c_category = c_category;
+		this.goal_point = goal_point;
+		this.proposal_idx = proposal_idx;
+		this.user_idx = user_idx;
+	}
+	public int getNominee_idx() {
+		return nominee_idx;
+	}
+	public void setNominee_idx(int nominee_idx) {
+		this.nominee_idx = nominee_idx;
 	}
 	public String getGoal() {
 		return goal;
@@ -97,12 +126,6 @@ public class CampaignNomineeVO {
 	public void setC_file(String c_file) {
 		this.c_file = c_file;
 	}
-	public int getKeyword_idx() {
-		return keyword_idx;
-	}
-	public void setKeyword_idx(int keyword_idx) {
-		this.keyword_idx = keyword_idx;
-	}
 	public String getC_category() {
 		return c_category;
 	}
@@ -114,6 +137,18 @@ public class CampaignNomineeVO {
 	}
 	public void setGoal_point(int goal_point) {
 		this.goal_point = goal_point;
+	}
+	public int getProposal_idx() {
+		return proposal_idx;
+	}
+	public void setProposal_idx(int proposal_idx) {
+		this.proposal_idx = proposal_idx;
+	}
+	public int getUser_idx() {
+		return user_idx;
+	}
+	public void setUser_idx(int user_idx) {
+		this.user_idx = user_idx;
 	}
 	
 	
