@@ -10,7 +10,7 @@
 	
 	<!-- namespace를 여러 개 사용할 수 없을까?
 	namespace를 campaign으로 바꿔야 작동.. -->
-	<select id="ingList" resultType="campaignIngVO">
+	<select id="ingList" resultType="CampaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
@@ -19,7 +19,7 @@
 
   	
 	<!-- 진행중인 캠페인 하나 불러오기 -->
-  	<select id="ingOne" parameterType="int" resultType="campaignIngVO">
+  	<select id="ingOne" parameterType="int" resultType="CampaignIngVO">
 		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   STATUS, C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
@@ -41,4 +41,39 @@
   	</insert>
   	
   	<!-- 펀딩중 캠페인  -->
+  	<select id="nomineeList" resultType="NomineeVO">
+		SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
+        	   START_TIME, END_TIME, COLLECTED_POINT, 
+       		   C_FILE, C_CATEGORY, GOAL_POINT, PROPOSAL_IDX, USER_IDX 
+          FROM CAMPAIGN_NOMINEE
+  	</select>
+  	
+  	<select id="nominee" resultType="NomineeVO">
+		SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
+        	   START_TIME, END_TIME, COLLECTED_POINT, 
+        	   C_FILE, C_CATEGORY, GOAL_POINT, PROPOSAL_IDX, USER_IDX 
+          FROM CAMPAIGN_NOMINEE 
+         WHERE STATUS=1
+  	</select>
+  	
+  	<select id="nomUserList" parameterType="int" resultType="string">
+		SELECT NICKNAME FROM USERS
+  		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_NOM_USER
+		 WHERE NOMINEE_IDX = #{nominee_idx})
+  	</select>
+  	
+  	<insert id="nomUserInsert" parameterType="com.knock.model.vo.NomUserVO">
+  		INSERT INTO CAMPAIGN_NOM_USER 
+  					(USER_IDX, NOMINEE_IDX, SPENT_POINT)
+  			 VALUES (#{user_idx}, #{nominee_idx}, #{spent_point})
+  	</insert>
+  	
+  	
+  	<select id="nomUserCheck" parameterType="com.knock.model.vo.NomUserVO" resultType="int">
+		SELECT USER_IDX FROM CAMPAIGN_NOM_USER
+		 WHERE USER_IDX = #{user_idx} AND NOMINEE_IDX = #{nominee_idx}
+  	</select>
+  	
+  	
+  	
   </mapper>

@@ -1,22 +1,24 @@
 package com.knock.model.command.campaign;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.knock.model.command.Command;
-import com.knock.model.dao.CampaignNomineeDAO;
-import com.knock.model.vo.CampaignNomineeVO;
+import javax.servlet.http.HttpSession;
 
-public class NomineeListCommand implements Command {
+import com.knock.model.command.Command;
+
+public class TempCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<CampaignNomineeVO> nomineeList = CampaignNomineeDAO.list();
-		request.setAttribute("nomineeList", nomineeList);
-		return "nominee.jsp";
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+		
+		HttpSession session;
+        session = request.getSession();
+        session.setAttribute("user_idx", user_idx);
+		return "campaign/index.jsp";
 	}
 
 }
