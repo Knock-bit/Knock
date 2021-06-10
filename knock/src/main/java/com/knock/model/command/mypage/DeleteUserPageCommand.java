@@ -12,7 +12,7 @@ public class DeleteUserPageCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String id = "";
 		
 		return "/00_mypage/deleteUser.jsp";
 	}
