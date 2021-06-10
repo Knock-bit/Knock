@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.knock.model.command.Command;
+import com.knock.model.dao.CampaignNomineeDAO;
 import com.knock.model.dao.NomUserDAO;
 import com.knock.model.vo.NomUserVO;
 
@@ -31,6 +32,7 @@ public class ParticipateCommand implements Command {
 		
 		// Campaign_nom_user에 insert 
 		NomUserDAO.insert(nomUser);
+		CampaignNomineeDAO.funding(nomUser);
 		// User table에 used_point = used_point + spent_point
 		// UserDAO==> UPDATE USER SET USED_POINT = USED_POINT + #{SPENT_POINT}
 		

@@ -36,7 +36,7 @@
         펀딩중인 캠페인<hr>
         <c:if test="${!empty nominee }">
             <div class="nominee">
-              <div>캠페인 이름 : ${nominee.title }<br>주최자 : ${nominee.user_idx }이거 닉네임으로 변환</div>
+              <div>캠페인 이름 : ${nominee.title }<br>주최자 : ${nominee.nickname }</div>
               <div>캠페인 소개. ${nominee.c_content } 캠페인 목표 : ${nominee.goal }<br>
               	  <c:if test="${empty check }">
               	  	  <!-- <form method="post"> -->
@@ -58,7 +58,9 @@
               
               <div></div>
               <div></div>
-              <div>${endDate - now}일 이후 종료! <br>${nomUserList.size() }명 참여중</div>
+              <div>${endDate - now}일 이후 종료! 
+              목표포인트 ${nominee.goal_point } 모인 포인트 ${nominee.collected_point }
+              <br>${nomUserList.size() }명 참여중</div>
             
             <div>캠페인 목표&키워드<br>${nominee.goal} + 키워드...</div>
             <div>참여중인 회원 목록 - 

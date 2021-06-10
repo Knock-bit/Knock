@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.knock.model.vo.NomUserVO;
 import com.knock.model.vo.NomineeVO;
 import com.knock.mybatis.DBService;
 
@@ -21,11 +22,20 @@ public class CampaignNomineeDAO {
 	}
 
 	public static NomineeVO one() {
-		System.out.println("nomineeDAO - list실행!");
+		System.out.println("nomineeDAO - one실행!");
 		SqlSession ss = DBService.getFactory().openSession();
 		NomineeVO nominee = ss.selectOne("campaign.nominee");
 		ss.close();
 		return nominee;
+	}
+
+	public static int funding(NomUserVO nomUser) {
+		System.out.println("nomineeDAO - funding 실행!");
+		SqlSession ss = DBService.getFactory().openSession(true);
+		int result = ss.update("campaign.funding", nomUser);
+		ss.commit();
+		ss.close();
+		return result;
 	}
 
 }

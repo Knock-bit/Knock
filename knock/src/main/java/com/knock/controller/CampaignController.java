@@ -27,24 +27,20 @@ public class CampaignController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> FrontController.doGet() 실행");
-		String type = request.getParameter("type");
-		System.out.println("type>>"+ type);
 		doHandle(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> FrontController.doPost() 실행");
-//		doGet(request, response);
 		doHandle(request, response);
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		HttpSession session;
         session = request.getSession();
         
-        int user_idx=-1;
+        int user_idx = -1;
         Object val = session.getAttribute("user_idx");
         if(val != null){
         	user_idx= (Integer) val;

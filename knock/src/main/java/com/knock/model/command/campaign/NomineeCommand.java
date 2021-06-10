@@ -30,18 +30,18 @@ public class NomineeCommand implements Command {
 		NomineeVO nominee = CampaignNomineeDAO.one();
 		
 		// 로그인한 이용자가, 해당 캠페인에 참여했는지 확인
-		// 참여한 경우 "check" 속성에 1을 부여해준다
-		
-
         int nominee_idx = nominee.getNominee_idx();
         NomUserVO nomUser = new NomUserVO();
         nomUser.setNominee_idx(nominee_idx);
         nomUser.setUser_idx(user_idx);
         
+        int check=-1;
+        // 참여한 경우 "check" 속성에 1을 부여해준다
         if(NomUserDAO.check(nomUser)) {
-        	// 참여한 경우
         	request.setAttribute("check", 1);
-        };
+        	check = 1;
+        }
+        System.out.println(check);
         
 		// 해당 캠페인에 참여한 유저의 닉네임 명단을 불러옴
 		List<String> nomUserList = NomUserDAO.list(nominee_idx);

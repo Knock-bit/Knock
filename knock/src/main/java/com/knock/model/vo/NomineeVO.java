@@ -17,6 +17,7 @@ public class NomineeVO {
 	private int goal_point;
 	private int proposal_idx;
 	private int user_idx;
+	private String nickname;
 	
 	public NomineeVO() {
 		
@@ -60,6 +61,30 @@ public class NomineeVO {
 		this.proposal_idx = proposal_idx;
 		this.user_idx = user_idx;
 	}
+	
+	
+	
+	public NomineeVO(int nominee_idx, String goal, String title, String c_content, int campaign_idx, Date end_time,
+			Date start_time, int collected_point, String status, String c_file, String c_category, int goal_point,
+			int proposal_idx, int user_idx, String nickname) {
+		super();
+		this.nominee_idx = nominee_idx;
+		this.goal = goal;
+		this.title = title;
+		this.c_content = c_content;
+		this.campaign_idx = campaign_idx;
+		this.end_time = end_time;
+		this.start_time = start_time;
+		this.collected_point = collected_point;
+		this.status = status;
+		this.c_file = c_file;
+		this.c_category = c_category;
+		this.goal_point = goal_point;
+		this.proposal_idx = proposal_idx;
+		this.user_idx = user_idx;
+		this.nickname = nickname;
+	}
+
 	public int getNominee_idx() {
 		return nominee_idx;
 	}
@@ -143,6 +168,14 @@ public class NomineeVO {
 	}
 	public void setUser_idx(int user_idx) {
 		this.user_idx = user_idx;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	
