@@ -21,8 +21,9 @@ public class ParticipateCommand implements Command {
 	
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int spent_point = Integer.parseInt(request.getParameter("spent_point"));
+		/* int spent_point = Integer.parseInt(request.getParameter("spent_point")); */
 		int nominee_idx= Integer.parseInt(request.getParameter("nominee_idx"));
+		int spent_point = 300;
 		
 		NomUserVO nomUser = new NomUserVO();
 		nomUser.setNominee_idx(nominee_idx);

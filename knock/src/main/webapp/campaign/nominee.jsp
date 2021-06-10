@@ -15,8 +15,23 @@
             width: 200px;
           }
         </style>
+       
         <meta charset="UTF-8">
         <title>펀딩중인 캠페인</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        	$(function (){
+            var exceed = parseInt("${nominee.goal_point}" - "${nominee.collected_point}");
+            console.log("exceed : " + exceed);
+            
+            if (exceed <= 0) {
+              $("#fundingForm").html("목표 달성으로 펀딩이 조기마감되었습니다")
+            }
+            
+        	})
+        	
+        	
+        </script>
       </head>
       
       <!-- <script>
@@ -38,19 +53,20 @@
             <div class="nominee">
               <div>캠페인 이름 : ${nominee.title }<br>주최자 : ${nominee.nickname }</div>
               <div>캠페인 소개. ${nominee.c_content } 캠페인 목표 : ${nominee.goal }<br>
+              <div id="fundingForm">
               	  <c:if test="${empty check }">
               	  	  <!-- <form method="post"> -->
               	  	 <form method="post" action="${contextPath}/campaign?type=participate">
-		              <input type="number" name="spent_point" placeholder="포인트입력">
+		              <!-- <input type="number" name="spent_point" placeholder="포인트입력"> -->
 		              <input type="hidden" name="nominee_idx" value="${nominee.nominee_idx }">
-		              <input type="submit" value="펀딩참여">
+		              <input type="submit" value="300포인트로 펀딩참여">
 		              <!-- <input type="submit" onclick="participate(this.form)">펀딩참여</button> -->
 		              </form>
               	  </c:if>
               	  <c:if test="${!empty check }">
               	  	  펀딩해주셔서 감사합니다.
               	  </c:if>
-	              
+	              </div>
               </div>
               <fmt:formatDate var="endDate" value="${nominee.end_time }" pattern="yyyyMMdd" />
               <img class="thumb"
@@ -59,7 +75,12 @@
               <div></div>
               <div></div>
               <div>${endDate - now}일 이후 종료! 
-              목표포인트 ${nominee.goal_point } 모인 포인트 ${nominee.collected_point }
+              <c:if test="${nominee.goal_point le nominee.collected_point }">
+              		목표포인트 달성
+              </c:if>
+              <c:if test="${nominee.goal_point gt nominee.collected_point }">
+              	목표포인트 ${nominee.goal_point } 모인 포인트 ${nominee.collected_point }              
+              </c:if>
               <br>${nomUserList.size() }명 참여중</div>
             
             <div>캠페인 목표&키워드<br>${nominee.goal} + 키워드...</div>
@@ -70,6 +91,5 @@
 				님이 참여중
         </c:if>
       </body>
-
-
+      
       </html>

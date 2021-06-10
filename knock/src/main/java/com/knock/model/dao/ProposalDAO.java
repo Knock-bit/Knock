@@ -12,7 +12,7 @@ public class ProposalDAO {
 	public static int insert(ProposalVO proposal) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		int result = 0;
-		result = ss.insert("campaign.insert", proposal);
+		result = ss.insert("campaign.proposal", proposal);
 		ss.close();
 		return result;
 	}

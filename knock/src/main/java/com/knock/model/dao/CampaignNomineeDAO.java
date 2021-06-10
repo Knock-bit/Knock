@@ -38,4 +38,12 @@ public class CampaignNomineeDAO {
 		return result;
 	}
 
+	public static int expire() {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession(true);
+		result = ss.update("campaign.expireNom");
+		ss.close();
+		return result;
+	}
+
 }

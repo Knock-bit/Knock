@@ -26,6 +26,8 @@ public class NomineeCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//List<CampaignNomineeVO> nomineeList = CampaignNomineeDAO.list();
 		
+		// 펀딩일이 종료되었는지 아닌지 확인
+		CampaignNomineeDAO.expire();
 		// 펀딩 진행중인 캠페인을 불러옴
 		NomineeVO nominee = CampaignNomineeDAO.one();
 		
