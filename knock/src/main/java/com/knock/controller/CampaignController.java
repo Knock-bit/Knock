@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import com.knock.model.command.Command;
 import com.knock.model.command.campaign.CampaignListCommand;
 import com.knock.model.command.campaign.CampaignOneCommand;
-import com.knock.model.command.campaign.NomineeListCommand;
+import com.knock.model.command.campaign.NomineeCommand;
+import com.knock.model.command.campaign.ParticipateCommand;
 import com.knock.model.command.campaign.ProposalCommand;
+import com.knock.model.command.campaign.TempCommand;
 
 @WebServlet("/campaign")
 public class CampaignController extends HttpServlet{
@@ -25,20 +27,24 @@ public class CampaignController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> FrontController.doGet() 실행");
-		String type = request.getParameter("type");
-		System.out.println(type);
 		doHandle(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> FrontController.doPost() 실행");
-//		doGet(request, response);
 		doHandle(request, response);
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
+        session = request.getSession();
+        
+        int user_idx = -1;
+        Object val = session.getAttribute("user_idx");
+        if(val != null){
+        	user_idx= (Integer) val;
+        }
 
 		String type = request.getParameter("type");
 		System.out.println("> type: " + type);
@@ -50,14 +56,18 @@ public class CampaignController extends HttpServlet{
 			command = new CampaignOneCommand();
 		} else if ("proposal".equals(type)) {
 			command = new ProposalCommand();
-		} else if ("nomineeList".equals(type)) {
-			command = new NomineeListCommand();
+		} else if ("nominee".equals(type)) {
+			command = new NomineeCommand(user_idx);
+		} else if ("participate".equals(type)) {
+			command = new ParticipateCommand(user_idx);
+		} else if ("temp".equals(type)) {
+			command = new TempCommand();
 		}
 		String path = command.exec(request, response);
 		
 		System.out.println(path);
 		if(path == null||path.equals("")) {
-			System.out.println("path가 빈칸이거나 null임");
+			System.out.println("실행했던 command의 리턴값이 빈칸이거나 null임");
 			return;
 		} else {
 			request.getRequestDispatcher(path).forward(request, response);			

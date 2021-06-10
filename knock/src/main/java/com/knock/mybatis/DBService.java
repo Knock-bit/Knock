@@ -16,6 +16,7 @@ public class DBService {
 		try {
 			factory = new SqlSessionFactoryBuilder()
 					.build(Resources.getResourceAsReader("com/knock/mybatis/config.xml"));
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
