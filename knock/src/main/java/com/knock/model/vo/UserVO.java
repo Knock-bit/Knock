@@ -21,12 +21,9 @@ public class UserVO {
 	private String user_img;
 	
 	
-	
-	
-
 
 	public UserVO() {
-		super();
+		super()
 	}
 
 	
