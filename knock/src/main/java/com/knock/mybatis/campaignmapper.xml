@@ -102,8 +102,8 @@
 		 WHERE USER_IDX = #{user_idx} AND NOMINEE_IDX = #{nominee_idx}
   	</select>
   	
-  	<select id="kewordList" resultType="com.knock.model.vo.KeywordVO">
-  		SELECT K_CONTENT FROM KEYWORD ORDER BY COUNT DESC
+  	<select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
+  		SELECT * FROM KEYWORD ORDER BY COUNT DESC
   	</select>
   	
   	

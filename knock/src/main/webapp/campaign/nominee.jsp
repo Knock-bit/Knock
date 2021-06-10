@@ -90,6 +90,9 @@
 			</c:forEach>
 				님이 참여중
         </c:if>
+        <c:if test="${empty nominee }">
+        	현재 펀딩중인 캠페인이 없습니다.
+        </c:if>
       </body>
       
       </html>
