@@ -15,6 +15,7 @@
 	<div class="camp1">
 	${campaignIng.campaign_idx }번<br>
 	캠페인제목: ${campaignIng.title }<br>
+	주최자 :${campaignIng.nickname }<br>
 	캠페인내용: ${campaignIng.c_content }
 	</div>
 	<div class="camp2">

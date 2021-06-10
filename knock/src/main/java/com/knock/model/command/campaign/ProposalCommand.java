@@ -23,7 +23,7 @@ public class ProposalCommand implements Command {
 		int goal_point = Integer.parseInt(request.getParameter("goal_point"));
 		String p_content = request.getParameter("p_content");
 		int user_idx = Integer.parseInt(request.getParameter("user_idx")); //이건 나중에 세션으로 받기
-
+		
 		ProposalVO proposal = new ProposalVO();
 		proposal.setGoal(goal);
 		proposal.setGoal_point(goal_point);

@@ -20,10 +20,10 @@
   	
 	<!-- 진행중인 캠페인 하나 불러오기 -->
   	<select id="ingOne" parameterType="int" resultType="CampaignIngVO">
-		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
-        	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   STATUS, C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
-  		  FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX = ${campaign_idx}
+  		SELECT U.NICKNAME, C.*
+		  FROM USERS U, CAMPAIGN_ING C
+		 WHERE U.USER_IDX = C.USER_IDX
+		   AND C.CAMPAIGN_IDX = ${campaign_idx} 
   	</select>
   	
   	  	
@@ -33,7 +33,9 @@
   		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_ING_USER
 		 WHERE CAMPAIGN_IDX = #{campaign_idx})
   	</select>
+  	
   
+  	
     	<!-- 캠페인 제안 -->
   	<insert id="insert" parameterType="ProposalVO">
   		INSERT INTO PROPOSAL(PROPOSAL_IDX, GOAL, GOAL_POINT, P_CONTENT, P_TITLE, USER_IDX)
@@ -49,11 +51,16 @@
   	</select>
   	
   	<select id="nominee" resultType="NomineeVO">
-		SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
+  		SELECT U.NICKNAME, N.*
+		  FROM USERS U, CAMPAIGN_NOMINEE N
+		 WHERE U.USER_IDX = N.USER_IDX
+		   AND N.STATUS = 1
+		   
+		<!-- SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
         	   START_TIME, END_TIME, COLLECTED_POINT, 
         	   C_FILE, C_CATEGORY, GOAL_POINT, PROPOSAL_IDX, USER_IDX 
           FROM CAMPAIGN_NOMINEE 
-         WHERE STATUS=1
+         WHERE STATUS=1 -->
   	</select>
   	
   	<select id="nomUserList" parameterType="int" resultType="string">
@@ -68,12 +75,21 @@
   			 VALUES (#{user_idx}, #{nominee_idx}, #{spent_point})
   	</insert>
   	
+  		<!-- 펀딩 참여 시, COLLECTED POINT 업데이트  -->
+  	<update id="funding" parameterType="int">
+		UPDATE CAMPAIGN_NOMINEE
+		   SET COLLECTED_POINT = COLLECTED_POINT + #{spent_point}
+		 WHERE NOMINEE_IDX = #{nominee_idx} 
+  	</update>
   	
   	<select id="nomUserCheck" parameterType="com.knock.model.vo.NomUserVO" resultType="int">
 		SELECT USER_IDX FROM CAMPAIGN_NOM_USER
 		 WHERE USER_IDX = #{user_idx} AND NOMINEE_IDX = #{nominee_idx}
   	</select>
   	
+  	<select id="kewordList" resultType="com.knock.model.vo.KeywordVO">
+  		SELECT K_CONTENT FROM KEYWORD ORDER BY COUNT DESC
+  	</select>
   	
   	
   </mapper>

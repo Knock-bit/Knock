@@ -17,6 +17,7 @@ public class CampaignIngVO {
 	int c_totpoint;
 	int user_idx;
 	String emblem;
+	String nickname;
 	
 	public CampaignIngVO() {
 		// TODO Auto-generated constructor stub
@@ -42,8 +43,6 @@ public class CampaignIngVO {
 	}
 
 
-
-
 	public CampaignIngVO(int campaign_idx, String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
 			String emblem) {
@@ -62,6 +61,7 @@ public class CampaignIngVO {
 		this.user_idx = user_idx;
 		this.emblem = emblem;
 	}
+	
 	public int getCampaign_idx() {
 		return campaign_idx;
 	}
@@ -139,6 +139,14 @@ public class CampaignIngVO {
 	}
 	public void setEmblem(String emblem) {
 		this.emblem = emblem;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	
