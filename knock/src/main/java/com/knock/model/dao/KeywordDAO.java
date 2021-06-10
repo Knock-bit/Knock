@@ -9,7 +9,7 @@ import com.knock.mybatis.DBService;
 
 public class KeywordDAO {
 
-	public static List<KeywordVO> one() {
+	public static List<KeywordVO> list() {
 		SqlSession ss = DBService.getFactory().openSession();
 		List<KeywordVO> keywordList = ss.selectList("campaign.keywordList");
 		ss.close();

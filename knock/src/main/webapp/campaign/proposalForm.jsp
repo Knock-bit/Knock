@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.knock.model.vo.KeywordVO" %>
+<%@ page import="com.knock.model.dao.KeywordDAO" %>
+
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -36,10 +41,16 @@
 					<textarea name="p_content" cols=50 rows=20></textarea>
 				</tr>
 				<tr>
-					<td> 키워드 </td>
-					<td><input type="checkbox" name="p_keyword" value="keyword1">키워드1
-					<input type="checkbox" name="p_keyword" value="keyword2">키워드1
-					<input type="checkbox" name="p_keyword" value="keyword3">키워드1<br>
+					<td> 키워드 : 총 세 개까지 입력하실 수 있어요. </td>
+					
+					<td>
+					<% KeywordDAO keywordDAO = new KeywordDAO();
+					   List<KeywordVO> keywords = keywordDAO.list(); %>
+					<jsp:useBean id="dao" class="com.knock.model.dao.KeywordDAO" />
+					<c:forEach var="vo" items="${dao.list()}">
+						<input type="checkbox" name="p_keyword" value="${vo.keyword_idx }">${vo.k_content }
+						<br>
+					</c:forEach>
 					
 					</td>
 				</tr>
