@@ -12,7 +12,6 @@ import com.knock.model.command.admin.AdminUserActiveUpdate;
 import com.knock.model.command.admin.AdminUserListCommand;
 import com.knock.model.command.campaign.CampaignListCommand;
 import com.knock.model.command.campaign.CampaignOneCommand;
-import com.knock.model.command.campaign.NomineeListCommand;
 import com.knock.model.command.campaign.ProposalCommand;
 
 /**
