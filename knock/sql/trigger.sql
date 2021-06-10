@@ -1,5 +1,4 @@
 -- 펀딩실패 시 포인트 돌려주는 트리거
--- 카톡에 올린거랑 달라요
 create or replace TRIGGER RETURNPOINT 
 AFTER UPDATE OF STATUS ON CAMPAIGN_NOMINEE 
 FOR EACH ROW
@@ -17,4 +16,3 @@ BEGIN
                 AND NOMINEE_IDX = :NEW.NOMINEE_IDX);
     END IF;
 END;
-
