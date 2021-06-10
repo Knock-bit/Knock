@@ -44,6 +44,14 @@ public class CampaignIngDAO {
 		return userList;
 	}
 	
+	public static int expire() {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession(true);
+		result = ss.update("campaign.expireIng");
+		ss.close();
+		return result;
+	}
+	
 	
 	
 	

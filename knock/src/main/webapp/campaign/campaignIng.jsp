@@ -18,7 +18,7 @@
 }
 </style>
 <meta charset="UTF-8">
-<title>참여중인 캠페인 목록</title>
+<title>진행중인 캠페인 목록</title>
 </head>
 <body>
 	<%@ include file="tempinclude.jsp" %>
@@ -30,9 +30,11 @@
 		 	<h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title } </a></h2>
 		 	<div>${vo.c_content }</div>
 		 	<div>${endDate - now}일 남았어요<br>종료일:${endDate }</div>
-		 	
 	 </div>
 	 </c:forEach>
+	</c:if>
+	<c:if test ="${empty campaignIngList }">
+		진행중인 캠페인이 없습니다.
 	</c:if>
 </body>
 </html>

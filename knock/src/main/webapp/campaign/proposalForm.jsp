@@ -37,9 +37,9 @@
 				</tr>
 				<tr>
 					<td> 키워드 </td>
-					<td><input type="checkbox" name="keyword" value="keyword1">키워드1
-					<input type="checkbox" name="keyword" value="keyword2">키워드1
-					<input type="checkbox" name="keyword" value="keyword3">키워드1<br>
+					<td><input type="checkbox" name="p_keyword" value="keyword1">키워드1
+					<input type="checkbox" name="p_keyword" value="keyword2">키워드1
+					<input type="checkbox" name="p_keyword" value="keyword3">키워드1<br>
 					
 					</td>
 				</tr>
