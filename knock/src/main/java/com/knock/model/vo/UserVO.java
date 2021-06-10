@@ -13,9 +13,9 @@ public class UserVO {
 	private Date birth;
 	private int knock_point;
 	private String knock_admin;
-	private char knock_active;
+	private String knock_active;
 	private Date last_login_date;
-	private char gender;
+	private String gender;
 	private String address;
 	private Date joindate;
 	private String user_img;
@@ -28,7 +28,7 @@ public class UserVO {
 	
 
 	public UserVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
-			Date birth, int knock_point, String knock_admin, char knock_active, Date last_login_date, char gender,
+			Date birth, int knock_point, String knock_admin, String knock_active, Date last_login_date, String gender,
 			String address, Date joindate, String user_img) {
 		super();
 		this.user_idx = user_idx;
@@ -52,7 +52,7 @@ public class UserVO {
 
 
 	public UserVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
-			Date birth, char gender, String address, Date joindate, String user_img) {
+			Date birth, String gender, String address, Date joindate, String user_img) {
 		super();
 		this.user_idx = user_idx;
 		this.user_id = user_id;
@@ -190,13 +190,13 @@ public class UserVO {
 
 
 
-	public char getKnock_active() {
+	public String getKnock_active() {
 		return knock_active;
 	}
 
 
 
-	public void setKnock_active(char knock_active) {
+	public void setKnock_active(String knock_active) {
 		this.knock_active = knock_active;
 	}
 
@@ -212,13 +212,13 @@ public class UserVO {
 		this.last_login_date = last_login_date;
 	}
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
 
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

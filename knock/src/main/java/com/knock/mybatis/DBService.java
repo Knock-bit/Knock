@@ -10,16 +10,18 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class DBService {
 	private static SqlSessionFactory factory;
-
 	
+	//static 초기화문
 	static {
 		try {
-			factory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("com/knock/mybatis/config.xml"));
+			factory = new SqlSessionFactoryBuilder()
+					.build(Resources.getResourceAsReader("com/knock/mybatis/config.xml"));
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static SqlSessionFactory getFactory() {
 		return factory;
 	}

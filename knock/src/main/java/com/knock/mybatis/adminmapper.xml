@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ADMIN">
+	<select id="list" resultType="com.knock.model.vo.UserVO">
+		SELECT ROWNUM AS RN,USER_IDX,
+		USER_ID, NAME, NICKNAME, JOINDATE, LAST_LOGIN_DATE, KNOCK_ACTIVE FROM
+		USERS WHERE KNOCK_ADMIN = 1
+	</select>
+
+	<update id="userUnActiveFalse"
+		parameterType="com.knock.model.vo.UserVO">
+		UPDATE USERS SET
+		KNOCK_ACTIVE ='0' WHERE
+		KNOCK_ACTIVE=#{knock_active}
+		AND USER_IDX =#{user_idx}
+	</update>
+
+	<update id="userActiveTrue"
+		parameterType="com.knock.model.vo.UserVO">
+		UPDATE USERS SET
+		KNOCK_ACTIVE ='1' WHERE
+		KNOCK_ACTIVE=#{knock_active}
+		AND USER_IDX =#{user_idx}
+	</update>
+
+	<select id="userOne" resultType="com.knock.model.vo.UserVO">
+		SELECT * FROM USERS WHERE
+		USER_IDX = #{user_idx}
+	</select>
+</mapper>

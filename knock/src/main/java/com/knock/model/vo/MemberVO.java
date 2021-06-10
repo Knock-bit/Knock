@@ -10,8 +10,8 @@ public class MemberVO {
 	private String nickname;
 	private String email;
 	private Date birth;
-	private char knock_admin;
-	private char knock_active;
+	private String knock_admin;
+	private String knock_active;
 	private Date last_login_date;
 
 	public MemberVO() {
@@ -85,19 +85,19 @@ public class MemberVO {
 		this.birth = birth;
 	}
 
-	public char getKnock_admin() {
+	public String getKnock_admin() {
 		return knock_admin;
 	}
 
-	public void setKnock_admin(char knock_admin) {
+	public void setKnock_admin(String knock_admin) {
 		this.knock_admin = knock_admin;
 	}
 
-	public char getKnock_active() {
+	public String getKnock_active() {
 		return knock_active;
 	}
 
-	public void setKnock_active(char knock_active) {
+	public void setKnock_active(String knock_active) {
 		this.knock_active = knock_active;
 	}
 
