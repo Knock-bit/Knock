@@ -59,7 +59,7 @@
   	
   	<!-- 펀딩중 캠페인 리스트  -->
   	<select id="nomineeList" resultType="NomineeVO">
-		SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
+		SELECT CAMPAIGN_IDX, GOAL, TITLE, C_CONTENT, 
         	   START_TIME, END_TIME, COLLECTED_POINT, 
        		   C_FILE, C_CATEGORY, GOAL_POINT, PROPOSAL_IDX, USER_IDX 
           FROM CAMPAIGN_NOMINEE
@@ -71,7 +71,7 @@
 		 WHERE U.USER_IDX = N.USER_IDX
 		   AND N.STATUS = 1
 		   
-		<!-- SELECT NOMINEE_IDX, GOAL, TITLE, C_CONTENT, 
+		<!-- SELECT campaign_idx, GOAL, TITLE, C_CONTENT, 
         	   START_TIME, END_TIME, COLLECTED_POINT, 
         	   C_FILE, C_CATEGORY, GOAL_POINT, PROPOSAL_IDX, USER_IDX 
           FROM CAMPAIGN_NOMINEE 
@@ -81,25 +81,25 @@
   	<select id="nomUserList" parameterType="int" resultType="com.knock.model.vo.NomUserVO">
 		SELECT NICKNAME FROM USERS
   		 WHERE USER_IDX IN (SELECT USER_IDX FROM CAMPAIGN_NOM_USER
-		 WHERE NOMINEE_IDX = #{nominee_idx})
+		 WHERE campaign_idx = #{campaign_idx})
   	</select>
   	
   	<insert id="nomUserInsert" parameterType="com.knock.model.vo.NomUserVO">
   		INSERT INTO CAMPAIGN_NOM_USER 
-  					(USER_IDX, NOMINEE_IDX, SPENT_POINT)
-  			 VALUES (#{user_idx}, #{nominee_idx}, #{spent_point})
+  					(USER_IDX, campaign_idx, SPENT_POINT)
+  			 VALUES (#{user_idx}, #{campaign_idx}, #{spent_point})
   	</insert>
   	
   		<!-- 펀딩 참여 시, COLLECTED POINT 업데이트  -->
   	<update id="funding" parameterType="int">
 		UPDATE CAMPAIGN_NOMINEE
 		   SET COLLECTED_POINT = COLLECTED_POINT + #{spent_point}
-		 WHERE NOMINEE_IDX = #{nominee_idx} 
+		 WHERE campaign_idx = #{campaign_idx} 
   	</update>
   	
   	<select id="nomUserCheck" parameterType="com.knock.model.vo.NomUserVO" resultType="int">
 		SELECT USER_IDX FROM CAMPAIGN_NOM_USER
-		 WHERE USER_IDX = #{user_idx} AND NOMINEE_IDX = #{nominee_idx}
+		 WHERE USER_IDX = #{user_idx} AND campaign_idx = #{campaign_idx}
   	</select>
   	
   	<select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
@@ -115,6 +115,11 @@
                   FROM USERS U, CAMPAIGN_NOMINEE N
                  WHERE U.USER_IDX = N.USER_IDX);
   	-->
+  	<select id="ingUserCheck" parameterType="com.knock.model.vo.IngUserVO" resultType="int">
+  		SELECT USER_IDX FROM CAMPAIGN_ING_USER 
+  		WHERE CAMPAIGN_IDX = #{campaign_idx} AND USER_IDX = #{user_idx}
+  	</select>
+  	
   	
   	
   </mapper>
