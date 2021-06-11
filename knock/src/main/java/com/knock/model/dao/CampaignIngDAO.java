@@ -20,7 +20,7 @@ public class CampaignIngDAO {
 	
 	
 	public static List<CampaignIngVO> list(){
-		SqlSession ss = DBService.getFactory().openSession();
+		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> campaignIngList = ss.selectList("campaign.ingList");
 		ss.close();
 		for (CampaignIngVO campaignIng : campaignIngList) {
@@ -42,6 +42,14 @@ public class CampaignIngDAO {
 		List<String> userList = ss.selectList("campaign.participant", campaign_idx);
 		ss.close();
 		return userList;
+	}
+	
+	public static int expire() {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession(true);
+		result = ss.update("campaign.expireIng");
+		ss.close();
+		return result;
 	}
 	
 	
