@@ -9,6 +9,16 @@
 <head>
 <meta charset="UTF-8">
 <title>캠페인 상세보기</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function () {
+		var user_idx = "${user_idx}";
+		if(user_idx == ""){
+			$("#participate").attr("href","campaign/index.jsp");
+		}
+	})
+
+</script>
 </head>
 <body>
 <%@ include file="tempinclude.jsp" %>
@@ -39,7 +49,7 @@
 		님이 참여중
 	</c:if>
 	</div>
-	<a href="#">참여하기 (캠페인 후기게시판으로 이동) </a> 
+	<a id="participate" href="${contextPath }/campaign?type=participate&idx=${campaignIng.campaign_idx }">참여하기 (캠페인 후기게시판으로 이동) </a> 
 
 </body>
 </html>

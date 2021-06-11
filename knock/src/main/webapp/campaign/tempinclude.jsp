@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	user_idx: ${user_idx }
 <c:if test="${empty user_idx }">
 		<form method="post" action="${contextPath }/campaign?type=temp">
 		<input type="number" name="user_idx">
@@ -9,7 +10,7 @@
 	</c:if>
 	<c:if test="${!empty user_idx }">
 	
-	user_idx: ${user_idx }<br>
+<br>
 		<input type="button" value="로그아웃" onclick="location.href='${contextPath}/campaign/templogout.jsp'">
 		</form>
 	임시로그인 해제

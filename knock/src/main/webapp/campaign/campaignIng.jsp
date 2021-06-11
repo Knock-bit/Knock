@@ -29,7 +29,7 @@
 		 	<img class="thumb" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1174&q=80">
 		 	<h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title } </a></h2>
 		 	<div>${vo.c_content }</div>
-		 	<div>${endDate - now}일 남았어요<br>종료일:${endDate }</div>
+		 	<div>${endDate - now}일 남았어요<br> 종료일:${endDate }</div>
 	 </div>
 	 </c:forEach>
 	</c:if>

@@ -15,6 +15,7 @@ import com.knock.model.command.campaign.CampaignListCommand;
 import com.knock.model.command.campaign.CampaignOneCommand;
 import com.knock.model.command.campaign.NomineeCommand;
 import com.knock.model.command.campaign.ParticipateCommand;
+import com.knock.model.command.campaign.FundingCommand;
 import com.knock.model.command.campaign.ProposalCommand;
 import com.knock.model.command.campaign.TempCommand;
 
@@ -58,6 +59,8 @@ public class CampaignController extends HttpServlet{
 			command = new ProposalCommand();
 		} else if ("nominee".equals(type)) {
 			command = new NomineeCommand(user_idx);
+		} else if ("funding".equals(type)) {
+			command = new FundingCommand(user_idx);
 		} else if ("participate".equals(type)) {
 			command = new ParticipateCommand(user_idx);
 		} else if ("temp".equals(type)) {
