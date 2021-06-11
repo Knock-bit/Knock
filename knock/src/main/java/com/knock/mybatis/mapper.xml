@@ -3,7 +3,6 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="member">
 	회원가입시 입력받기
 	<insert id = "joinMember" parameterType="com.member.vo.MemberVO">
@@ -11,7 +10,6 @@
 		VALUES(USER_IDX_SEQ.NEXTVAL, #{user_id}, #{name}, #{pwd}, #{nickname}, #{email}, #{phone}, TO_DATE(#{birth}, 'YYYY-MM-DD'))
 	</insert>
 </mapper>
-
 <mapper namespace="USER">
 	CAMPAIGN
 	진행중인 캠페인 목록 불러오기
@@ -24,7 +22,6 @@
         	   STATUS, C_FILE, KEYWORD_IDX, C_CATEGORY, EMBLEM
   		  FROM CAMPAIGN_ING
   	</select>
-
   	
 	진행중인 캠페인 하나 불러오기
   	<select id="one" parameterType="int" resultType="campaignIngVO">

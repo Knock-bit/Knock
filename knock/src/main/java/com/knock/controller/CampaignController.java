@@ -21,17 +21,19 @@ public class CampaignController extends HttpServlet{
 	private static final long serialVersionUID =1L;
 	private static String ARTICLE_IMAGE_REPO = "C:\\knockboard\\article_image";
 	HttpSession session;
+	private Command campaignListCommand = new CampaignListCommand();
+	private Command campaignOneCommand = new CampaignOneCommand();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> FrontController.doGet() 실행");
+		System.out.println(">> FrontController.doGet() �떎�뻾");
 		String type = request.getParameter("type");
 		System.out.println(type);
 		doHandle(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> FrontController.doPost() 실행");
+		System.out.println(">> FrontController.doPost() �떎�뻾");
 //		doGet(request, response);
 		doHandle(request, response);
 	}
@@ -44,10 +46,10 @@ public class CampaignController extends HttpServlet{
 		System.out.println("> type: " + type);
 		Command command = null;
 		
-			   if ("ingList".equals(type)) {
-			command = new CampaignListCommand();
+		if ("ingList".equals(type)) {
+			command = campaignListCommand;
 		} else if ("ingOne".equals(type)) {
-			command = new CampaignOneCommand();
+			command = campaignOneCommand;
 		} else if ("proposal".equals(type)) {
 			command = new ProposalCommand();
 		} else if ("nomineeList".equals(type)) {
@@ -57,7 +59,7 @@ public class CampaignController extends HttpServlet{
 		
 		System.out.println(path);
 		if(path == null||path.equals("")) {
-			System.out.println("path가 빈칸이거나 null임");
+			System.out.println("path媛� 鍮덉뭏�씠嫄곕굹 null�엫");
 			return;
 		} else {
 			request.getRequestDispatcher(path).forward(request, response);			

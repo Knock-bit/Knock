@@ -23,7 +23,7 @@ public class UserVO {
 	
 
 	public UserVO() {
-		super()
+		super();
 	}
 
 	
