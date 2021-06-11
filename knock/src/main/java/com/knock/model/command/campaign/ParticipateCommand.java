@@ -23,7 +23,7 @@ public class ParticipateCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int point = 0;
+		int spent_point = 0;
 		int campaign_idx = Integer.parseInt(request.getParameter("idx"));
 		
 		// 캠페인 참여
@@ -40,12 +40,12 @@ public class ParticipateCommand implements Command{
 			NomUserVO nomUser = new NomUserVO(campaign_idx, user_idx);
 			if(!NomUserDAO.check(nomUser)) {
 				// 펀딩 미참여한 경우
-				point = -300;
+				spent_point = 300;
 			};
 					
 		};
 		
-		request.setAttribute("point", point);
+		request.setAttribute("point", spent_point);
 		
 		return "campaign/write.jsp";
 	}

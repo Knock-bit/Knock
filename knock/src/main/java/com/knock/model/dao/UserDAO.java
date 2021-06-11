@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.knock.model.vo.NomUserVO;
 import com.knock.model.vo.UserVO;
 import com.knock.mybatis.DBService;
 
@@ -37,6 +38,16 @@ public class UserDAO {
 		return result;
 		
 	}
+	
+	// 펀딩 시 spent_point에 250 더해주기
+	// usersmapper에 쿼리문 작성되면 활성화
+//	public static int funding(NomUserVO nomUser) {
+//		SqlSession ss = DBService.getFactory().openSession(true);
+//		int result = ss.delete("USER.funding", nomUser);
+//		ss.close();
+//		return result;
+//	}
+
 
 
 }
