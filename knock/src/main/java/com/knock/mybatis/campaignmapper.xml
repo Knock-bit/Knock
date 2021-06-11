@@ -120,6 +120,12 @@
   		WHERE CAMPAIGN_IDX = #{campaign_idx} AND USER_IDX = #{user_idx}
   	</select>
   	
+  	<!-- 포인트 분배해주기  -->
+  	
+  	<!-- SELECT REST_POINT, REST_POINT * 0.5 AS FIRST, REST_POINT * 0.3 AS SECOND , REST_POINT * 0.2 AS THIRD
+FROM (SELECT (SELECT C_TOTPOINT - (300 * (SELECT COUNT(*)-3 FROM CAMPAIGN_ING_USER WHERE CAMPAIGN_IDX= 1))
+        FROM campaign_ing WHERE campaign_idx = 1) AS REST_POINT
+    FROM DUAL);  -->
   	
   	
   </mapper>

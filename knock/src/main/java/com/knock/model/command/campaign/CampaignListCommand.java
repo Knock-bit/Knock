@@ -15,7 +15,7 @@ public class CampaignListCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CampaignIngDAO.expire();
+		System.out.println("expire 결과:" + CampaignIngDAO.expire());
 		List<CampaignIngVO> campaignIngList = CampaignIngDAO.list();
 		request.setAttribute("campaignIngList", campaignIngList);
 		return "campaign/campaignIng.jsp";
