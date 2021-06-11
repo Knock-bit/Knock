@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.knock.model.vo.NomUserVO;
 import com.knock.model.vo.CampaignIngVO;
 import com.knock.model.vo.UserVO;
 import com.knock.mybatis.DBService;
@@ -41,6 +42,15 @@ public class UserDAO {
 		
 	}
 	
+	// 펀딩 시 spent_point에 250 더해주기
+	// usersmapper에 쿼리문 작성되면 활성화
+//	public static int funding(NomUserVO nomUser) {
+//		SqlSession ss = DBService.getFactory().openSession(true);
+//		int result = ss.delete("USER.funding", nomUser);
+//		ss.close();
+//		return result;
+//	}
+
 	// 현재 활동중인 캠페인 목록 가져오기
 	public static List<CampaignIngVO> camIngList(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
@@ -98,6 +108,5 @@ public class UserDAO {
 		return list;
 		
 	}
-
 
 }
