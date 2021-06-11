@@ -20,7 +20,7 @@ $(document).ready(function(){
 						
 					} else if (data == "NULL") {
 						alert("입력된 아이디가 없습니다.\n아이디를 입력해주세요.");
-						//회원가입 버튼 비활성화 시키는 법
+			$("#submit").removeAttr("disabled");
 					}
 				},
 				error : function() {
@@ -30,13 +30,16 @@ $(document).ready(function(){
 
 		} else {
 			alert("잘못된 형식의 아이디입니다.\n다시 입력해주세요.");
+			$("#submit").attr("disabled");
+			
 		}
 	});
 	
 	//비밀번호 체크
 
- 	$('.pwdTest2').on('blur',function(){
- 		var passwordRules = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+ 	$('#pwd').on('focusout',function(){
+ 		var passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
  		var pwd = $("#pwd").val();
  		console.log(passwordRules.test(pwd));
  	 	
@@ -48,16 +51,18 @@ $(document).ready(function(){
 				$('#pwd').css({
 				    'background': "yellow",
 				    'color': "black",
-				    'border': "0.7px solid black"
+				    'border': "0.7px solid balck"
 				   });
 				$('#pwd2').css({
 				    'background': "yellow",
 				    'color': "black",
-				    'border': "0.7px solid black"
+				    'border': "0.7px solid balck"
 				   }); 
 				$('.pwdSuccess').html("일치");
 				$('#pwd2').off('keyup');
 				$('.pwdSuccess').hide();
+				$("#submit").removeAttr("disabled");
+				
  			}else{
 				//비밀번호가 일치하지 않는 경우
 				$('#pwd').css({
@@ -71,36 +76,32 @@ $(document).ready(function(){
 				    'border': "0.7px solid balck"
 				   });
 				$('.pwdSuccess').html("비밀번호가 일치하지 않습니다.");
-				//회원가입 버튼 비활성화 시키는 법
+				$("#submit").attr("disabled");
+				//쓴 비밀번호 지우고 그자리 그대로 커서있게하는거 어떻게하더라?
    			} 
  			
 		
  	}else{
- 		alert("비밀번호는 영문 대소문자 혼합(최소 대문자1개), 숫자, 특수문자(최소1개)가 포함되어야 합니다.");
+ 		alert("비밀번호는 영문 대소문자 혼합(최소 대문자1개), 숫자(최소1개)가 포함되어야 합니다.\n(특수문자 사용불가)");
  	}
  });	
 	
-	$('#emailchk').on('click', function(){
+	$('#email').on('focusout', function(){
  
 		var emailPattern =/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; 
 		var email = $("#email").val();
-		console.log("email: "+email);
  		console.log(emailPattern.test(email)); 
  		if(emailPattern.test(email) ==true){
- 			console.log("올바른 이메일 형식");
  
  			$.ajax("checkemail", {
 				type : "post",
 				data : "type=emailchk&email=" + $("#email").val(),
 
 				success : function(data) {
-					console.log("이메일 사용여부Y/N : " + data);
 					if (data == "Y") {
-						console.log("이메일체크okay");
-						$(".emailSuccess").html("확인완료");
+						$(".emailSuccess").hide();
 					} else{
 						alert("이미 가입된 이메일입니다.\n다시 확인해주시기 바랍니다.");
-						return false;
 					}
 				},
 				error : function() {
@@ -121,8 +122,12 @@ $(document).ready(function(){
 		
 		if(namePattern.test(name) ==false){
 			$(".nameSuccess").html("이름은 한글만 입력 가능합니다.");			
+			$("#submit").attr("disabled");
+			
 		}else{
 			$(".nameSuccess").hide();
+			$("#submit").removeAttr("disabled");
+			
 		}
 		
 	});
@@ -133,34 +138,99 @@ $(document).ready(function(){
 		
 		if(phonePattern.test(phone)==false){
 	 		$(".phoneSuccess").html("올바른 형식의 전화번호를 써주세요");
-	 		return false;
+	 		$("#submit").attr("disabled");
 		}else{
 	 		$(".phoneSuccess").hide();
+	 		$("#submit").removeAttr("disabled");
+	 		
 		}
 	});
-	
 
-	$("#birth").on('focusout',function(){
-		var date = new Date();
-    	var year = date.getFullYear();
-   		var month = (date.getMonth() + 1);
-  	 	var day = date.getDate();
-	    if (month < 10) month = '0' + month;
-	    if (day < 10) day = '0' + day;
-    	var monthDay = month + day;
-   		birth = $("#birth").val();
-    	var birtyear = birth.substr(0, 4);
-   		var birthdaymd = birth.substr(4, 4);
-   		var age = monthDay < birthdaymd ? year - birtyear - 1 : year - birtyear;
+	$("#birth").keypress(function(event) {
+    	if (event.which < 48 || event.which > 57) {
+     		event.preventDefault();	}
+	})
+	  	
+			
+	$("#birth").on('focusout', function() {
+		$("#birth").attr("maxlength", 10); // 최대길이 설정
+		var RegNotNum = /[^0-9]/g;
+		var date = $("#birth").val();
+		var birthPattern = /^(19|20)[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+		console.log(birthPattern.test(date));
+		if(birthPattern.test(date)==false){
+			$("#birthSuccess").html("올바른 생년월일을 입력해주세요.");
+		}else if(birthPattern.test(date)==true){
+		date = date.replace(RegNotNum, ''); // 숫자만 남기기
+			if (date == "" || date == null || date.length < 5) {
+			this.value = date;
+		    return;
+		}
+		var DataFormat;
+		var RegPhonNum;
 		
-		console.log(age);
-		if(age<18){
-			alert("미성년자는 가입할 수 없습니다.");
-			//리다이렉트 처리해주기
+		// 날짜 포맷(yyyy-mm-dd) 만들기 
+		if (date.length <= 6) {
+		  DataFormat = "$1-$2"; // 포맷을 바꾸려면 이곳을 변경
+		  RegPhonNum = /([0-9]{4})([0-9]+)/;
+		} else if (date.length <= 8) {
+		  DataFormat = "$1-$2-$3"; // 포맷을 바꾸려면 이곳을 변경
+		  RegPhonNum = /([0-9]{4})([0-9]{2})([0-9]+)/;
+		}
+	
+		date = date.replace(RegPhonNum, DataFormat);
+		this.value = date;	
+
+		if(date.length==10){
+			var isVaild = true;
+			if (isNaN(Date.parse(date))) {
+				// 유효 날짜 확인 여부
+				isVaild = false;
+			} else {
+				// 년, 월, 일 0 이상 여부 확인
+				var date_sp = date.split("-");
+				date_sp.forEach(function(sp) {
+				if (parseInt(sp) == 0) {
+				isVaild = false;
+			}
+		});
+
+		// 마지막 일 확인
+		var last = new Date(new Date(date).getFullYear(), new Date(date).getMonth()+1, 0);
+		if (parseInt(date_sp[1]) != last.getMonth()+1) {
+				var date_sp2 = date_sp.slice(0);
+				date_sp2[2] = '01';
+				var date2 = date_sp2.join("-");
+				last = new Date(new Date(date2).getFullYear(), new Date(date2).getMonth()+1, 0);
+			}
+			if (last.getDate() < parseInt(date_sp[2])) {
+				isVaild = false;
+				}
+			}
 		}
 		
+		var date = new Date();
+			var year = date.getFullYear();
+			var month = (date.getMonth() + 1);
+			var day = date.getDate();
+			if (month < 10) month = '0' + month;
+			if (day < 10) day = '0' + day;
+			var monthDay = month + day;
+			birth = $("#birth").val();
+			var birthyear = birth.substr(0, 4);
+			var birthdaymd = birth.substr(4, 4);
+			var age = monthDay < birthdaymd ? year - birthyear - 1 : year - birthyear;
+			
+			console.log(age);
+				if(age<18){
+					alert("미성년자는 가입할 수 없습니다.");
+					$("#submit").attr("disabled");
+					window.location.href="main.jsp";
+					$("#birthSuccess").hide();
+				}
+		}
 	});
-	 
+
 	$("#btnAddr").on("click",function(){	
 		new daum.Postcode({ 
 			oncomplete: function(data) { 

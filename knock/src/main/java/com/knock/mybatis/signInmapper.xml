@@ -5,8 +5,8 @@
 <mapper namespace="vo">
 	<!-- 회원가입시 입력받기 -->
 	<insert id = "joinMember" parameterType="com.knock.model.vo.MemberVO">
-		INSERT INTO USERS(USER_IDX, USER_ID, NAME, PWD, NICKNAME, EMAIL, PHONE, BIRTH) 
-		VALUES(USER_IDX_SEQ.NEXTVAL, #{user_id}, #{name}, #{pwd}, #{nickname}, #{email}, #{phone}, TO_DATE(#{birth}, 'YYYY-MM-DD'))
+		INSERT INTO USERS (USER_IDX, USER_ID, PWD, NAME, EMAIL, NICKNAME, PHONE, BIRTH, GENDER, ADDRESS, JOINDATE)
+		VALUES (USER_IDX_SEQ.NEXTVAL, #{user_id}, #{pwd}, #{name}, #{email}, #{nickname}, #{phone}, #{birth}, #{gender}, #{address}, SYSDATE)
 	</insert>
 	
 	<select id="idCheck" resultType="String" parameterType="String">
@@ -16,4 +16,6 @@
 	<select id = "emailCheck" resultType="String" parameterType="String">
 		SELECT USER_ID FROM USERS WHERE EMAIL = #{email} 
 	</select>
+	
+	
 </mapper>

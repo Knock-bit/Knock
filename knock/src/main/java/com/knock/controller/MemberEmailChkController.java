@@ -19,17 +19,10 @@ public class MemberEmailChkController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String type = req.getParameter("type");
 		String email = req.getParameter("email");
-		System.out.println("EMAIL컨트롤러에 온 type(email): "+email); 
-
 		Command command = null;
-		System.out.println("받은 email: "+email);
-		System.out.println("이메일 컨트롤러 실행~");
-
-		if("emailchk".equals(type)) {
+		if ("emailchk".equals(type)) {
 			command = new MemberEmailChkCommand();
-			System.out.println("Command실행");
 		}
 		command.exec(req, resp);
-		
 	}
 }
