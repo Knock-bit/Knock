@@ -18,7 +18,7 @@ public class DetailCampaignCommand implements Command{
 		CampaignIngVO ccvo = UserDAO.cingList(campaign_idx);
 		request.setAttribute("ccvo", ccvo);
 		
-		return "/00_mypage/campaign_ing.jsp";
+		return "/mypage/campaign_ing.jsp";
 	}
 
 }

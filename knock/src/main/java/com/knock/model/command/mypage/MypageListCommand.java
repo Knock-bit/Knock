@@ -26,11 +26,11 @@ public class MypageListCommand implements Command{
 		
 		if(vo!=null) {
 			session.setAttribute("vo", vo);
-			return "00_mypage/mypage.jsp";
+			return "/mypage/mypage.jsp";
 		}
 		
 		
-		return "00_main/main.jsp";
+		return "/mypage/main.jsp";
 	}
 
 }

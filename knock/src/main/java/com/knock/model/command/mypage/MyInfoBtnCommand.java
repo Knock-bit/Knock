@@ -1,10 +1,6 @@
 package com.knock.model.command.mypage;
 
-
-import java.io.IOException;   
-
 import java.io.IOException;  
-
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +19,7 @@ public class MyInfoBtnCommand implements Command{
 		UserVO vo = UserDAO.myPageList(id);
 		request.setAttribute("vo", vo);
 		
-		return "00_mypage/updateMypage.jsp";
+		return "mypage/updateMypage.jsp";
 	}
 	
 }
