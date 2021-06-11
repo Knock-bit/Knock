@@ -17,3 +17,19 @@
 <a href="${contextPath }/campaign/proposalForm.jsp">캠페인 제안하기</a>
 </body>
 </html>
+
+
+<hr>
+to do List!<br>
+<ul>
+<li>
+비로그인 시, 캠페인 제안하기 누르면 로그인으로 이동</li>
+<li> 포인트값 글쓰기 창과 연결 </li>
+<li> 캠페인 종료 시 포인트분배...
+<ol>
+<li>SYSDATE> END_DATE면 캠페인 종료</li>
+<li>campaing_ing status 0으로 변경</li>
+<li>basepoint + estimate point 더하고 분배</li>
+<li></li>
+</ol></li>
+</ul>
