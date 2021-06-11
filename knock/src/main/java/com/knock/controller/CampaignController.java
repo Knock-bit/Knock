@@ -40,6 +40,7 @@ public class CampaignController extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
         session = request.getSession();
+        System.out.println(">> FrontController.doPost() 실행");
         
         int user_idx = -1;
         Object val = session.getAttribute("user_idx");
