@@ -34,7 +34,6 @@ public class UserController extends HttpServlet {
 		
 		String type = request.getParameter("type");
 		Command command = null;
-		System.out.println("type:"+type);
 		
 		if(type.equals("moveMypage.do")) {
 			// 마이페이지로 이동 & 내 정보 출력
