@@ -20,7 +20,7 @@
 
 
 <hr>
-to do List<br>
+to do List!<br>
 <ul>
 <li>
 비로그인 시, 캠페인 제안하기 누르면 로그인으로 이동</li>
