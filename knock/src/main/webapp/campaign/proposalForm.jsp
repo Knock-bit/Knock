@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.knock.model.vo.KeywordVO" %>
+<%@ page import="com.knock.model.dao.KeywordDAO" %>
+
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -13,7 +18,8 @@
 	}
 </script>
 </head>
-<body>
+<body>	
+	<%@ include file="tempinclude.jsp" %>
 	<form id="campaignForm" method="post" action="${contextPath}/campaign?type=proposal">
 		<table>
 			<thead>
@@ -28,17 +34,31 @@
 				</tr>
 				<tr>
 					<td> 목표 포인트 </td>
-					<td> <input type="text" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
+					<td> <input type="number" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 					<textarea name="p_content" cols=50 rows=20></textarea>
 				</tr>
+				<tr>
+					<td> 키워드 : 최대 세 개까지 입력하실 수 있어요. </td>
+					
+					<td>
+					<input type="text" name="p_keyword">
+					<input type="text" name="p_keyword">
+					<input type="text" name="p_keyword">
+					</td>
+				</tr>
+				<tr>
+					<td> 파일첨부 </td>
+					<td>어렵다</td>
+				</tr>
+				
 			</tbody>
 		
 		</table>
 	
-	<input type="hidden" name="user_idx" value="1"><!-- 임시로 1로 해둠 -->
+	<input type="hidden" name="user_idx" value="${user_idx }">
 	<input type="submit" value="제안하기"> <input type="button" value="취소하기" onClick="location.href='main.jsp'">
 	
 	</form>

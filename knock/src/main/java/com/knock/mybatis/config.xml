@@ -8,12 +8,20 @@
 	</settings>
 
 	<typeAliases>
+		<!-- 여기부터 campaign -->
+		
 		<typeAlias type="com.knock.model.vo.CampaignIngVO"
 			alias="CampaignIngVO"></typeAlias>
 		<typeAlias type="com.knock.model.vo.ProposalVO"
 			alias="ProposalVO"></typeAlias>
-		<typeAlias type="com.knock.model.vo.CampaignNomineeVO"
+		<typeAlias type="com.knock.model.vo.NomineeVO"
 			alias="NomineeVO"></typeAlias>
+		<typeAlias type="com.knock.model.vo.NomUserVO"
+			alias="NomUserVO"></typeAlias>
+		<!-- 여기까지 campaign -->
+			
+			
+			
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -30,6 +38,8 @@
 	
 	<mappers>
 		<mapper resource="com/knock/mybatis/campaignmapper.xml" />
-		<mapper resource="com/knock/mybatis/mapper.xml" />
+		<mapper resource="com/knock/mybatis/signInmapper.xml" />
+		
+		<!-- <mapper resource="com/knock/mybatis/mapper.xml" /> -->
 	</mappers>
 </configuration>

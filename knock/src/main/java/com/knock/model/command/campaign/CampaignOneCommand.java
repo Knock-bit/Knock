@@ -15,7 +15,7 @@ public class CampaignOneCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> CampaignOne Command ½ÇÇà");
+		System.out.println(">> CampaignOne Command ì‹¤í–‰");
 		int campaign_idx = Integer.parseInt(request.getParameter("idx"));
 		CampaignIngVO campaignIng = CampaignIngDAO.one(campaign_idx);
 		List<String> ing_userList = CampaignIngDAO.participant(campaign_idx);
