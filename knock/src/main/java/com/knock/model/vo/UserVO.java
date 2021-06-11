@@ -33,7 +33,7 @@ public class UserVO {
 
 	public UserVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
 
-			Date birth, int total_point, String knock_admin, char knock_active, Date last_login_date, char gender,
+			Date birth, int total_point, String knock_admin, String knock_active, Date last_login_date, String gender,
 			String address, Date joindate, String user_img, int used_point) {
 
 		super();
