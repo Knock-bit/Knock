@@ -34,24 +34,19 @@
 				</tr>
 				<tr>
 					<td> 목표 포인트 </td>
-					<td> <input type="text" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
+					<td> <input type="number" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 					<textarea name="p_content" cols=50 rows=20></textarea>
 				</tr>
 				<tr>
-					<td> 키워드 : 총 세 개까지 입력하실 수 있어요. </td>
+					<td> 키워드 : 최대 세 개까지 입력하실 수 있어요. </td>
 					
 					<td>
-					<% KeywordDAO keywordDAO = new KeywordDAO();
-					   List<KeywordVO> keywords = keywordDAO.list(); %>
-					<jsp:useBean id="dao" class="com.knock.model.dao.KeywordDAO" />
-					<c:forEach var="vo" items="${dao.list()}">
-						<input type="checkbox" name="p_keyword" value="${vo.keyword_idx }">${vo.k_content }
-						<br>
-					</c:forEach>
-					
+					<input type="text" name="p_keyword">
+					<input type="text" name="p_keyword">
+					<input type="text" name="p_keyword">
 					</td>
 				</tr>
 				<tr>

@@ -10,6 +10,7 @@ import com.knock.mybatis.DBService;
 
 public class NomUserDAO {
 
+
 	public static List<String> list(int nominee_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		List<String> nomUserList = ss.selectList("campaign.nomUserList", nominee_idx);
