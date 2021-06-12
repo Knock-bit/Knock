@@ -12,6 +12,7 @@
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign?type=ingList">캠페인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign/proposalForm.jsp">캠페인 오픈하기</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${contextPath }/mypage/mypage.jsp">마이페이지(임시)</a></li>
                         <li class="nav-item"><a class="nav-link" href="#login">로그인</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">회원가입</a></li>
                     </ul>
