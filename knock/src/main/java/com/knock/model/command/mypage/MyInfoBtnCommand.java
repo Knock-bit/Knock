@@ -14,9 +14,9 @@ public class MyInfoBtnCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String user_idx = request.getParameter("user_idx");
 		
-		UserVO vo = UserDAO.myPageList(id);
+		UserVO vo = UserDAO.myPageList(user_idx);
 		request.setAttribute("vo", vo);
 		
 		return "mypage/updateMypage.jsp";

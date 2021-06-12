@@ -39,7 +39,9 @@
 	<mappers>
 		<mapper resource="com/knock/mybatis/campaignmapper.xml" />
 		<mapper resource="com/knock/mybatis/signInmapper.xml" />
-		
+		<mapper resource="com/knock/mybatis/usermapper.xml" />
 		<!-- <mapper resource="com/knock/mybatis/mapper.xml" /> -->
 	</mappers>
+	
+ 	
 </configuration>

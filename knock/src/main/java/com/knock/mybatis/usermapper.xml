@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="USER">
+	
+	<select id="myPageList" parameterType="string" resultType="com.knock.model.vo.UserVO">
+		SELECT * FROM USERS WHERE USER_IDX = #{user_idx}
+	</select>
+	
+	<update id="updateMypage" parameterType="hashmap">
+		UPDATE USERS SET 
+		PWD = #{pwd}, EMAIL = #{email}, USER_IMG = #{user_img}
+		WHERE USER_ID = #{user_id}
+
+	</update>
+	
+	<delete id="deleteUser" parameterType="string">
+		DELETE FROM USERS WHERE USER_IDX = #{user_idx}
+	
+	</delete>
+	
+	<select id="camIngLists" parameterType="string" resultType="com.knock.model.vo.CampaignIngVO">
+		<![CDATA[SELECT * FROM CAMPAIGN_ING WHERE SYSDATE < END_DATE AND USER_IDX = #{user_idx}]]>
+	</select>
+	
+	<select id="ccvo" parameterType="string" resultType="com.knock.model.vo.CampaignIngVO">
+		SELECT * FROM CAMPAIGN_ING WHERE campaign_idx = #{campaign_idx}
+	
+	</select>
+
+	<select id="endlist" parameterType="string" resultType="com.knock.model.vo.CampaignIngVO">
+		<![CDATA[SELECT * FROM CAMPAIGN_ING
+		WHERE SYSDATE > END_DATE AND USER_IDX = #{user_idx}]]>
+	
+	</select>
+	
+	<select id="totalCount" parameterType="string" resultType="int">
+		 <![CDATA[SELECT COUNT(*) FROM CAMPAIGN_ING WHERE SYSDATE > END_DATE AND USER_IDX = #{user_idx}]]>
+	
+	</select>
+	
+	<select id="pageEndList"  resultType="com.knock.model.vo.CampaignIngVO" parameterType="map">
+		<![CDATA[SELECT * FROM(
+			SELECT ROWNUM R_NUM, CCS.* 
+				FROM (SELECT *
+					FROM CAMPAIGN_ING
+					ORDER BY CAMPAIGN_IDX DESC)CCS)
+					WHERE R_NUM BETWEEN #{begin} AND #{end} AND SYSDATE > END_DATE AND USER_IDX = #{user_idx}]]>	
+	
+	</select>
+	
+	
+	
+</mapper>
+
+
