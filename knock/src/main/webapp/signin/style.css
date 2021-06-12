@@ -1,0 +1,158 @@
+/*regForm CSS*/
+a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+  transition: all 300ms ease 0s;
+  -moz-transition: all 300ms ease 0s;
+  -webkit-transition: all 300ms ease 0s;
+  -o-transition: all 300ms ease 0s;
+  -ms-transition: all 300ms ease 0s; }
+
+input, select, textarea {
+  outline: none;
+  appearance: unset !important;
+  -moz-appearance: unset !important;
+  -webkit-appearance: unset !important;
+  -o-appearance: unset !important;
+  -ms-appearance: unset !important; }
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important;
+  margin: 0; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  -ms-box-shadow: none !important; }
+
+.pwdSuccess{color:darkgreen; font-size:7px;}
+.emailSuccess{color:darkgreen; font-size:7px;}
+.nameSuccess{color:darkgreen; font-size:7px;}
+.phoneSuccess{color:darkgreen; font-size:7px;}
+.birthSuccess{color:darkgreen; font-size:7px;}
+
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+figure {
+  margin: 0; }
+
+p {
+  margin-bottom: 0px; }
+
+.clear {
+  clear: both; }
+
+body {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #fff;
+    background-image: url('header-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-weight: 400;
+    font-family: roboto slab;
+    margin: 0;
+}
+
+body h1{
+	color: black;
+}
+.main {
+  padding: 60px 0;
+  position: relative; }
+
+.container {
+  width: 586px;
+  background: #fff;
+  margin-left: 500px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px; }
+
+.regform {
+  padding: 50px 60px 70px 60px; }
+
+input, select {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+  padding: 5px 0;
+  color: #222;
+  margin-bottom: 15px;
+  font-family: 'Roboto Slab'; }
+  input:focus, select:focus {
+    color: #222;
+    border-bottom: 2px solid #4966b1; }
+
+input[type=checkbox]:not(old) {
+  width: 2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  display: none; }
+  
+ 
+#user_id{
+width: 80%;
+display:inline;	
+ margin-bottom: 5px;
+
+}
+#zip{
+width: 75%;
+display:inline;
+}
+#dupchk{
+	width: 20%;
+	display:inline;}
+#btnAddr{
+	width: 20%;
+display:inline;
+}
+
+input[type=submit]{
+	width: 30%;
+	display:inline;
+	
+}
+
+input[type=reset]{
+	width: 30%;
+	display:inline;
+}
+
+#confirm_type {
+  margin-bottom: 30px; }
+
+
+.form-check {
+  margin-bottom: 20px; }
+
+.select-list {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 55px; }
+
+.list-item {
+  position: absolute;
+  width: 100%; }
+
+#confirm_type {
+  z-index: 99; }
+
+/*********************************************
+tnc.jsp CSS*/
