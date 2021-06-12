@@ -70,9 +70,12 @@ public class UserController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			return;
-		} else if(type.equals("detail.do")) {
+		} else if(type.equals("cdetail.do")) {
 			// 현재 진행중인 캠페인 상세보기
-			command = new DetailCampaignCommand();
+			String result = new DetailCampaignCommand().exec(request, response);
+			PrintWriter out = response.getWriter();
+			out.print(result);
+			return;
 			
 		} else if(type.equals("endCam.do")) {
 			command = new EndCamListCommand();

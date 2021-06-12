@@ -3,6 +3,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +30,11 @@
     .pagingNum {
         width: 100%;
         height:150px;
+        text-align : center;
+    }
+    .paginging {
+    	width : 80%;
+    	margin:0 auto;
     }
     .topdan{
         width:100%;
@@ -38,7 +45,37 @@
     	text-align:center;
     	width : 80%;
     }
-
+    boardList{
+    	text-decoration : none;
+    }
+     /* 페이징 부분 스타일 */
+.paging { list-style: none; }
+	.paging li {
+		float: left;
+		margin-right: 8px;
+	}
+	.paging li a {
+		text-decoration: none;
+		display: block;
+		padding: 3px 7px;
+		border: 1px solid #00B3DC;
+		font-weight: bold;
+		color: black;
+	}
+	.paging .disable {
+		border: 1px solid silver;
+		padding: 3px 7px;
+		color: silver;
+	}
+	.paging .now {
+		border: 1px solid #ff4aa5;
+		padding: 3px 7px;
+		background-color: #ff4aa5;
+	}
+	.paging li a:hover {
+		background-color: #00B3DC;
+		color: white;
+	}
    
 </style>
 </head>
@@ -76,9 +113,9 @@
 			                    <c:forEach var="vo" items="${cclist }" varStatus="voNum">
 			                    <tr>
 			                        <td>${voNum.count }</td>
-			                        <td>${vo.c_category }</td>
+			                        <td>${vo.c_category_name }</td>
 			                        <td>
-			                            <a href="/endCamView.jsp?campaign_idx=${vo.campaign_idx }&cPage=nowpage">${vo.title }</a>
+			                            <a style="text-decoration:none;" href="${contextPath}/endCamView.jsp?campaign_idx=${vo.campaign_idx }&cPage=nowpage">${vo.title }</a>
 			                        </td> 
 			                        <td>${vo.end_date }</td>
 			                    </tr>
@@ -89,6 +126,7 @@
 				</div>		
 			        
 			    <div class=pagingNum>
+			    	<div class="paginging">
 			    <table>
 					<tr>
 						<td colspan="4">
@@ -98,7 +136,7 @@
 							</c:if>
 							<c:if test="${pvo.beginPage != 1 }">
 								<li>
-									<a href="list.jsp?cPage=${pvo.beginPage-1 }">이전으로</a> <!-- 현재페이지에서 -1페이지 -->
+									<a href="${contextPath}/userctr?type=endCam.do&user_idx=${vo.user_idx }&cPage=${pvo.beginPage-1 }">이전으로</a> <!-- 현재페이지에서 -1페이지 -->
 								</li>
 							</c:if>
 							<%-- 블록 내 표시할 페이지 태그 작성 --%>
@@ -109,7 +147,7 @@
 								</c:when>
 								<c:otherwise>
 									<li>
-										<a href="list.jsp?cPage=${pageNo }">${pageNo }</a>
+										<a href="${contextPath}/userctr?type=endCam.do&user_idx=${vo.user_idx }&cPage=${pageNo }">${pageNo }</a>
 									</li>
 								</c:otherwise>
 								</c:choose>
@@ -119,17 +157,15 @@
 								<li class="disale">다음으로</li>
 							</c:if>
 							<c:if test="${pvo.endPage < pvo.totalPage }">
-								<li><a href="list.jsp?cPage=${pvo.endPage +1 }">다음으로</a></li>
+								<li><a href="${contextPath}/userctr?type=endCam.do&user_idx=${vo.user_idx }&cPage=${pvo.endPage +1 }">다음으로</a></li>
 							</c:if>
 							
 							
 							</ol>
-						</td>
-						<td>
-							<input type="button" value="글쓰기" onclick="javascript:location.href='write.jsp'">
 						</td> 
 					</tr>
 					</table>
+			    </div>
 			    </div>
 			</div>
 

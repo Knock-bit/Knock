@@ -18,8 +18,12 @@ public class EndCamListCommand implements Command{
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user_idx = request.getParameter("user_idx");
 		List<CampaignIngVO> clist = UserDAO.endList(user_idx);
-		
 		MyCampaignPagingVO p = new MyCampaignPagingVO();
+		
+		// 카테고리 번호 받아와서 카테고리 네임으로 리턴하기
+		
+		
+		
 		
 		// 전체 게시물 수 구하기
 		p.setTotalRecord(UserDAO.getTotalCount(user_idx)); // 전체 게시글 수
@@ -55,11 +59,14 @@ public class EndCamListCommand implements Command{
 		// 현재 페이지 기준으로 db 데이터 가져오기
 		List<CampaignIngVO> cclist = UserDAO.getEndList(p.getBegin(), p.getEnd(), user_idx);
 		System.out.println("cclist: " + cclist);
-		
+		for(CampaignIngVO vo : clist) {
+			System.out.println("카테고리 이름 : " + vo.getC_category_name() );
+		}
 		
 		
 		request.setAttribute("pvo", p);
 		request.setAttribute("cclist", cclist);
+		request.setAttribute("cclist", clist);
 		return "/mypage/end_campaign.jsp";
 	}
 

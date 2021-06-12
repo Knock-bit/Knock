@@ -43,7 +43,6 @@ public class UserDAO {
 	public static List<CampaignIngVO> camIngList(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> clist = ss.selectList("USER.camIngLists", user_idx);
-		
 		ss.close();
 		return clist;
 
@@ -53,7 +52,6 @@ public class UserDAO {
 	public static CampaignIngVO cingList(String campaign_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		CampaignIngVO vo = ss.selectOne("USER.ccvo", campaign_idx);
-
 		System.out.println("dao c_category: " + campaign_idx);
 		System.out.println("vo : " + vo);
 		ss.close();
