@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,25 +14,19 @@
 
 $(function(){
 	fnAjax();
+
     $(".rightDivTop").click(function(){
         $("#popup").fadeIn();
     });
     $("#popup").click(function(){
         $("#popup").fadeOut();
-    });
+    });    
 
 });
-
-
-
-function moveDetail (campaign_idx) {
-	location.href="/userctr?type=detail.do&campaign_idx="+campaign_idx;
-	poppop();
-	
-}
 function poppop(){
 	$("#popup").fadeIn();
 }
+
 
 </script>
 
@@ -39,8 +34,6 @@ function poppop(){
 	.cpingView{
 		width:80%;
 		float:left;
-		
-		
 	}
 	.topdan  {
 		width:100%;
@@ -48,8 +41,6 @@ function poppop(){
 		padding: 30px;
 		text-align : center;
 	}
-	
-
 	.topdan4 {
 		width:15%;
 		height:300px;
@@ -102,12 +93,13 @@ function poppop(){
     width: 80%;
     height: 70%;
     background: rgba(0,0,0,0.5);
+    top : 100px;
 }
 
 #popmenu {
     position: absolute;
+    top : 180px;
     left: 50%;
-    top: 50%;
     transform: translate(-50%,-50%);
     width: 80%;
     height: 300px;
@@ -127,7 +119,6 @@ function poppop(){
     background: #007AAE;
     cursor: pointer;
 }
-
 .popImage{
 	float:left;
 	width:29%;
@@ -161,6 +152,9 @@ function poppop(){
 .popContent {
 	text-align : left;
 }
+#camidx{
+	display:none;
+}
 
 </style>
 </head>
@@ -172,32 +166,7 @@ function poppop(){
 	<div class="mainMenu">
 		<%@ include file="/common/mypageMenubar.jsp" %>
 		<div class="cpingView">
-		<div id="popup">
-			<div id="popmenu">
-				<div class="popImage">
-					<div class="camPoster">
-						<img src="/image/poster.jpg">
-					</div>
-				</div>
-				<div class="popContent">
-					<table>
-						<tr>
-							<th>캠페인 이름</th>
-							<td>${ccvo.title }</td>
-						</tr>
-						<tr>
-							<th>캠페인 주요 내용</th>
-							<td>${ccvo.content }</td>
-						</tr>
-					</table>
-							<p>캠페인 종료까지 000남았습니다.</p>
-							<p>캠페인 종료시 획득할 수 있는 예상 포인트는 ${ccvo.c_totpoint }포인트입니다.</p>
-							<p>이번 캠페인 참여 횟수는 00회 입니다.</p>
-
-				</div>
-				<div class="exit">닫기</div>
-			</div> 
-		</div>
+		
 		
 			<div class="topdan">
 <script type="text/javascript">
@@ -207,7 +176,7 @@ function fnAjax(){
 	console.log("-- fnAjax() 실행");
 	
 	let user_idx = 1;
-	$.ajax("/userctr?type=campaigning.do",{
+	$.ajax("${contextPath }/userctr?type=campaigning.do",{
 		type:"get",
 		data:"user_idx="+user_idx,
 		dataType : "json",
@@ -230,15 +199,15 @@ function ajaxSuccess(data){
 		htmlTag += "<h4>" + this.title +"</h4>";
 		htmlTag += "<p>" + this.c_category +"</p></div>";
 		htmlTag += "<div class='leftDivbottom'>";
-		htmlTag += "<span class ='expiredDate'>남은기한</span>"; // 남은기한 넣을 div
-		htmlTag += "<div class='etime'>"+this.end_date+"</div>"; // 마감날짜가져와서 전달 
+		htmlTag += "<div class='etime'>마감일:"+this.end_date+"</div>"; // 마감날짜가져와서 전달 
 		htmlTag += "<p id='countCamp'></p></div></div>";
 		htmlTag += "<div class='rightDiv'>";
 		htmlTag += "<div class='rightDivTop'>";
 		htmlTag += "<img src='/image/think-green.png'></div>";
 		htmlTag += "<div class='rightDivbottom'>#캠페인 #제로웨이스트 #포인트</div></div></div>";
 		htmlTag += "<input type='button' value='상세보기'";
-		htmlTag += "onclick='moveDetail("+this.campaign_idx+")'";
+		htmlTag += "id='cdetail' onclick='poppop();' ";
+		htmlTag += "<div id='camidx'>"+this.campagin_idx+"</div>"
 		htmlTag += "</div></div></div>";
 	});
 	$topdan.html(htmlTag);
@@ -305,6 +274,59 @@ function fnAjaxError(jqXHR, textStatus, errorThrown){
 
 </script>				
 			</div>
+			<div id="popup">
+			<div id="popmenu">
+
+<script>
+
+function poppop(){
+	console.log("-- poppop() 실행");
+	
+	let campaign_idx = $("#camidx").text();
+	alert(campaign_idx);
+	$.ajax("${contextPath }/userctr?type=cdetail.do",{
+		type:"get",
+		data:"campaign_idx="+campaign_idx,
+		dataType : "json",
+		success : ajaxSuccess,
+		error : fnAjaxError
+	
+	});
+}
+function ajaxSuccess(data){
+	console.log(data);
+	$popmenu = $("#popmenu");
+	$popmenu.empty();
+	let htmlTag = ""; 
+		htmlTag += "<div class='popImage'><div class='camPoster'>";
+		htmlTag += "<img src='"+this.c_file+"'></div></div>";
+		htmlTag += "<div class='popContent'>";
+		htmlTag += "<table><tr><th>캠페인 이름</th>";
+		htmlTag += "<td>"+this.title+"</td></tr>";
+		htmlTag += "<tr><th>캠페인 주요 내용</th>";
+		htmlTag += "<td>"+this.content+"</td><tr></table>";
+		htmlTag += "<p id='eetime'>캠페인 종료까지 얼마 남았나요</p>";
+		htmlTag += "<p>캠페인 종료 시 획득할 수 있는 예상 포인트는 "+this.c_totpoint+"입니다</p>";
+		htmlTag += "</div><div class='exit'>닫기</div>";
+		
+		$popmenu.html(htmlTag);
+});
+
+
+function fnAjaxError(jqXHR, textStatus, errorThrown){
+	alert("Ajax 처리 실패 : \n"
+			+ "jqXHR.readyState : " + jqXHR.readyState + "\n"
+			+ "textStatus : " + textStatus + "\n"
+			+ "errorThrown : " + errorThrown);
+}		
+
+function poppop(){
+	$("#popup").fadeIn();
+}
+</script>
+				
+			</div> 
+		</div>
 			<div id="countdown">
 			</div>
 		</div>
