@@ -36,13 +36,22 @@ $(document).ready(function(){
 	});
 	
 	//비밀번호 체크
+	$("#pwd").on('blur',function(){
+	 	var passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,12}$/;
+	 	var pwd = $("#pwd").val();
+	 	console.log(pwd);
+	 	console.log(passwordRules.test(pwd));
+		if(passwordRules.test(pwd)==false){
+		 	alert("비밀번호는 영문 대소문자 혼합(최소 대문자1개), 숫자(최소1개)가 포함되어야 합니다.\n(특수문자 사용불가)");
+			$("#pwd").focus();
+		}
+ 	
+	});
 
- 	$('#pwd').on('focusout',function(){
- 		var passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-
- 		var pwd = $("#pwd").val();
- 		console.log(passwordRules.test(pwd));
- 	 	
+ 	$('#pwd2').on('focusout',function(){
+	 	var pwd = $("#pwd").val();
+	 	var pwd2 = $("#pwd2").val();
+	
  		if(passwordRules.test(pwd)==true || passwordRules.test(pwd2) ==true){
 		console.log("pwd: "+$("#pwd").val());
 		console.log("pwd2: "+ $("#pwd2").val());
@@ -77,12 +86,10 @@ $(document).ready(function(){
 				   });
 				$('.pwdSuccess').html("비밀번호가 일치하지 않습니다.");
 				$("#submit").attr("disabled");
-				//쓴 비밀번호 지우고 그자리 그대로 커서있게하는거 어떻게하더라?
+				$("#pwd2").focus();
    			} 
  			
 		
- 	}else{
- 		alert("비밀번호는 영문 대소문자 혼합(최소 대문자1개), 숫자(최소1개)가 포함되어야 합니다.\n(특수문자 사용불가)");
  	}
  });	
 	

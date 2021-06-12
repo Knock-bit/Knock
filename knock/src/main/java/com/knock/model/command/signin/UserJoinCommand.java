@@ -16,7 +16,7 @@ public class UserJoinCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 		List<MemberVO> list;
-		System.out.println("userJoin의 컨트롤러입니다.");
+		System.out.println("userJoin의 Command입니다.");
 		req.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
@@ -43,7 +43,7 @@ public class UserJoinCommand implements Command{
 		System.out.println("회원가입 시 받은 vo: "+vo.toString());
 		System.out.println("주소: "+address);
 		int result = MemberDAO.joinknock(vo);
-		return "/signin/regForm.jsp";
+		return "joinMember.jsp";
 	}
 	
 

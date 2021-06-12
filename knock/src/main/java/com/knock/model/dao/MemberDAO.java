@@ -3,18 +3,43 @@ package com.knock.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-
 import com.knock.mybatis.DBService;
 import com.knock.model.vo.MemberVO;
 
 public class MemberDAO {
-	
+	//회원가입하기
 	public int insertJoin(MemberVO vo) {
 		SqlSession ss = DBService.getFactory().openSession();
 		int result;
 		result = ss.insert("vo.insertjoin", vo);
     	ss.close();
 
+		return result;
+	}
+	
+	public static int pwdCheck(String pwd) {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession();
+		result = ss.selectOne("vo.pwdCheck", pwd);
+		ss.close();
+		return result;
+	}
+	
+	public static MemberVO getIdPwdName(String user_id) {
+		SqlSession ss = DBService.getFactory().openSession();
+		MemberVO vo = ss.selectOne("vo.loginIdCheck", user_id);
+		return vo;
+	}
+	public static int loginIdCheck(String user_id) {
+		SqlSession ss =DBService.getFactory().openSession();
+		String id = ss.selectOne("vo.idCheck", user_id);
+		int result;
+		if(id==null) {
+			result = 1;// 아이디 없음
+		}else {
+			result = -1;//아이디 			
+		}
+		ss.close();
 		return result;
 	}
 	//아이디 중복 체크
