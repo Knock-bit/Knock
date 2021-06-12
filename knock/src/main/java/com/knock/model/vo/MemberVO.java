@@ -20,7 +20,13 @@ public class MemberVO {
 	public MemberVO() {
 		super();
 	}
-	
+	//로그인
+	public MemberVO(String user_id, String pwd) {
+		super();
+		this.user_id = user_id;
+		this.pwd = pwd;
+	}
+	//회원가입
 	public MemberVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
 			String birth, int gender, String address) {
 		super();
