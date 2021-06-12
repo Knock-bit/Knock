@@ -8,14 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.knock.model.command.Command;
-import com.knock.model.dao.AdminUserActiveDAO;
-import com.knock.model.vo.UserVO;
+import com.knock.model.dao.AdminKeywordDAO;
+import com.knock.model.vo.KeywordVO;
 
-public class AdminUserListCommand implements Command {
+public class AdminKeywordList implements Command {
+
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<UserVO> list = AdminUserActiveDAO.getList();
-		request.setAttribute("userList", list);
-		return "admin/adminUserList.jsp";
+		List<KeywordVO> keyList = AdminKeywordDAO.keywordList();
+		request.setAttribute("keyList", keyList);
+		return "admin/adminKeyword.jsp";
 	}
+
 }
