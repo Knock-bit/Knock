@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<td> 목표 포인트 </td>
-					<td> <input type="number" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
+					<td> <input type="number" name="goal_point" min="2500" placeholder="목표 포인트(2500이상) 입력하세요 "></td>
 				</tr>
 				<tr>
 					<td colspan="2">
