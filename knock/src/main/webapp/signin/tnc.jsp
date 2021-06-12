@@ -227,6 +227,6 @@ eXpert 서비스 및 eXpert 센터 가입 등록정보 : 신청일로부터 6개
 	  </textarea><br>
 	  <label><input type="checkbox" id="chk3" name="chk">프로모션 정보 수신 동의(선택)</label><br>
 	  </div>
-	  <input type="submit" id="next" value="회원가입 진행하기" >
+	  <a href="regForm.jsp"><input type="submit" id="next" value="회원가입 진행하기" ></a>
 </body>
 </html>
