@@ -365,7 +365,8 @@
         </section>
         <!-- Footer-->
         <footer class="footer py-4">
-            <div class="container">
+        	<%@ include file="./common/footer2.jsp" %>
+           <!--  <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
                     <div class="col-lg-4 my-3 my-lg-0">
@@ -378,7 +379,7 @@
                         <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </footer>
         <!-- Portfolio Modals-->
         <!-- Portfolio item 1 modal popup-->
