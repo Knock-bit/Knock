@@ -3,12 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ADMIN">
+	<!-- 1. 관리자 회원관리 -->
+	<!-- 전체 유저 불러오기 -->
 	<select id="list" resultType="com.knock.model.vo.UserVO">
 		SELECT ROWNUM AS RN,USER_IDX,
 		USER_ID, NAME, NICKNAME, JOINDATE, LAST_LOGIN_DATE, KNOCK_ACTIVE FROM
 		USERS WHERE KNOCK_ADMIN = 1
 	</select>
-
+	<!-- 유저 계정 비활성 -->
 	<update id="userUnActiveFalse"
 		parameterType="com.knock.model.vo.UserVO">
 		UPDATE USERS SET
@@ -16,7 +18,7 @@
 		KNOCK_ACTIVE=#{knock_active}
 		AND USER_IDX =#{user_idx}
 	</update>
-
+	<!-- 유저 계정 활성 -->
 	<update id="userActiveTrue"
 		parameterType="com.knock.model.vo.UserVO">
 		UPDATE USERS SET
@@ -24,9 +26,36 @@
 		KNOCK_ACTIVE=#{knock_active}
 		AND USER_IDX =#{user_idx}
 	</update>
-
+	<!-- 유저 한명 선택 -->
 	<select id="userOne" resultType="com.knock.model.vo.UserVO">
 		SELECT * FROM USERS WHERE
 		USER_IDX = #{user_idx}
 	</select>
+
+
+	<!--2. 키워드 삭제 추가 -->
+	<!-- 키워드 전체 목록 불러오기 -->
+	<select id="keywordList"
+		resultType="com.knock.model.vo.KeywordVO">
+		SELECT * FROM KEYWORD ORDER BY K_CONTENT
+	</select>
+	<!-- 키워드 하나 가져오기 -->
+	<select id="keywordOne"
+		resultType="com.knock.model.vo.KeywordVO"
+		parameterType="com.knock.model.vo.KeywordVO">
+		SELECT * FROM KEYWORD
+		WHERE K_CONTENT =#{k_content}
+	</select>
+	<insert id="keywordAdd"
+		parameterType="com.knock.model.vo.KeywordVO">
+		INSERT INTO KEYWORD(KEYWORD_IDX, K_CONTENT)
+		VALUES(KEYWORD_SEQ.NEXTVAL,
+		#{k_content})
+	</insert>
+	<!-- 키워드 삭제하기 -->
+	<delete id="keywordDel"
+		parameterType="com.knock.model.vo.KeywordVO">
+		DELETE FROM KEYWORD WHERE K_CONTENT = #{k_content}
+	</delete>
+
 </mapper>
