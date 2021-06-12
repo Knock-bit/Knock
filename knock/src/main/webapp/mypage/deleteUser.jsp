@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
+
 
 <!DOCTYPE html>
 <html>
@@ -36,7 +38,7 @@ $(function(){
 	
 
     function deleteUser(frm){
-        frm.action="/userctr?type=deleteUser.do";
+        frm.action="${contextPath }/userctr?type=deleteUser.do";
         frm.submit();
 
     }
@@ -89,7 +91,7 @@ $(function(){
             <div>
                 <p>탈퇴사유</p>
                 <form method="post">
-                	<input type="hidden" name="user_id" value="${vo.user_id }">
+                	<input type="hidden" name="user_idx" value="${vo.user_idx }">
                     <input type="radio" name="deleteReason" value="noFunny">
                     <label for="noFunny">재미없어요</label><br>
                     <input type="radio" name="deleteReason" value="difficult">

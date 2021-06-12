@@ -30,6 +30,11 @@ public class KeywordVO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+	@Override
+	public String toString() {
+		return "KeywordVO [keyword_idx=" + keyword_idx + ", k_content=" + k_content + ", count=" + count + "]";
+	}
 	
 	
 }

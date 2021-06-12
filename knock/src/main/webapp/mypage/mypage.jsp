@@ -112,9 +112,10 @@
             <div class="MycampainMain">
                 <h3>[ 현재 참여중인 캠페인 ]</h3>
                 <ui>
-                    <li>캠페인1</li>
-                    <li>캠페인2</li>
-                </ui>
+                	<c:forEach var="cam"  items="${clist }">
+	                    <li>${cam.title}</li>
+                    </c:forEach>
+                </ui>       
                 <p>예상 포인트 : 50점</p>
             </div>
         </div>

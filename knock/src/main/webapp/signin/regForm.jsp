@@ -18,12 +18,13 @@
 .emailSuccess{color:red; font-size:7px;}
 .nameSuccess{color:red; font-size:7px;}
 .phoneSuccess{color:red; font-size:7px;}
+.birthSuccess{color:red; font-size:7px;}
 </style>
 </head>
 <body>
 
 <h2>회원가입</h2>
-<form method="post" name="command" value="confirm" action="${contextPath}/signin?type=join">
+<form method="post" name="command" value="confirm" action="${contextPath}/signin/login.jsp?type=logintype=join">
          
 		<label for="user_id">아이디</label><br>
 		<input type="text" id = "user_id" name="user_id" maxlength="10" required> &nbsp;
@@ -69,7 +70,7 @@
 
 		우편번호 : <input type="text" size="5" value="" name="zip" id="zip"><input type="button" value="검색" id="btnAddr" name="btnAddr"> 
 <br> 
-주소 : <input type="text" name="address" id="addr1" size="50"><input type="text" name="addr2" id="addr2" size="10" required> 
+주소 : <input type="text" name="address" id="addr1" size="50"required><input type="text" name="addr2" id="addr2" size="10" required> 
 		
 		<br><br><br>
         <input type="submit" disabled="true" id="submit" value="가입"/>

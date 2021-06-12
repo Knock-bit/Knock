@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.knock.model.vo.UserVO;
 import com.knock.mybatis.DBService;
 
-public class AdminDAO {
+public class AdminUserActiveDAO {
 	public static List<UserVO> getList(){
 		SqlSession ss = DBService.getFactory().openSession();
 		List<UserVO> list = ss.selectList("ADMIN.list");
