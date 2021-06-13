@@ -67,20 +67,8 @@ public class UserDAO {
 		ss.close();
 		return vo;
 
-		
 	}
-	
-	// 종료된 캠페인 리스트
-	public static List<CampaignIngVO> endList(String user_idx){
-		SqlSession ss = DBService.getFactory().openSession();
-		List<CampaignIngVO> clist = ss.selectList("USER.endlist",user_idx);
-		ss.close();
-		return clist;
-		
-	}
-	
-	
-	
+
 	 //내 캠페인ing 전체 게시물 수량
 	public static int getTotalCount(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
@@ -95,6 +83,9 @@ public class UserDAO {
 	public static List<CampaignIngVO> getEndList(int begin, int end, String user_idx){
 		SqlSession ss = DBService.getFactory().openSession();
 		Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println("시작번호: " + begin);
+		System.out.println("끝번호: " + end);
+
 		map.put("begin", begin);
 		map.put("end", end);
 		map.put("user_idx", user_idx);
