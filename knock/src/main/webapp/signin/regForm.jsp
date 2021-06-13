@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
@@ -37,7 +38,7 @@
 <input type="text" name="nickname" id="nickname" placeholder="닉네임"  maxlength="8" required />
 
 <input type="number" name="phone" id="phone" placeholder="휴대전화" required />
-<c style="font-size: 10px; font-weight: bold;color:darkgrey;">휴대폰번호 11자리를 하이픈(-)과 함께 입력해주세요.</div>
+<div style="font-size: 10px; font-weight: bold;color:darkgrey;">휴대폰번호 11자리를 하이픈(-)과 함께 입력해주세요.</div>
 
 
 <input type="number" name="birth" id="birth" placeholder="생년월일" required />
@@ -54,8 +55,8 @@
 </select>
 </div>
 </div>
- <input type="submit" disabled="true" id="submit" value="가입"/>
- <input type="reset" value="취소"/>
+ <input type="submit" disabled="true" id="submit" value="가입" />
+ <input type="reset" value="다시쓰기" />
 
 
 </body>

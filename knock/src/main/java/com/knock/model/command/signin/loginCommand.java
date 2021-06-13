@@ -34,9 +34,9 @@ public class loginCommand implements Command {
 		if(num==1) {
 			out.println("<script>");
 			out.println("alert('아이디가 존재하지 않습니다.');");
-			out.println("location.href='signin/main.jsp';");
+			out.println("history.go(-1);");
 			out.println("</script>");
-			return ""; 
+			return "signin/login.jsp"; 
 
 			//아이디가 없음
 		}else if(num==-1){
@@ -52,6 +52,9 @@ public class loginCommand implements Command {
 				session.setAttribute("used_point", vo.getUsed_point());
 				
 				out.println("<script>");
+				out.println("alert('오늘도 노크해주셔서 감사합니다 :-)');");
+				out.println("location.href='main.jsp';");
+
 				out.println("alert('로그인성공');");
 				out.println("location.href='" + request.getContextPath() +"/main.jsp';");
 				out.println("</script>");
