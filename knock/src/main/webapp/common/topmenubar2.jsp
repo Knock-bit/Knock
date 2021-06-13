@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function () {
+		var admin = "${knock_admin}";
+		if(admin == 0){
+			
+			$("#myPage").html("관리자페이지");
+			$("#myPage").attr("href","admin/index.jsp");
+		}
+	})
+
+</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <div class="container">
                 <a class="navbar-brand" href="${contextPath }/main.jsp"><img src="${contextPath }/resources/assets/img/knocklogo.png" alt="..." /><img src="${contextPath }/resources/assets/img/knocktext.png" alt="..." /></a>
@@ -27,16 +40,20 @@
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign?type=ingList">캠페인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign/proposalForm.jsp">캠페인 오픈하기</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">커뮤니티</a></li>
-                        <c:if test="${!empty user }">
-                        	<c:if test="${user.admin eq 0 }">
-                        		<li class="nav-item"><a class="nav-link" href="${contextPath }/mypage/mypage.jsp">관리자</a></li>    
-                        	</c:if>
-                        <li class="nav-item"><a class="nav-link" href="${contextPath }/mypage/mypage.jsp">마이페이지</a></li>                        
+                        
+                         
+                        <c:set var="admin" value="${knock_admin }"/>
+                        <c:if test="${!empty user_idx }">
+                        <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do">마이페이지</a></li>  
+                        <li class="nav-item nav-link">${nickname}님 보유포인트: ${total_point - used_point }</li>                      
+                        <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
-          				 <c:if test="${empty user }">
+          				<c:if test="${empty user_idx }">
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/signin/login.jsp">로그인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/signin/regForm.jsp">회원가입</a></li>
-                    	</c:if>
+                    	</c:if>	
+                        
+                    	
                     </ul>
                 </div>
             </div>

@@ -32,8 +32,8 @@
 	${campaignIng.goal }
 	<br>
 	${campaignIng.keyword1 }
-	${campaignIng.keyword1 }
-	${campaignIng.keyword1 }
+	${campaignIng.keyword2 }
+	${campaignIng.keyword3 }
 	
 	</div>
 	<div class="emblem">

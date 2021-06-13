@@ -10,12 +10,15 @@ public class MemberVO {
 	private String nickname;
 	private String email;
 	private String phone;
+	private String total_point;
+	private String used_point;
 	private String birth;
 	private int gender;
 	private String address;
 	private char knock_admin;
 	private char knock_active;
 	private Date last_login_date;
+	private String user_img;
 
 	public MemberVO() {
 		super();
@@ -146,6 +149,27 @@ public class MemberVO {
 		this.last_login_date = last_login_date;
 	}
 
+	
+	
+	
+	public String getUser_img() {
+		return user_img;
+	}
+	public void setUser_img(String user_img) {
+		this.user_img = user_img;
+	}
+	public String getTotal_point() {
+		return total_point;
+	}
+	public void setTotal_point(String total_point) {
+		this.total_point = total_point;
+	}
+	public String getUsed_point() {
+		return used_point;
+	}
+	public void setUsed_point(String used_point) {
+		this.used_point = used_point;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [user_idx=" + user_idx + ", user_id=" + user_id + ", name=" + name + ", pwd=" + pwd

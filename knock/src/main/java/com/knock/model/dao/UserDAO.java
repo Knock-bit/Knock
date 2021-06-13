@@ -15,7 +15,7 @@ import com.knock.mybatis.DBService;
 public class UserDAO {
 
 	// 마이페이지 내 정보
-	public static UserVO myPageList(String user_idx) {
+	public static UserVO myPageList(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		UserVO vo = ss.selectOne("USER.myPageList", user_idx);
 		ss.close();
@@ -50,7 +50,7 @@ public class UserDAO {
 //	}
 
 	// 현재 활동중인 캠페인 목록 가져오기
-	public static List<CampaignIngVO> camIngList(String user_idx) {
+	public static List<CampaignIngVO> camIngList(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> clist = ss.selectList("USER.camIngLists", user_idx);
 		ss.close();

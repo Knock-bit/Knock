@@ -57,8 +57,8 @@
 			 <div class="card h-100">
   <img src="${vo.c_file }" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text"><h2>${vo.title }</h2></p>
-    <p class="text-muted"> ${vo.c_content } &nbsp;&nbsp;#해쉬태그자리</p>
+    <p class="card-text"><h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
+    <p class="text-muted"> ${vo.c_content } &nbsp;&nbsp;# ${vo.keyword1} # ${vo.keyword2}  # ${vo.keyword3}</p>
     <div class="footer">
 	                 <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
 	                 <p class="txt3"><i class="far fa-clock"></i>${endDate - now}일 남았어요<span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>

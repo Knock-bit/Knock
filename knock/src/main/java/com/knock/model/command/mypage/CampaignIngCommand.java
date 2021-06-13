@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.knock.model.command.Command;
 import com.knock.model.dao.UserDAO;
@@ -13,13 +14,18 @@ import com.knock.model.vo.CampaignIngVO;
 
 
 public class CampaignIngCommand implements Command{  
+	int user_idx;
+	HttpSession session;
 	
+	public CampaignIngCommand() {
+	}
 // 페이징 처리 구현
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 캠페인테이블과 연결된 user_idx 및 캠페인 완료날짜 가져오기
-		String user_idx = request.getParameter("user_idx");
+		session =request.getSession();
+        Integer user_idx = (Integer)session.getAttribute("user_idx");
 		System.out.println("아이디엑스갖옴?: " + user_idx);
 		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 
 		System.out.println("caom목록:" + clist);
