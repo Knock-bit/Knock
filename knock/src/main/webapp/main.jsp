@@ -16,17 +16,17 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
-        <script src="./resources/js/scripts.js" crossorigin="anonymous"></script>
+        <script src="${contextPath }/resources/js/scripts.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="./resources/css/styles.css" rel="stylesheet" />
+        <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
-            <%@ include file="./common/topmenubar2.jsp" %>
+            <%@ include file="../common/topmenubar2.jsp" %>
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -40,8 +40,8 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">What is 놐놐?</h2>
+                    <h3 class="section-subheading text-muted">놐놐과 함께 에코 라이프를 실천해요!</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
