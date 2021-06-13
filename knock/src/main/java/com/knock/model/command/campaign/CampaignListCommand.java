@@ -18,6 +18,10 @@ public class CampaignListCommand implements Command {
 		System.out.println("expire 결과:" + CampaignIngDAO.expire());
 		List<CampaignIngVO> campaignIngList = CampaignIngDAO.list();
 		request.setAttribute("campaignIngList", campaignIngList);
+		/*
+		 * List<KeywordVO> keywordList = KeywordDAO.list();
+		 * request.setAttribute("keywordList", keywordList);
+		 */
 		return "campaign/campaignIng.jsp";
 	}
 

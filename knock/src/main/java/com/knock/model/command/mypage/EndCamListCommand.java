@@ -17,9 +17,12 @@ public class EndCamListCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user_idx = request.getParameter("user_idx");
-		List<CampaignIngVO> clist = UserDAO.endList(user_idx);
-		
 		MyCampaignPagingVO p = new MyCampaignPagingVO();
+		
+		// 카테고리 번호 받아와서 카테고리 네임으로 리턴하기
+		
+		
+		
 		
 		// 전체 게시물 수 구하기
 		p.setTotalRecord(UserDAO.getTotalCount(user_idx)); // 전체 게시글 수
@@ -34,11 +37,14 @@ public class EndCamListCommand implements Command{
 		// 현재 페이지에 표시할 게시글 시작번호(begin), 끝번호(end) 구하기
 		p.setEnd(p.getNowPage() * p.getNumberPage());
 		p.setBegin(p.getEnd()-p.getNumberPage()+1);
+
 		
 		// end 페이지 정확히 구하기
 		if(p.getEnd() > p.getTotalRecord()) {
 			p.setEnd(p.getTotalRecord());
 		}
+
+
 		
 		//-------- 블록 계산
 		// 4. 블록으ㅣ 시작페이지, 끝페이지 구하기

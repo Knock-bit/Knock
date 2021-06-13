@@ -35,6 +35,7 @@ public class CampaignNomineeDAO {
 		int result = ss.update("campaign.funding", nomUser);
 		ss.commit();
 		ss.close();
+		
 		return result;
 	}
 

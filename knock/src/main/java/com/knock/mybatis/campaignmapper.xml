@@ -16,10 +16,13 @@
 	
 	<!-- 진행중인 캠페인 목록 불러오기 -->
 	<select id="ingList" resultType="CampaignIngVO">
-		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
+	<!-- 	SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   C_FILE, C_CATEGORY, C_TOTPOINT, EMBLEM, USER_IDX
+        	   C_FILE, C_TOTPOINT, EMBLEM, USER_IDX, KEYWORD_IDX1, KEYWORD_IDX2, KEYWORD_IDX3
+  		  FROM CAMPAIGN_ING WHERE STATUS = 1 -->
+  		SELECT *
   		  FROM CAMPAIGN_ING WHERE STATUS = 1
+  	
   	</select>
 
   	
@@ -39,7 +42,24 @@
 		 WHERE CAMPAIGN_IDX = #{campaign_idx})
   	</select>
   	
-  
+  	
+  	
+  	<select id="cKeyword" parameterType="int" resultType="com.knock.model.vo.CKeywordVO">
+  	<![CDATA[
+  	
+  	(SELECT (SELECT k.k_content
+                  FROM CAMPAIGN_ING C, KEYWORD K
+                 WHERE c.keyword_idx1 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx} ) AS KEYWORD1
+              ,(SELECT K.K_CONTENT AS KEYWORD2
+                  FROM CAMPAIGN_ING C, KEYWORD K
+                 WHERE c.keyword_idx2 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx} ) AS KEYWORD2
+              ,(SELECT K.K_CONTENT AS KEYWORD3
+                  FROM CAMPAIGN_ING C, KEYWORD K
+                 WHERE c.keyword_idx3 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx}) AS KEYWORD3
+                FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX= #{campaign_idx})
+                
+                ]]>
+  	</select>
   	
     	<!-- 캠페인 제안 -->
   	<insert id="proposal" parameterType="ProposalVO">
@@ -102,9 +122,9 @@
 		 WHERE USER_IDX = #{user_idx} AND campaign_idx = #{campaign_idx}
   	</select>
   	
-  	<select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
+  	<!-- <select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
   		SELECT * FROM KEYWORD ORDER BY COUNT DESC
-  	</select>
+  	</select> -->
   	
   	
   	<!--  포인트 리턴해주기

@@ -32,14 +32,23 @@ public class AdminKeywordDAO {
 		return keywordVO;
 	}
 	
-	public static int keywordDel(KeywordVO kvo) {
+	public static void keywordDel(KeywordVO kvo) {
 		String k_content = kvo.getK_content();
-		System.out.println(k_content);
+		System.out.println("del : " + k_content);
 		SqlSession ss = DBService.getFactory().openSession();
-		int result = ss.delete("ADMIN.keywordDel",k_content);
-		System.out.println("keywordDel result : " + result);
+		ss.delete("ADMIN.keywordDel",kvo);
+		System.out.println("잉");
 		ss.commit();
 		ss.close();
+	}
+	
+	public static int keywordDelFull(String k_content) {
+		SqlSession ss = DBService.getFactory().openSession();
+		KeywordVO keywordVO = ss.selectOne("ADMIN.keywordOne", k_content);
+		System.out.println("keywordVO.getK_content : " + keywordVO.getK_content());
+		System.out.println("del_full" + k_content);
+		int result = ss.delete("ADMIN.keywordDel", k_content);
+		System.out.println("dao result  : " + result);
 		return result;
 	}
 }
