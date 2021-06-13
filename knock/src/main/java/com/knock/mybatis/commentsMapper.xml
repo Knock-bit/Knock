@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+	
+	<!-- 게시글 댓글 등록 -->
+	<insert id="insertComments" parameterType="com.knock.model.vo.CommentsVO">
+		INSERT INTO COMMENTS (COMMENT_IDX, COM_CONTENT, BOARD_IDX, USER_IDX, WRITETIME)
+			VALUES (COMMENT_IDX_SEQ.NEXTVAL, #{COM_CONTENT}, #{board_idx}, #{user_idx}, #{writeTime})
+	</insert>
+	
+	<!-- 게시글 댓글 목록 -->
+	<select id="commentsList" parameterType="String" resultType="com.knock.model.vo.CommentsVO">
+		SELECT *
+		  FROM COMMENTS
+		 WHERE BOARD_IDX = #{board_idx}
+		 ORDER BY COMMENT_IDX DESC
+	</select>
+</mapper>

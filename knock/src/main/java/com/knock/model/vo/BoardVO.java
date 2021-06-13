@@ -6,12 +6,12 @@ public class BoardVO {
 	private int board_idx, user_idx, hit, views, b_category,
 				campaign_idx, subtitle_idx;
 	private String subject, b_content,b_file;
-	private Date writedate;
+	private Date writeDate;
 	
 	public BoardVO() {}
 
 	public BoardVO(int board_idx, int user_idx, int hit, int views, int b_category, int campaign_idx, int subtitle_idx,
-			String subject, String b_content, String b_file, Date writedate) {
+			String subject, String b_content, String b_file, Date writeDate) {
 		super();
 		this.board_idx = board_idx;
 		this.user_idx = user_idx;
@@ -23,7 +23,7 @@ public class BoardVO {
 		this.subject = subject;
 		this.b_content = b_content;
 		this.b_file = b_file;
-		this.writedate = writedate;
+		this.writeDate = writeDate;
 	}
 
 	public int getBoard_idx() {
@@ -106,20 +106,27 @@ public class BoardVO {
 		this.b_file = b_file;
 	}
 
-	public Date getWritedate() {
-		return writedate;
+	public Date getWriteDate() {
+		return writeDate;
 	}
 
-	public void setWritedate(Date writedate) {
-		this.writedate = writedate;
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
 	}
 
 	@Override
 	public String toString() {
 		return "BoardVO [board_idx=" + board_idx + ", user_idx=" + user_idx + ", hit=" + hit + ", views=" + views
 				+ ", b_category=" + b_category + ", campaign_idx=" + campaign_idx + ", subtitle_idx=" + subtitle_idx
-				+ ", subject=" + subject + ", b_content=" + b_content + ", b_file=" + b_file + ", writedate="
-				+ writedate + "]";
+				+ ", subject=" + subject + ", b_content=" + b_content + ", b_file=" + b_file + ", writeDate="
+				+ writeDate + "]";
 	}
 	
+	public boolean equals(Object o) {
+		if (o == null || !(o instanceof BoardVO)) {
+			return false;
+		}
+		BoardVO other = (BoardVO)o;
+		return board_idx == other.getBoard_idx();
+	}
 }

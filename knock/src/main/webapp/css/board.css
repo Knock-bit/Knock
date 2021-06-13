@@ -1,0 +1,32 @@
+@charset "UTF-8";
+#board {
+	width:971px;
+	margin:0;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+h1 {
+	color : aqua;
+}
+
+table {
+	width: 100%
+}
+table td,th {
+	border: 1px solid #d3d3d3
+}
+
+th {
+	background: yellowgreen;
+	width: 120px;
+}
+a {
+	text-decoration: none;
+	color:black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: green;
+}
