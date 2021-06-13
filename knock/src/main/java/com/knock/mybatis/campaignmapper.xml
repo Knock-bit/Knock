@@ -44,7 +44,7 @@
   	
   	
   	
-  	<select id="cKeyword" parameterType="int" resultType="com.knock.model.vo.CKeywordVO">
+  	<!-- <select id="cKeyword" parameterType="int" resultType="com.knock.model.vo.CKeywordVO">
   	<![CDATA[
   	
   	(SELECT (SELECT k.k_content
@@ -59,7 +59,7 @@
                 FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX= #{campaign_idx})
                 
                 ]]>
-  	</select>
+  	</select> -->
   	
     	<!-- 캠페인 제안 -->
   	<insert id="proposal" parameterType="ProposalVO">
