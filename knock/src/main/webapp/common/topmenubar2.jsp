@@ -7,9 +7,12 @@
 	$(function () {
 		var admin = "${knock_admin}";
 		if(admin == 0){
-			
-			$("#myPage").html("관리자페이지");
-			$("#myPage").attr("href","admin/index.jsp");
+			/* <a href="${contextPath }/admin?type=adminUserList">회원관리</a>
+			<a href="${contextPath }/admin?type=adminKeyword">키워드관리</a> */
+			$("#myPage").html("회원관리");
+			$("#myPage").attr("href","${contextPath }/admin?type=adminUserList");
+			$("#admin").html("키워드관리");
+			$("#admin").attr("href","${contextPath }/admin?type=adminKeyword");
 		}
 	})
 
@@ -45,7 +48,7 @@
                         <c:set var="admin" value="${knock_admin }"/>
                         <c:if test="${!empty user_idx }">
                         <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do">마이페이지</a></li>  
-                        <li class="nav-item nav-link">${nickname}님 보유포인트: ${total_point - used_point }</li>                      
+                        <li class="nav-item" ><a id="admin" class="nav-link" href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
                         <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
           				<c:if test="${empty user_idx }">
