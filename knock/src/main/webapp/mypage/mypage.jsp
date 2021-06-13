@@ -60,7 +60,7 @@
                 <div class="photobox">
                     <!--사진 들어가는 곳-->
                     <div class="myPhoto">
-                        <img id="myprofilPhoto" src="${vo.user_img}" width="120" height="150">
+                        <img id="myprofilPhoto" src="${user.user_img}" width="120" height="150">
                     </div>
 
                 </div>
@@ -68,39 +68,39 @@
                     <table>
                         <tr>
                             <th>이름</th>
-                            <td>${vo.name }</td>
+                            <td>${user.name }</td>
                         </tr>
                         <tr>
                             <th>닉네임</th>
-                            <td>${vo.nickname }</td>
+                            <td>${user.nickname }</td>
                         </tr> 
                         <tr>
-                        <fmt:formatDate var="myBirth" value="${vo.birth}" pattern="yyyy.MM.dd"/>
+                        <fmt:formatDate var="myBirth" value="${user.birth}" pattern="yyyy.MM.dd"/>
                             <th>생년월일</th>
                             <td>${myBirth } </td>
                         </tr>
                         <tr>
                             <th>핸드폰</th>
-                            <td>${vo.phone }</td>
+                            <td>${user.phone }</td>
                         </tr>
                          <tr>
                             <th>이메일</th>
-                            <td>${vo.email}</td>
+                            <td>${user.email}</td>
                         </tr>	
                         <tr>
                             <th>주소</th>
-                            <td>${vo.address}</td>
+                            <td>${user.address}</td>
                         </tr>
                         <tr>
-                        <fmt:formatDate var="myjoindate" value="${vo.joindate}" pattern="yyyy.MM.dd"/>
+                        <fmt:formatDate var="myjoindate" value="${user.joindate}" pattern="yyyy.MM.dd"/>
                             <th>가입일</th>
                             <td>${myjoindate}</td>
                         </tr> 
                         <tr>
-                        <c:if test="${vo.gender==0 }">
+                        <c:if test="${user.gender==0 }">
                         	<c:set var="gender" value="Man"> </c:set>
                         </c:if>
-                        <c:if test="${vo.gender==1 }">
+                        <c:if test="${user.gender==1 }">
                         	<c:set var="gender" value="Woman"> </c:set>
                         </c:if>
                             <th>성별</th>

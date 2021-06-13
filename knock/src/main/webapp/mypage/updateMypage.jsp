@@ -197,20 +197,20 @@ $(function(){
                             </div>
                             <div>
                                 <p>이름</p>
-                                <input type="text" name="name" value="${vo.name}" disabled="disabled"><br>
+                                <input type="text" name="name" value="${user.name}" disabled="disabled"><br>
 
                                 <p>이메일</p>
-                                <input type="text" name="email" value="${vo.email }"><br>
+                                <input type="text" name="email" value="${user.email }"><br>
 
                                 <p>생년월일</p>
-                                <fmt:formatDate var="myBirth" value="${vo.birth}" pattern="yyyy.MM.dd"/>
+                                <fmt:formatDate var="myBirth" value="${user.birth}" pattern="yyyy.MM.dd"/>
                                 <input type="text" name="birth" value="${myBirth}" disabled="disabled"><br>
 
                                 <p>성별</p>
-                                	<c:if test="${vo.gender==0 }">
+                                	<c:if test="${user.gender==0 }">
 			                        	<c:set var="gender" value="Man"> </c:set>
 			                        </c:if>
-			                        <c:if test="${vo.gender==1 }">
+			                        <c:if test="${user.gender==1 }">
 			                        	<c:set var="gender" value="Woman"> </c:set>
 			                        </c:if>
                                 	<input type="text" name="gender" value="${gender}" disabled="disabled">
@@ -224,7 +224,7 @@ $(function(){
                         <div class="photoZone">
                             <div class="myphoto">
                                 
-                                <img id="preview" src="${vo.user_img }" width=180 height=200>
+                                <img id="preview" src="${user.user_img }" width=180 height=200>
                                 <input type="file" name="imageFileName" onchange="readURL(this);" >
 
                             

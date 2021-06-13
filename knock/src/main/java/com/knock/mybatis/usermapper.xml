@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="USER">
 	
-	<select id="myPageList" parameterType="string" resultType="com.knock.model.vo.UserVO">
+	<select id="myPageList" parameterType="int" resultType="com.knock.model.vo.UserVO">
 		SELECT * FROM USERS WHERE USER_IDX = #{user_idx}
 	</select>
 	
@@ -15,24 +15,24 @@
 
 	</update>
 	
-	<delete id="deleteUser" parameterType="string">
+	<delete id="deleteUser" parameterType="int">
 		DELETE FROM USERS WHERE USER_IDX = #{user_idx}
 	
 	</delete>
 	
-	<select id="camIngLists" parameterType="string" resultType="com.knock.model.vo.CampaignIngVO">
+	<select id="camIngLists" parameterType="int" resultType="com.knock.model.vo.CampaignIngVO">
 		SELECT * 
 		FROM CAMPAIGN_ING A, CAMPAIGN_CATEGORY B 
 		WHERE A.C_CATEGORY = B.C_CATEGORY 
 		AND STATUS=1 AND USER_IDX = #{user_idx}
 	</select>
 	
-	<select id="ccvo" parameterType="string" resultType="com.knock.model.vo.CampaignIngVO">
+	<select id="ccvo" parameterType="int" resultType="com.knock.model.vo.CampaignIngVO">
 		SELECT * FROM CAMPAIGN_ING WHERE campaign_idx = #{campaign_idx}
 	
 	</select>
 
-	<select id="totalCount" parameterType="string" resultType="int">
+	<select id="totalCount" parameterType="int" resultType="int">
 		 SELECT COUNT(*) FROM CAMPAIGN_ING WHERE STATUS=0 AND USER_IDX = #{user_idx}
 	
 	</select>

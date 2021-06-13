@@ -25,8 +25,8 @@ public class LoginController extends HttpServlet{
 		String type = req.getParameter("type");
 		System.out.println("로그인타입? "+type);
 		if(type.equals("login")) {
-			command = new loginCommand();
 			System.out.println("로그인커맨드 가기직전");
+			command = new loginCommand();
 			command.exec(req, resp);
 		};
 		
