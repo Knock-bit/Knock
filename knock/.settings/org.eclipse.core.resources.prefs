@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/knock/mybatis/DBService.java=UTF-8
 encoding//src/main/webapp/common/footer2.jsp=UTF-
-encoding//src/main/webapp/signin/loginCheck.jsp=UTF-8
+encoding//src/main/webapp/signin/joinMember.jsp=UTF-8
+encoding//src/main/webapp/signin/tnc.jsp=UTF-8

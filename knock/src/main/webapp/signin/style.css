@@ -123,16 +123,16 @@ display:inline;
 display:inline;
 }
 
-input[type=submit]{
-	width: 30%;
-	display:inline;
+	input[type=submit]{
+		width: 30%;
+		display:inline;
+		
+	}
 	
-}
-
-input[type=reset]{
-	width: 30%;
-	display:inline;
-}
+	input[type=reset]{
+		width: 30%;
+		display:inline;
+	}
 
 #confirm_type {
   margin-bottom: 30px; }
