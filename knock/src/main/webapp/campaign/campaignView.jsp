@@ -31,7 +31,9 @@
 	<div class="camp2">
 	${campaignIng.goal }
 	<br>
-	키워드는 어렵다
+	${keywordList.keyword1 } 
+	${keywordList.keyword2 } 
+	
 	</div>
 	<div class="emblem">
 	엠블럼 자리

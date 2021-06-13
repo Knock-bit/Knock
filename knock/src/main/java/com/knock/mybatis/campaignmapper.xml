@@ -46,17 +46,20 @@
   	
   	
   	
-  	<select id="keywords" parameterType="int" resultType="string">
-  		(SELECT (SELECT k.k_content
+  	<select id="cKeyword" parameterType="int" resultType="com.knock.model.vo.CKeywordVO">
+  	<!-- 	(SELECT (SELECT k.k_content
                   FROM CAMPAIGN_ING C, KEYWORD K
                  WHERE c.keyword_idx1 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx} ) AS KEYWORD1
               ,(SELECT K.K_CONTENT AS KEYWORD2
                   FROM CAMPAIGN_ING C, KEYWORD K
-                 WHERE c.keyword_idx2 = k.keyword_idx AND C.CAMPAIGN_IDX=2) AS KEYWORD2
+                 WHERE c.keyword_idx2 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx} ) AS KEYWORD2
               ,(SELECT K.K_CONTENT AS KEYWORD3
                   FROM CAMPAIGN_ING C, KEYWORD K
-                 WHERE c.keyword_idx3 = k.keyword_idx AND C.CAMPAIGN_IDX=2) AS KEYWORD3
-                FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX=2);
+                 WHERE c.keyword_idx3 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx}) AS KEYWORD3
+                FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX= #{campaign_idx}) -->
+                SELECT * FROM CKEYWORDS
+                
+                
   	</select>
   	
     	<!-- 캠페인 제안 -->
@@ -120,9 +123,9 @@
 		 WHERE USER_IDX = #{user_idx} AND campaign_idx = #{campaign_idx}
   	</select>
   	
-  	<select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
+  	<!-- <select id="keywordList" resultType="com.knock.model.vo.KeywordVO">
   		SELECT * FROM KEYWORD ORDER BY COUNT DESC
-  	</select>
+  	</select> -->
   	
   	
   	<!--  포인트 리턴해주기

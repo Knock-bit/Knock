@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.knock.model.command.Command;
 import com.knock.model.dao.CampaignIngDAO;
+import com.knock.model.dao.KeywordDAO;
 import com.knock.model.vo.CampaignIngVO;
+import com.knock.model.vo.KeywordVO;
 
 public class CampaignListCommand implements Command {
 
@@ -18,6 +20,10 @@ public class CampaignListCommand implements Command {
 		System.out.println("expire 결과:" + CampaignIngDAO.expire());
 		List<CampaignIngVO> campaignIngList = CampaignIngDAO.list();
 		request.setAttribute("campaignIngList", campaignIngList);
+		/*
+		 * List<KeywordVO> keywordList = KeywordDAO.list();
+		 * request.setAttribute("keywordList", keywordList);
+		 */
 		return "campaign/campaignIng.jsp";
 	}
 
