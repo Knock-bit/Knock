@@ -214,6 +214,8 @@ public class CampaignIngVO {
 
 	public void setKeyword3(String keyword3) {
 		this.keyword3 = keyword3;
+		
+	}
 	public String getC_category_name() {
 		return c_category_name;
 	}
