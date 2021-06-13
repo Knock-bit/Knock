@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<!-- 게시글 등록 -->
+	<insert id="insertBoard" parameterType="com.knock.model.vo.BoardVO">
+		INSERT INTO BOARD (BOARD_IDX, SUBJECT, B_CONTENT, USER_IDX, WRITEDATE, HIT, VIEWS
+							B_CATEGORY, B_FILE, CAMPAIGN_IDX, SUBTITLE_IDX)
+				VALUES (BOARD_IDX_SEQ.NEXTVAL, #{subject}, #{b_content}, 
+				 		#{user_idx}, #{writeDate}, #{hit}, #{views}, #{b_category}, #{b_file}
+				 		#{campaign_idx}, #{subtitle_idx})
+	</insert>
+	
+	<!-- 자유게시판 목록 -->
+	<select id="list" resultType="com.knock.model.vo.BoardVO" parameterType="map">
+		SELECT *
+		  FROM (SELECT ROWNUM AS R_NUM, BOARD.*
+		  		  FROM ( SELECT * FROM BOARD ORDER BY BOARD_IDX DESC ) BOARD )
+		 WHERE R_NUM BETWEEN #{begin} and #{end}	
+	</select>
+	
+	<!-- 게시글 상세보기 -->
+	<select id="one" parameterType="String" resultType="BoardVO">
+		SELECT * FORM BOARD WHERE BOARD_IDX = #{board_idx}
+	</select>
+	
+	<!-- 전체 게시글 조회(페이징 처리를 위해) -->
+	<select id="totalCount" resultType="Integer">
+		SELECT COUNT(*) AS CNT FROM BOARD
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="BoardVO">
+		UPDATE BOARD
+		   SET USER_IDX = #{user_idx},
+		   		SUBJECT = #{subject},
+		   		B_CONTENT = #{b_content},
+		   		B_FILE = #{b_file}
+		 WHERE BOARD_IDX = #{board_idx}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM BOARD WHERE BOARD_IDX = #{board_idx}
+	</delete>
+	
+	<!-- 조회수 처리 -->
+	<select id="updateHit" parameterType="String">
+		UPDATE BOARD 
+		   SET HIT = HIT + 1
+		 WHERE BOARD_IDX = {board_idx}
+	</select>
+</mapper>
