@@ -38,12 +38,10 @@ public class AdminKeywordDel implements Command {
 					// JSON으로 받은 k_content 데이터 가져온 후 String으로 형변환
 					jsonObject = (JSONObject) dataArray.get(i);
 					String k_content = (String) jsonObject.get("data");
-					kvo = AdminKeywordDAO.getKeywordOne(k_content);
-					int result = AdminKeywordDAO.keywordDel(kvo);
-					System.out.println("삭제결과 : " + result);
-					if (result == 0) {
-						message = "삭제실패";
-					}
+//					kvo = AdminKeywordDAO.getKeywordOne(k_content);
+//					AdminKeywordDAO.keywordDel(kvo);
+					int result = AdminKeywordDAO.keywordDelFull(k_content);
+					System.out.println("result : " + result);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

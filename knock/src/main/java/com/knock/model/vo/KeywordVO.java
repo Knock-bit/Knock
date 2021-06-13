@@ -1,6 +1,7 @@
 package com.knock.model.vo;
 
 public class KeywordVO {
+	private String k_idx;
 	private int keyword_idx;
 	private String k_content;
 	private int count;
@@ -29,6 +30,16 @@ public class KeywordVO {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	
+
+
+	public String getK_idx() {
+		return k_idx;
+	}
+
+	public void setK_idx(String k_idx) {
+		this.k_idx = k_idx;
 	}
 
 	@Override
