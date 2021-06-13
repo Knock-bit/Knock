@@ -10,6 +10,7 @@
 	</insert>
 	<select id="loginIdCheck" resultType="com.knock.model.vo.MemberVO"  parameterType="com.knock.model.vo.MemberVO">
 		SELECT * FROM USERS WHERE USER_ID=#{user_id}
+		<!-- SELECT USER_ID, NAME, NICKNAME, KNOCK_ACTIVE, KNOCK_ADMIN FROM USERS WHERE USER_ID=#{user_id} -->
 	</select>
 	<select id="idCheck" resultType="String" parameterType="String">
 		SELECT NAME FROM USERS WHERE USER_ID=#{user_id}

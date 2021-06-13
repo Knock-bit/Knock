@@ -18,6 +18,7 @@ import com.knock.model.command.campaign.ParticipateCommand;
 import com.knock.model.command.campaign.FundingCommand;
 import com.knock.model.command.campaign.ProposalCommand;
 import com.knock.model.command.campaign.TempCommand;
+import com.knock.model.vo.UserVO;
 
 @WebServlet("/campaign")
 public class CampaignController extends HttpServlet{
@@ -42,10 +43,11 @@ public class CampaignController extends HttpServlet{
         session = request.getSession();
         System.out.println(">> FrontController.doPost() 실행");
         
+//        int user_idx = (Integer)session.getAttribute("user_idx");
         int user_idx = -1;
         Object val = session.getAttribute("user_idx");
         if(val != null){
-        	user_idx= (Integer) val;
+           user_idx= (Integer) val;
         }
 
 		String type = request.getParameter("type");

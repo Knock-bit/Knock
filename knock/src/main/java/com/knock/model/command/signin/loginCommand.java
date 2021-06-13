@@ -42,15 +42,21 @@ public class loginCommand implements Command {
 		}else if(num==-1){
 			//아이디는 있을때 -> 비밀번호 체크
 			if(vo.getPwd().equals(pwd)) {
-				session.setAttribute("vo", vo);
 				System.out.println("로그인성공"); 
 				//비밀번호 일치->로그인
-				session.setAttribute("id", vo.getUser_id());
-				session.setAttribute("name", vo.getName());
+				System.out.println("knockadmin:" + vo.getKnock_admin());
+				session.setAttribute("user_idx", vo.getUser_idx());
+				session.setAttribute("knock_admin", vo.getKnock_admin());
+				session.setAttribute("nickname", vo.getName());
+				session.setAttribute("totalpoint", vo.getTotal_point());
+				session.setAttribute("used_point", vo.getUsed_point());
+				
 				out.println("<script>");
 				out.println("alert('오늘도 노크해주셔서 감사합니다 :-)');");
 				out.println("location.href='main.jsp';");
 
+				out.println("alert('로그인성공');");
+				out.println("location.href='" + request.getContextPath() +"/main.jsp';");
 				out.println("</script>");
 				
 				return "location.href='/main.jsp';"; 
