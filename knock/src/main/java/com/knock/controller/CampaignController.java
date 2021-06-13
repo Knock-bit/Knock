@@ -43,12 +43,8 @@ public class CampaignController extends HttpServlet{
         session = request.getSession();
         System.out.println(">> FrontController.doPost() 실행");
         
-//        int user_idx = (Integer)session.getAttribute("user_idx");
-        int user_idx = -1;
-        Object val = session.getAttribute("user_idx");
-        if(val != null){
-           user_idx= (Integer) val;
-        }
+        int user_idx = (Integer)session.getAttribute("user_idx");
+        
 
 		String type = request.getParameter("type");
 		System.out.println("> type: " + type);
