@@ -19,6 +19,9 @@
 		<typeAlias type="com.knock.model.vo.NomUserVO"
 			alias="NomUserVO"></typeAlias>
 		<!-- 여기까지 campaign -->
+		
+		<typeAlias type="com.knock.model.vo.BoardVO"
+			alias="BoardVO"></typeAlias>
 			
 			
 			
@@ -37,7 +40,7 @@
 	</environments>
 	
 	<mappers>
+		<mapper resource="com/knock/mybatis/boardMapper.xml" />
 		<mapper resource="com/knock/mybatis/campaignmapper.xml" />
-		<!-- <mapper resource="com/knock/mybatis/mapper.xml" /> -->
 	</mappers>
 </configuration>
