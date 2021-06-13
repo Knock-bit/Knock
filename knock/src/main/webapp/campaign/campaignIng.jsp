@@ -32,7 +32,9 @@
 		 	<h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title } </a></h2>
 		 	<div>${vo.c_content }</div>
 		 	<div>${endDate - now}일 남았어요<br> 종료일:${endDate }</div>
-		 	${keywordList.keyword1 }
+		  	${vo.keyword1 }
+		 	${vo.keyword2 }
+		 	${vo.keyword3 }
 	 </div>
 	 </c:forEach>
 	</c:if>

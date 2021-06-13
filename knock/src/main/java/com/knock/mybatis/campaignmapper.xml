@@ -20,9 +20,7 @@
         	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
         	   C_FILE, C_TOTPOINT, EMBLEM, USER_IDX, KEYWORD_IDX1, KEYWORD_IDX2, KEYWORD_IDX3
   		  FROM CAMPAIGN_ING WHERE STATUS = 1 -->
-  		SELECT CAMPAIGN_IDX, TITLE, C_CONTENT, 
-        	   GOAL, END_DATE, BASE_POINT, ESTIMATED_POINT, 
-        	   C_FILE, C_TOTPOINT, EMBLEM, USER_IDX, KEYWORD_IDX1, KEYWORD_IDX2, KEYWORD_IDX3
+  		SELECT *
   		  FROM CAMPAIGN_ING WHERE STATUS = 1
   	
   	</select>
@@ -47,7 +45,9 @@
   	
   	
   	<select id="cKeyword" parameterType="int" resultType="com.knock.model.vo.CKeywordVO">
-  	<!-- 	(SELECT (SELECT k.k_content
+  	<![CDATA[
+  	
+  	(SELECT (SELECT k.k_content
                   FROM CAMPAIGN_ING C, KEYWORD K
                  WHERE c.keyword_idx1 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx} ) AS KEYWORD1
               ,(SELECT K.K_CONTENT AS KEYWORD2
@@ -56,10 +56,9 @@
               ,(SELECT K.K_CONTENT AS KEYWORD3
                   FROM CAMPAIGN_ING C, KEYWORD K
                  WHERE c.keyword_idx3 = k.keyword_idx AND C.CAMPAIGN_IDX= #{campaign_idx}) AS KEYWORD3
-                FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX= #{campaign_idx}) -->
-                SELECT * FROM CKEYWORDS
+                FROM CAMPAIGN_ING WHERE CAMPAIGN_IDX= #{campaign_idx})
                 
-                
+                ]]>
   	</select>
   	
     	<!-- 캠페인 제안 -->

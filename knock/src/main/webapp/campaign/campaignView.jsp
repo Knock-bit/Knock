@@ -31,8 +31,9 @@
 	<div class="camp2">
 	${campaignIng.goal }
 	<br>
-	${keywordList.keyword1 } 
-	${keywordList.keyword2 } 
+	${campaignIng.keyword1 }
+	${campaignIng.keyword1 }
+	${campaignIng.keyword1 }
 	
 	</div>
 	<div class="emblem">
