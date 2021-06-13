@@ -49,9 +49,10 @@ public class loginCommand implements Command {
 				session.setAttribute("name", vo.getName());
 				out.println("<script>");
 				out.println("alert('로그인성공');");
+				out.println("location.href='" + request.getContextPath() +"/main.jsp';");
 				out.println("</script>");
 				
-				return "location.href='signin/main.jsp';"; 
+				return "location.href='../main.jsp';"; 
 			}else {
 				//로그인안된거니까--> 메인페이지로..?
 	 			System.out.println("비밀번호오류");
