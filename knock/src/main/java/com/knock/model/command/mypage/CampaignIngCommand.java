@@ -41,7 +41,8 @@ public class CampaignIngCommand implements Command{
 			sb.append("\"emblem\": \"" + vo.getEmblem() + "\",");
 			sb.append("\"user_idx\": \"" + vo.getUser_idx() + "\",");
 			sb.append("\"c_category\": \"" + vo.getC_category() + "\",");
-			sb.append("\"c_totpoint\":" + vo.getC_totpoint());
+			sb.append("\"c_category_name\": \"" + vo.getC_category_name() + "\",");
+			sb.append("\"c_totpoint\":" + vo.getC_totpoint());	
 			sb.append("},");
 
 		}

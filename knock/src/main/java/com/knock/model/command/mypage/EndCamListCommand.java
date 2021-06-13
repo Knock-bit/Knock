@@ -17,7 +17,6 @@ public class EndCamListCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user_idx = request.getParameter("user_idx");
-		List<CampaignIngVO> clist = UserDAO.endList(user_idx);
 		MyCampaignPagingVO p = new MyCampaignPagingVO();
 		
 		// 카테고리 번호 받아와서 카테고리 네임으로 리턴하기
@@ -38,11 +37,14 @@ public class EndCamListCommand implements Command{
 		// 현재 페이지에 표시할 게시글 시작번호(begin), 끝번호(end) 구하기
 		p.setEnd(p.getNowPage() * p.getNumberPage());
 		p.setBegin(p.getEnd()-p.getNumberPage()+1);
+
 		
 		// end 페이지 정확히 구하기
 		if(p.getEnd() > p.getTotalRecord()) {
 			p.setEnd(p.getTotalRecord());
 		}
+
+
 		
 		//-------- 블록 계산
 		// 4. 블록으ㅣ 시작페이지, 끝페이지 구하기
@@ -59,14 +61,11 @@ public class EndCamListCommand implements Command{
 		// 현재 페이지 기준으로 db 데이터 가져오기
 		List<CampaignIngVO> cclist = UserDAO.getEndList(p.getBegin(), p.getEnd(), user_idx);
 		System.out.println("cclist: " + cclist);
-		for(CampaignIngVO vo : clist) {
-			System.out.println("카테고리 이름 : " + vo.getC_category_name() );
-		}
+		
 		
 		
 		request.setAttribute("pvo", p);
 		request.setAttribute("cclist", cclist);
-		request.setAttribute("cclist", clist);
 		return "/mypage/end_campaign.jsp";
 	}
 
