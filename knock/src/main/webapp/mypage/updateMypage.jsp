@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +52,8 @@ $(function(){
 		} else {
 			$(".successPwd").html("비밀번호가 일치합니다.<br><br>");
 			$(".successPwd").css("color","blue");
+			$(".upBtn").attr("disabled",false);
+			$(".insertPw").css("display","none");
 		}
 	});
 	
@@ -69,12 +73,12 @@ $(function(){
     
     
     function submitInfo(frm){
-    	frm.action="userctr?type=updateMyInfo.do";
+    	frm.action="${contextPath }/userctr?type=updateMyInfo.do";
     	frm.submit();
     }
 
     function deleteUser(frm){
-        frm.action="userctr?type=deleteUserBtn.do";
+        frm.action="${contextPath }/userctr?type=deleteUserBtn.do";
         frm.submit();
     }
 
@@ -146,6 +150,7 @@ $(function(){
     
     .infoSubmit input{
     	height:5vh
+    	
     }
     
     .photoZone {
@@ -174,7 +179,7 @@ $(function(){
 			</div>
 			<div class="dan2">
                 <div class="update_form">
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="infoZone">
                             <div>
                                 <p>아이디</p>
@@ -202,11 +207,18 @@ $(function(){
                                 <input type="text" name="birth" value="${myBirth}" disabled="disabled"><br>
 
                                 <p>성별</p>
-                                	<input type="text" name="gender" value="${vo.gender}" disabled="disabled">
+                                	<c:if test="${vo.gender==0 }">
+			                        	<c:set var="gender" value="Man"> </c:set>
+			                        </c:if>
+			                        <c:if test="${vo.gender==1 }">
+			                        	<c:set var="gender" value="Woman"> </c:set>
+			                        </c:if>
+                                	<input type="text" name="gender" value="${gender}" disabled="disabled">
                             </div>
                             <br><br>
                             <div class="infoSubmit">
-                                <input type="button" value="정보 수정하기" onclick="submitInfo(this.form)">
+                                <input type="button" class="upBtn" value="정보 수정하기" onclick="submitInfo(this.form)" disabled>
+                            	<p class="insertPw" style="font-size:11px; width:100%; text-align:center;">비밀번호를 입력해주세요</p>
                             </div>
                         </div>
                         <div class="photoZone">

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.knock.model.command.Command;
+import com.knock.model.command.signin.MemberIdChkCommand;
+import com.knock.model.command.signin.UserJoinCommand;
 import com.knock.model.vo.MemberVO;
 
 @WebServlet("/signin/join")
@@ -19,6 +22,7 @@ public class UserJoinController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getParameter("utf-8");
 		
+		Command command = null;
 		String id = req.getParameter("user_id");
 		String pwd = req.getParameter("pwd");
 		String name = req.getParameter("name");
@@ -39,5 +43,9 @@ public class UserJoinController extends HttpServlet{
 		vo.setBirth(birth);
 		vo.setGender(gender);
 		vo.setAddress(address);	
+		command = new UserJoinCommand();
+
+		command.exec(req, resp);
+		
 	}	
 }

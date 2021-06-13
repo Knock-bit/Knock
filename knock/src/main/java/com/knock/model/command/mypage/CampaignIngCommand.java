@@ -20,7 +20,9 @@ public class CampaignIngCommand implements Command{
 		
 		// 캠페인테이블과 연결된 user_idx 및 캠페인 완료날짜 가져오기
 		String user_idx = request.getParameter("user_idx");
+		System.out.println("아이디엑스갖옴?: " + user_idx);
 		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 
+		System.out.println("caom목록:" + clist);
 
 		// json데이터 만들기
 		StringBuilder sb = new StringBuilder();
@@ -39,7 +41,8 @@ public class CampaignIngCommand implements Command{
 			sb.append("\"emblem\": \"" + vo.getEmblem() + "\",");
 			sb.append("\"user_idx\": \"" + vo.getUser_idx() + "\",");
 			sb.append("\"c_category\": \"" + vo.getC_category() + "\",");
-			sb.append("\"c_totpoint\":" + vo.getC_totpoint());
+			sb.append("\"c_category_name\": \"" + vo.getC_category_name() + "\",");
+			sb.append("\"c_totpoint\":" + vo.getC_totpoint());	
 			sb.append("},");
 
 		}

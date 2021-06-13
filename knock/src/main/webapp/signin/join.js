@@ -20,7 +20,7 @@ $(document).ready(function(){
 						
 					} else if (data == "NULL") {
 						alert("입력된 아이디가 없습니다.\n아이디를 입력해주세요.");
-			$("#submit").removeAttr("disabled");
+						//회원가입 버튼 비활성화 시키는 법
 					}
 				},
 				error : function() {
@@ -30,22 +30,35 @@ $(document).ready(function(){
 
 		} else {
 			alert("잘못된 형식의 아이디입니다.\n다시 입력해주세요.");
-			$("#submit").attr("disabled");
-			
 		}
 	});
 	
 	//비밀번호 체크
+$("#pwd1").on('focusout',function(){
+var pwd = $("#pwd").val();
+ var num = pwd.search(/[0-9]/g);
+ var eng = pw.search(/[a-z]/ig);
 
- 	$('#pwd').on('focusout',function(){
- 		var passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+var passwordRules = pwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
- 		var pwd = $("#pwd").val();
- 		console.log(passwordRules.test(pwd));
- 	 	
- 		if(passwordRules.test(pwd)==true || passwordRules.test(pwd2) ==true){
-		console.log("pwd: "+$("#pwd").val());
-		console.log("pwd2: "+ $("#pwd2").val());
+ if(pwd.length <  6|| pwd.length > 16){
+  alert("6자리 ~ 16자리 이내로 입력해주세요.");
+  return false;
+ }else if(pwd.search(/\s/) != -1){
+  alert("비밀번호는 공백 없이 입력해주세요.");
+  return false;
+ }else if( (num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ){
+  alert("영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.");
+  return false;
+ }else {
+	console.log("통과");	 
+ }
+ 
+
+});
+
+
+$('#pwd2').on('blur',function(){
  			if($("#pwd").val() == $("#pwd2").val()){
 				//비밀번호 일치하는 경우
 				$('#pwd').css({
@@ -61,8 +74,6 @@ $(document).ready(function(){
 				$('.pwdSuccess').html("일치");
 				$('#pwd2').off('keyup');
 				$('.pwdSuccess').hide();
-				$("#submit").removeAttr("disabled");
-				
  			}else{
 				//비밀번호가 일치하지 않는 경우
 				$('#pwd').css({
@@ -76,29 +87,30 @@ $(document).ready(function(){
 				    'border': "0.7px solid balck"
 				   });
 				$('.pwdSuccess').html("비밀번호가 일치하지 않습니다.");
-				$("#submit").attr("disabled");
-				//쓴 비밀번호 지우고 그자리 그대로 커서있게하는거 어떻게하더라?
+				//회원가입 버튼 비활성화 시키는 법
    			} 
  			
 		
- 	}else{
- 		alert("비밀번호는 영문 대소문자 혼합(최소 대문자1개), 숫자(최소1개)가 포함되어야 합니다.\n(특수문자 사용불가)");
- 	}
+ 	
  });	
 	
-	$('#email').on('focusout', function(){
+	$('#emailchk').on('click', function(){
  
 		var emailPattern =/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; 
 		var email = $("#email").val();
+		console.log("email: "+email);
  		console.log(emailPattern.test(email)); 
  		if(emailPattern.test(email) ==true){
+ 			console.log("올바른 이메일 형식");
  
  			$.ajax("checkemail", {
 				type : "post",
 				data : "type=emailchk&email=" + $("#email").val(),
 
 				success : function(data) {
+					console.log("이메일 사용여부Y/N : " + data);
 					if (data == "Y") {
+						console.log("이메일체크okay");
 						$(".emailSuccess").hide();
 					} else{
 						alert("이미 가입된 이메일입니다.\n다시 확인해주시기 바랍니다.");
@@ -122,12 +134,8 @@ $(document).ready(function(){
 		
 		if(namePattern.test(name) ==false){
 			$(".nameSuccess").html("이름은 한글만 입력 가능합니다.");			
-			$("#submit").attr("disabled");
-			
 		}else{
 			$(".nameSuccess").hide();
-			$("#submit").removeAttr("disabled");
-			
 		}
 		
 	});
@@ -138,11 +146,8 @@ $(document).ready(function(){
 		
 		if(phonePattern.test(phone)==false){
 	 		$(".phoneSuccess").html("올바른 형식의 전화번호를 써주세요");
-	 		$("#submit").attr("disabled");
 		}else{
 	 		$(".phoneSuccess").hide();
-	 		$("#submit").removeAttr("disabled");
-	 		
 		}
 	});
 
@@ -158,9 +163,7 @@ $(document).ready(function(){
 		var date = $("#birth").val();
 		var birthPattern = /^(19|20)[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
 		console.log(birthPattern.test(date));
-		if(birthPattern.test(date)==false){
-			$("#birthSuccess").html("올바른 생년월일을 입력해주세요.");
-		}else if(birthPattern.test(date)==true){
+		if(birthPattern.test(date)==true){
 		date = date.replace(RegNotNum, ''); // 숫자만 남기기
 			if (date == "" || date == null || date.length < 5) {
 			this.value = date;
@@ -180,6 +183,8 @@ $(document).ready(function(){
 	
 		date = date.replace(RegPhonNum, DataFormat);
 		this.value = date;	
+		console.log(date);
+
 
 		if(date.length==10){
 			var isVaild = true;
@@ -205,10 +210,19 @@ $(document).ready(function(){
 			}
 			if (last.getDate() < parseInt(date_sp[2])) {
 				isVaild = false;
-				}
 			}
 		}
-		
+
+		if (!isVaild) {
+			$("#birthSuccess").html("잘못된 날짜입니다. 다시 입력해주세요.");
+				this.value = "";
+				
+			}else{
+			$("#birthSuccess").hide();
+			}
+		}else if(birthPattern.test(date)==false){
+			alert("숫자만 입력해주세요");
+		}		
 		var date = new Date();
 			var year = date.getFullYear();
 			var month = (date.getMonth() + 1);
@@ -217,9 +231,9 @@ $(document).ready(function(){
 			if (day < 10) day = '0' + day;
 			var monthDay = month + day;
 			birth = $("#birth").val();
-			var birthyear = birth.substr(0, 4);
+			var birtyear = birth.substr(0, 4);
 			var birthdaymd = birth.substr(4, 4);
-			var age = monthDay < birthdaymd ? year - birthyear - 1 : year - birthyear;
+			var age = monthDay < birthdaymd ? year - birtyear - 1 : year - birtyear;
 			
 			console.log(age);
 				if(age<18){
@@ -228,6 +242,7 @@ $(document).ready(function(){
 					window.location.href="main.jsp";
 					$("#birthSuccess").hide();
 				}
+			
 		}
 	});
 

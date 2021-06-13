@@ -18,12 +18,13 @@ public class CampaignIngVO {
 	int user_idx;
 	String emblem;
 	String nickname;
+
 	String keyword1;
 	String keyword2;
 	String keyword3;
 	
 	
-	
+	String c_category_name;
 	
 	public CampaignIngVO() {
 		// TODO Auto-generated constructor stub
@@ -60,7 +61,7 @@ public class CampaignIngVO {
 
 	public CampaignIngVO(String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
-			String emblem) {
+			String emblem, String c_category_name) {
 		
 		this.title = title;
 		this.c_content = c_content;
@@ -74,12 +75,13 @@ public class CampaignIngVO {
 		this.c_totpoint = c_totpoint;
 		this.user_idx = user_idx;
 		this.emblem = emblem;
+		this.c_category_name = c_category_name;
 	}
 
 
 	public CampaignIngVO(int campaign_idx, String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
-			String emblem) {
+			String emblem, String c_category_name) {
 		
 		this.campaign_idx = campaign_idx;
 		this.title = title;
@@ -94,6 +96,8 @@ public class CampaignIngVO {
 		this.c_totpoint = c_totpoint;
 		this.user_idx = user_idx;
 		this.emblem = emblem;
+		this.c_category_name = c_category_name;
+
 	}
 	
 	public int getCampaign_idx() {
@@ -183,7 +187,6 @@ public class CampaignIngVO {
 		this.nickname = nickname;
 	}
 
-
 	public String getKeyword1() {
 		return keyword1;
 	}
@@ -211,6 +214,14 @@ public class CampaignIngVO {
 
 	public void setKeyword3(String keyword3) {
 		this.keyword3 = keyword3;
+	public String getC_category_name() {
+		return c_category_name;
+	}
+
+
+	public void setC_category_name(String c_category_name) {
+		this.c_category_name = c_category_name;
+
 	}
 	
 	

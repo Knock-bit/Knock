@@ -15,9 +15,9 @@ import com.knock.mybatis.DBService;
 public class UserDAO {
 
 	// 마이페이지 내 정보
-	public static UserVO myPageList(String user_id) {
+	public static UserVO myPageList(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
-		UserVO vo = ss.selectOne("USER.myPageList", user_id);
+		UserVO vo = ss.selectOne("USER.myPageList", user_idx);
 		ss.close();
 		return vo;
 	}
@@ -26,17 +26,15 @@ public class UserDAO {
 	public static int updateMypage(HashMap<String, String> map) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		int result = ss.update("USER.updateMypage", map);
-		System.out.println("map : " + map);
-		System.out.println("result : " + result);
 		ss.close();
 		return result;	
 		
 	}
 
 	// 탈퇴하기
-	public static int deleteUser(String user_id) {
+	public static int deleteUser(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
-		int result = ss.delete("USER.deleteUser", user_id);
+		int result = ss.delete("USER.deleteUser", user_idx);
 		ss.close();
 		return result;
 		
@@ -55,7 +53,6 @@ public class UserDAO {
 	public static List<CampaignIngVO> camIngList(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> clist = ss.selectList("USER.camIngLists", user_idx);
-		
 		ss.close();
 		return clist;
 
@@ -65,26 +62,13 @@ public class UserDAO {
 	public static CampaignIngVO cingList(String campaign_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		CampaignIngVO vo = ss.selectOne("USER.ccvo", campaign_idx);
-
 		System.out.println("dao c_category: " + campaign_idx);
 		System.out.println("vo : " + vo);
 		ss.close();
 		return vo;
 
-		
 	}
-	
-	// 종료된 캠페인 리스트
-	public static List<CampaignIngVO> endList(String user_idx){
-		SqlSession ss = DBService.getFactory().openSession();
-		List<CampaignIngVO> clist = ss.selectList("USER.endlist",user_idx);
-		ss.close();
-		return clist;
-		
-	}
-	
-	
-	
+
 	 //내 캠페인ing 전체 게시물 수량
 	public static int getTotalCount(String user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
@@ -99,6 +83,9 @@ public class UserDAO {
 	public static List<CampaignIngVO> getEndList(int begin, int end, String user_idx){
 		SqlSession ss = DBService.getFactory().openSession();
 		Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println("시작번호: " + begin);
+		System.out.println("끝번호: " + end);
+
 		map.put("begin", begin);
 		map.put("end", end);
 		map.put("user_idx", user_idx);
