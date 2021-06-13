@@ -31,10 +31,15 @@ public class NomineeCommand implements Command {
 		// 펀딩 진행중인 캠페인을 불러옴
 		NomineeVO nominee = CampaignNomineeDAO.one();
 		
+		// nominee가 null이라면 주소 반환하고 command 종료 
+		if(nominee == null) {
+			return "campaign/nominee.jsp";
+		}
+		
 		// 로그인한 이용자가, 해당 캠페인에 참여했는지 확인
-        int nominee_idx = nominee.getNominee_idx();
+        int campaign_idx = nominee.getCampaign_idx();
         NomUserVO nomUser = new NomUserVO();
-        nomUser.setNominee_idx(nominee_idx);
+        nomUser.setCampaign_idx(campaign_idx);
         nomUser.setUser_idx(user_idx);
         
         int check=-1;
@@ -46,7 +51,7 @@ public class NomineeCommand implements Command {
         System.out.println(check);
         
 		// 해당 캠페인에 참여한 유저의 닉네임 명단을 불러옴
-		List<String> nomUserList = NomUserDAO.list(nominee_idx);
+		List<String> nomUserList = NomUserDAO.list(campaign_idx);
 
 		request.setAttribute("nomUserList", nomUserList);
 		request.setAttribute("nominee", nominee);

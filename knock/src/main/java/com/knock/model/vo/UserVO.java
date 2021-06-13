@@ -11,7 +11,7 @@ public class UserVO {
 	private String email;
 	private String phone;
 	private Date birth;
-	private int knock_point;
+	private int total_point;
 	private String knock_admin;
 	private String knock_active;
 	private Date last_login_date;
@@ -19,18 +19,23 @@ public class UserVO {
 	private String address;
 	private Date joindate;
 	private String user_img;
-	
-	
+	private int used_point;
+
 
 	public UserVO() {
+
 		super();
+
+
 	}
 
 	
 
 	public UserVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
-			Date birth, int knock_point, String knock_admin, String knock_active, Date last_login_date, String gender,
-			String address, Date joindate, String user_img) {
+
+			Date birth, int total_point, String knock_admin, String knock_active, Date last_login_date, String gender,
+			String address, Date joindate, String user_img, int used_point) {
+
 		super();
 		this.user_idx = user_idx;
 		this.user_id = user_id;
@@ -40,7 +45,7 @@ public class UserVO {
 		this.email = email;
 		this.phone = phone;
 		this.birth = birth;
-		this.knock_point = knock_point;
+		this.total_point = total_point;
 		this.knock_admin = knock_admin;
 		this.knock_active = knock_active;
 		this.last_login_date = last_login_date;
@@ -48,6 +53,7 @@ public class UserVO {
 		this.address = address;
 		this.joindate = joindate;
 		this.user_img = user_img;
+		this.used_point = used_point;
 	}
 
 
@@ -167,14 +173,14 @@ public class UserVO {
 
 
 
-	public int getKnock_point() {
-		return knock_point;
+	public int getTotal_point() {
+		return total_point;
 	}
 
 
 
-	public void setKnock_point(int knock_point) {
-		this.knock_point = knock_point;
+	public void setTotal_point(int total_point) {
+		this.total_point = total_point;
 	}
 
 
@@ -259,14 +265,26 @@ public class UserVO {
 		this.user_img = user_img;
 	}
 
+	
+
+	public int getUsed_point() {
+		return used_point;
+	}
+
+
+
+	public void setUsed_point(int used_point) {
+		this.used_point = used_point;
+	}
+
 
 
 	@Override
 	public String toString() {
 		return "UserVO [user_idx=" + user_idx + ", user_id=" + user_id + ", name=" + name + ", pwd=" + pwd
 				+ ", nickname=" + nickname + ", email=" + email + ", phone=" + phone + ", birth=" + birth
-				+ ", knock_point=" + knock_point + ", knock_admin=" + knock_admin + ", knock_active=" + knock_active
-				+ ", last_login_date=" + last_login_date + ", joindate=" + joindate + ", address=" + address + ", gender=" + gender+"]";
+				+ ", total_point=" + total_point + ", knock_admin=" + knock_admin + ", knock_active=" + knock_active
+				+ ", last_login_date=" + last_login_date + ", joindate=" + joindate + ", address=" + address + ", gender=" + gender+", used_point=" + used_point+"]";
 	}
 	
 	

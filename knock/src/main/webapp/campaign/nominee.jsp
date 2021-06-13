@@ -28,6 +28,16 @@
               $("#fundingForm").html("목표 달성으로 펀딩이 조기마감되었습니다")
             }
             
+            // login 안된 상태면, 펀딩 참여 누를 시 로그인 화면으로 돌아갑니다.
+            // index.jsp를 로그인 주소로 바궈주세요.
+            var user_idx= "${user_idx}";
+            console.log(user_idx);
+            if(user_idx == ""){
+            $("#fundingBtn").attr("action", "campaign/index.jsp");
+               	
+            }
+            
+            
         	})
         	
         	
@@ -45,7 +55,7 @@
       		
       	}
       </script> -->
-
+      
       <body>
       <%@ include file="tempinclude.jsp" %>
         펀딩중인 캠페인<hr>
@@ -56,10 +66,10 @@
               <div id="fundingForm">
               	  <c:if test="${empty check }">
               	  	  <!-- <form method="post"> -->
-              	  	 <form method="post" action="${contextPath}/campaign?type=participate">
+              	  	 <form method="post" id="fundingBtn" action="${contextPath}/campaign?type=funding">
 		              <!-- <input type="number" name="spent_point" placeholder="포인트입력"> -->
-		              <input type="hidden" name="nominee_idx" value="${nominee.nominee_idx }">
-		              <input type="submit" value="300포인트로 펀딩참여">
+		              <input type="hidden" name="campaign_idx" value="${nominee.campaign_idx }">
+		              <input type="submit" value="250포인트로 펀딩참여">
 		              <!-- <input type="submit" onclick="participate(this.form)">펀딩참여</button> -->
 		              </form>
               	  </c:if>
@@ -89,6 +99,9 @@
 				${vo }
 			</c:forEach>
 				님이 참여중
+        </c:if>
+        <c:if test="${empty nominee }">
+        	현재 펀딩중인 캠페인이 없습니다.
         </c:if>
       </body>
       

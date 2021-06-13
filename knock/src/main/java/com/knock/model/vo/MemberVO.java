@@ -9,16 +9,26 @@ public class MemberVO {
 	private String pwd;
 	private String nickname;
 	private String email;
-	private Date birth;
-	private String knock_admin;
-	private String knock_active;
+	private String phone;
+	private String birth;
+	private int gender;
+	private String address;
+	private char knock_admin;
+	private char knock_active;
 	private Date last_login_date;
 
 	public MemberVO() {
 		super();
 	}
-
-	public MemberVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, Date birth) {
+	//로그인
+	public MemberVO(String user_id, String pwd) {
+		super();
+		this.user_id = user_id;
+		this.pwd = pwd;
+	}
+	//회원가입
+	public MemberVO(int user_idx, String user_id, String name, String pwd, String nickname, String email, String phone,
+			String birth, int gender, String address) {
 		super();
 		this.user_idx = user_idx;
 		this.user_id = user_id;
@@ -26,7 +36,10 @@ public class MemberVO {
 		this.pwd = pwd;
 		this.nickname = nickname;
 		this.email = email;
+		this.phone = phone;
 		this.birth = birth;
+		this.gender = gender;
+		this.address = address;
 	}
 
 	public int getUser_idx() {
@@ -77,27 +90,51 @@ public class MemberVO {
 		this.email = email;
 	}
 
-	public Date getBirth() {
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 
-	public String getKnock_admin() {
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public char getKnock_admin() {
 		return knock_admin;
 	}
 
-	public void setKnock_admin(String knock_admin) {
+	public void setKnock_admin(char knock_admin) {
 		this.knock_admin = knock_admin;
 	}
 
-	public String getKnock_active() {
+	public char getKnock_active() {
 		return knock_active;
 	}
 
-	public void setKnock_active(String knock_active) {
+	public void setKnock_active(char knock_active) {
 		this.knock_active = knock_active;
 	}
 
@@ -112,7 +149,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [user_idx=" + user_idx + ", user_id=" + user_id + ", name=" + name + ", pwd=" + pwd
-				+ ", nickname=" + nickname + ", email=" + email + ", birth=" + birth + "]";
+				+ ", nickname=" + nickname + ", email=" + email + ", phone=" + phone + ", birth=" + birth + ", gender="
+				+ gender + ", address=" + address + "]";
 	}
-
+	
+	
 }
