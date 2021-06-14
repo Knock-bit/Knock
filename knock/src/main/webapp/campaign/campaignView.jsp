@@ -78,16 +78,16 @@ margin-right:50px}
   ${campaignIng.goal }<br>
   
 	<br>
-	<p class="card-text"><h2>${campaignIng.title }ddddddd</h2></p>
+	<p class="card-text"><h2>${campaignIng.title }</h2></p>
 	${campaignIng.c_content }
-    <p class="text-muted"> 목표 
+    <p class="text-muted">  
     <p class="camp-emblem"> 획득엠블럼 <br>
     <img src="${campaignIng.emblem }" width="100px"></p>
     <c:if test="${!empty campaignIng.keyword1}"> # ${campaignIng.keyword1}</c:if>
     <c:if test="${!empty campaignIng.keyword2}"> # ${campaignIng.keyword2}</c:if>
     <c:if test="${!empty campaignIng.keyword3}"> # ${campaignIng.keyword3}</c:if>
   <div class="footer">
-	                 <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
+	                 <p>
 	                 <p class="txt3"></p><div class="ingUser">
 	참여중인 user<br>
 	<c:if test="${empty ing_userList }">
@@ -103,19 +103,23 @@ margin-right:50px}
 	                 <p class="txt3"><i class="far fa-clock"></i>${endDate - now}일 남았어요<span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
 	             </div>
   </div>
-  
-  <button type="submit" id="submit" class="form-control btn btn-primary rounded submit px-3">login</button>
+  <
+  <button id="participate" class="form-control btn btn-primary rounded submit px-3"
+  onclick="location.href='#'">참여하기</button>
   <div class="card-body">
     
     
   </div>
 </div></div>
 			 
-                 </div></div>   
+                 </div>   
         </section>
+<!-- Footer-->
+        <footer class="footer py-4">
+        	<%@ include file="../common/footer2.jsp" %>
+           
+        </footer>
 
-
-	<a id="participate" href="${contextPath }/campaign?type=participate&idx=${campaignIng.campaign_idx }">참여하기 (캠페인 후기게시판으로 이동) </a> 
 
 </body>
 </html>

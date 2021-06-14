@@ -57,7 +57,6 @@
       </script> -->
       
       <body>
-      <%@ include file="tempinclude.jsp" %>
         펀딩중인 캠페인<hr>
         <c:if test="${!empty nominee }">
             <div class="nominee">
