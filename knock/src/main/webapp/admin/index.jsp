@@ -12,6 +12,7 @@
 	<h1>관리자 메인페이지</h1>
 	<a href="${contextPath }/admin?type=adminUserList">회원관리</a>
 	<a href="${contextPath }/admin?type=adminKeyword">키워드관리</a>
+	<a href="${contextPath }/admin?type=adminCampaign">캠페인관리</a>
 
 </body>
 </html>
