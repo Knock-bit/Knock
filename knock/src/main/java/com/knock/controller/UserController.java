@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.knock.model.command.Command;
 import com.knock.model.command.mypage.CampaignIngCommand;
@@ -24,7 +25,7 @@ import com.knock.model.command.mypage.MypageListCommand;
 @WebServlet("/userctr")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	HttpSession session;
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
@@ -39,18 +40,20 @@ public class UserController extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
+		session =request.getSession();
+        //Integer user_idx = (Integer)session.getAttribute("user_idx");
+		Integer user_idx = 1;
 		String type = request.getParameter("type");
 		Command command = null;
 		System.out.println("type:"+type);
 		
 		if(type.equals("moveMypage.do")) {
 			// 마이페이지로 이동 & 내 정보 출력
-			command = new MypageListCommand();
+			command = new MypageListCommand(user_idx);
 			
 		} else if(type.equals("updateMyInfoBtn.do")) {
 			// 내정보 수정페이지로 이동
-			command = new MyInfoBtnCommand();
+			command = new MyInfoBtnCommand(user_idx);
 			
 		} else if(type.equals("updateMyInfo.do")) {
 			// 마이페이지 정보 수정 완료

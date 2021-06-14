@@ -11,13 +11,20 @@ import com.knock.model.dao.UserDAO;
 import com.knock.model.vo.UserVO;
 
 public class MyInfoBtnCommand implements Command{
+	
+	int user_idx;
+	
+	public MyInfoBtnCommand(int user_idx) {
+		this.user_idx = user_idx;
+	}
+	
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String user_idx = request.getParameter("user_idx");
 		
-		UserVO vo = UserDAO.myPageList(user_idx);
-		request.setAttribute("vo", vo);
+		
+		UserVO user = UserDAO.myPageList(user_idx);
+		request.setAttribute("user", user);
 		
 		return "mypage/updateMypage.jsp";
 	}

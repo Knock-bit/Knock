@@ -1,0 +1,221 @@
+	.fullmain {
+		width: 100%; 
+		height: 100%;}
+	.myInfomain-top, .myInfomain-bottom {
+   	height :40%; 
+   	width: 83%; 
+   	margin:0; 
+   	float: right;
+   	}
+   	.mainmenu  {
+   		width: 100%; 
+   		height :88%;}
+	.photobox {
+		margin-top : 20px;
+		float:left; 
+		width:30%;}
+	.myInfo {
+		float:left;  
+		width:60%; 
+		padding-left:50px;
+		}
+	.myInfo th {
+		text-align : left; 
+		width:30%;
+		font-size:14px;
+		}
+	.myInfo td {
+		padding-left : 10px;
+		text-align: left;
+		font-size : 13px;
+		}
+   .mainview {
+   		float: left; 
+   		width:45%; 
+   		text-align: center; 
+   		height: 300px;
+   				}
+   .profile{
+   		width : 100%;
+   		text-align: center;
+   		font-size : 15px;
+   		background-color : rgb(83, 83, 83);
+   		color:white;
+   
+   }
+   .MycampainMain {
+   		float: left; 
+   		width: 50%;
+   		padding: 0px 5px 0px 10px;
+   		height: 300px;
+   		
+   		}
+   		
+   .nowCamp {
+   		width : 100%;
+   		text-align: center;
+   		font-size : 15px;
+   		background-color : rgb(83, 83, 83);
+   		color:white;
+   		}
+   .nowCampList {
+   		width:100%;
+   		padding-left:50px;
+   		padding-right:50px;
+   		height:200px;
+   }
+  
+   #activeList {
+   		list-style : none;
+   		text-align:left;
+   		font-size : 15px;
+   		color : black;
+   }
+   #prePoint{
+   		text-align:right;
+   		padding-right:20px;
+   		width:100%;
+   		font-size : 15px;
+   		color : red;
+   		
+   }
+   .emblemZone {
+   		width: 69%;
+   	}
+   .treeimage, .myStatus {
+   		float: left;
+   	}
+   .treeimage {
+   		width: 55%;
+   		height:400px;
+   		position:relative;
+   		text-align:center;
+   	}
+   	.myEmblems{
+   		width : 100%;
+   		text-align: center;
+   		font-size : 15px;
+   		background-color : rgb(83, 83, 83);
+   		color:white;
+   		border-right: solid white 2px;
+   	}
+   .treeimage img {
+   		position:absolute;
+   		width:20%; 
+   		height: 100px;
+   		bottom:10px;
+   		vertical-align:middle;
+   		
+   	}
+   .emblemZone, .pointZone { float: left;}
+   .myStatus{
+   		width:44%;
+   		height:400px;
+   }
+   #countEmb {
+   		width:100%;
+   		height:300px;
+   }
+   #embImgZone{
+   		width:95%;
+   		height:250px;
+   		margin:0 auto;
+   		
+   
+   } 
+   #embImg{
+   		width:80px;
+   		height:80px;
+   		border-radius : 50%;
+   		border : solid 2px black;
+   		display:inline-block;
+   		margin-left:10px;
+		margin-right:10px;
+		overflow: hidden;
+		align-items: center;
+		justify-content: center;
+
+   } 
+   #embImg img{
+   		width: 100%;
+		height:auto;
+		opacity: 1;
+   
+   }
+   
+   #rank {
+   		width:100%;
+   		height:100px;
+   }
+
+   .pointZone { 
+   		width:29%; 
+   		height:500px; 
+   		position:relative;
+   	}
+   	.pointRecord{
+   		width : 100%;
+   		text-align: center;
+   		font-size : 15px;
+   		background-color : rgb(83, 83, 83);
+   		color:white;
+   	}
+   	.ppp{
+   		width:90%;
+   		margin : 0 auto;
+   		height:400px;
+   		position:relative;
+   		text-align:center;
+   		
+   	}
+   	#pointBar {
+   		width:12%;
+   		height:300px;
+		display: inline-block;
+		vertical-align:middle;
+		margin-top:70px;
+		margin-left:20px;
+		margin-right:20px;
+		position:relative;
+		color:white;
+		font-size:12px;
+
+   	}
+   	#usedPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color:rgb(248, 133, 133);
+   		margin:0;
+   	}
+   	#remainsPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color:rgb(248, 192, 120);
+   		margin:0;
+   	}
+   	#allPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color :rgb(203, 248, 120);
+   		margin:0;
+   	}
+   	.pText{
+   		width:90%;
+   		margin : 0 auto;
+   		text-align:center;
+   	
+   	}
+   	.pText p {
+   		width:20%;
+   		display:inline-block;
+   		vertical-align:middle;
+   		margin-left:10px;
+		margin-right:10px;
+		font-size:11px;
+		font-weight:bold;
+   	}
+   		
+

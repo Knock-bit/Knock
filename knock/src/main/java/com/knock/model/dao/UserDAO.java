@@ -14,7 +14,7 @@ import com.knock.mybatis.DBService;
 public class UserDAO {
 
 	// 마이페이지 내 정보
-	public static UserVO myPageList(String user_idx) {
+	public static UserVO myPageList(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		UserVO vo = ss.selectOne("USER.myPageList", user_idx);
 		ss.close();
@@ -31,7 +31,7 @@ public class UserDAO {
 	}
 
 	// 탈퇴하기
-	public static int deleteUser(String user_idx) {
+	public static int deleteUser(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		int result = ss.delete("USER.deleteUser", user_idx);
 		ss.close();
@@ -40,27 +40,45 @@ public class UserDAO {
 	}
 	
 	// 현재 활동중인 캠페인 목록 가져오기
-	public static List<CampaignIngVO> camIngList(String user_idx) {
+	public static List<CampaignIngVO> camIngList(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession(true);
 		List<CampaignIngVO> clist = ss.selectList("USER.camIngLists", user_idx);
 		ss.close();
 		return clist;
 
 	}
+	// 앰블럼 갯수
+	public static int emblemCount(int user_idx) {
+		SqlSession ss = DBService.getFactory().openSession(true);
+		int emblemCount = ss.selectOne("USER.emblemCount", user_idx);
+		ss.close();
+		return emblemCount;
+		
+		
+	}
+	// 유저 랭킹 구하기
+	public static int userRank(int user_idx) {
+		SqlSession ss = DBService.getFactory().openSession(true);
+		int userRank = ss.selectOne("USER.userRank", user_idx);
+		ss.close();
+		return userRank;
+
+	}
+	
+	
 
 	//캠페인 카테고리 번호 넘기고 목록
-	public static CampaignIngVO cingList(String campaign_idx) {
+	public static CampaignIngVO cingList(int campaign_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		CampaignIngVO vo = ss.selectOne("USER.ccvo", campaign_idx);
-		System.out.println("dao c_category: " + campaign_idx);
-		System.out.println("vo : " + vo);
+
 		ss.close();
 		return vo;
 
 	}
 
 	 //내 캠페인ing 전체 게시물 수량
-	public static int getTotalCount(String user_idx) {
+	public static int getTotalCount(int user_idx) {
 		SqlSession ss = DBService.getFactory().openSession();
 		int totalCount = ss.selectOne("USER.totalCount", user_idx);
 		System.out.println("totalCount : " + totalCount);
@@ -70,7 +88,7 @@ public class UserDAO {
 	}
 	
 	// 페이지에 해당하는 글목록(게시글)가져오기
-	public static List<CampaignIngVO> getEndList(int begin, int end, String user_idx){
+	public static List<CampaignIngVO> getEndList(int begin, int end, int user_idx){
 		SqlSession ss = DBService.getFactory().openSession();
 		Map<String, Object> map = new HashMap<String, Object>();
 		System.out.println("시작번호: " + begin);

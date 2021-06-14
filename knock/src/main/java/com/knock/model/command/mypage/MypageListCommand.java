@@ -17,25 +17,36 @@ import com.knock.model.vo.CampaignIngVO;
 import com.knock.model.vo.UserVO;
 
 public class MypageListCommand implements Command{
+	
+	int user_idx;
+	
+	public MypageListCommand(int user_idx) {
+		
+		this.user_idx = user_idx;
+	}
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		String user_idx = request.getParameter("user_idx");
-		UserVO vo = UserDAO.myPageList(user_idx);
 		
-		// 현재 참여중인 캠페인 리스트
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+		UserVO user = UserDAO.myPageList(user_idx);
+		
+		// 현재 참여중인 캠페인 리스트(정보)
 		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx);
 		
-		if(vo!=null) {
-			session.setAttribute("vo", vo);
-			request.setAttribute("clist", clist);
-			return "/mypage/mypage.jsp";
-		}
+		// 앰블럼 갯수
+		int emblemCount = UserDAO.emblemCount(user_idx);
+		
+		// 랭킹(누적포인트)
+		int rank = UserDAO.userRank(user_idx);
 		
 		
-		return "/mypage/main.jsp";
+		session.setAttribute("user", user);
+		session.setAttribute("emblemCount", emblemCount);
+		session.setAttribute("rank", rank);
+		session.setAttribute("clist", clist);
+		return "/mypage/mypage.jsp";
 	}
-
 }
