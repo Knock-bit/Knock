@@ -79,7 +79,7 @@ label img {
   <label for="camp"><img src="${vo.c_file }" class="card-img-top" alt="..."></label>
   <div class="card-body">
     <p class="card-text"><h2><a id="camp" href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
-    <label for="camp"><p class="text-muted"> ${vo.c_content } </label>&nbsp;&nbsp;
+    <label for="camp"><p class="text-muted"> ${vo.c_content } </label>&nbsp;
     
     
     <c:if test="${!empty vo.keyword1}"> <div class="c-keyword"> ${vo.keyword1}</div></c:if>

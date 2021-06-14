@@ -100,7 +100,7 @@ width:350px;}
 	                 <p class="txt3"></p><div class="ingUser"><center>
 	    <div class="item">
         <div>
-            <textarea cols=43 >참가중인참여자명단
+            <textarea cols=43 >참가중인 참여자명단
                 <c:if test="${!empty ing_userList}">
 <c:forEach var="vo" items="${ing_userList}">
 ${vo }
