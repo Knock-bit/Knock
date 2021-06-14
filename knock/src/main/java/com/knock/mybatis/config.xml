@@ -30,8 +30,8 @@
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url"
 					value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="KNOCK" />
-				<property name="password" value="KNOCK" />
+				<property name="username" value="KNOCKTEST" />
+				<property name="password" value="KNOCKTESTpwd" />
 			</dataSource>
 		</environment>
 	</environments>
