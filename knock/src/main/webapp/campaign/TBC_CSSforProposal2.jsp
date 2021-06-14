@@ -24,8 +24,8 @@
 		<div class="wrapper">
 			<div class="inner">
 				<form id="campaignForm" method="post" action="${contextPath}/campaign?type=proposal">
-					<h3>캠페인 아이디어</h3>
-					<p>KNOCK!KNOCK!의 캠페ewqrerqrweqrq차 캠페인으로 선정됩니다.</p>
+					<h3>sfgsdgsgsg
+					<p>KNOCK!KNOCK!의 캠페ewzfdzgzsgzdsgzgdgsdgzdgzsdgzsdgzqrq차 캠페인으로 선정됩니다.</p>
 					<label class="form-group">
 						<input type="text" name="p_title" class="form-control"  required>
 						<span>캠페인 이름</span>
