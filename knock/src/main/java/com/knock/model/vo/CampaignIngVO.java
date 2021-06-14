@@ -18,6 +18,12 @@ public class CampaignIngVO {
 	int user_idx;
 	String emblem;
 	String nickname;
+
+	String keyword1;
+	String keyword2;
+	String keyword3;
+	
+	
 	String c_category_name;
 	
 	public CampaignIngVO() {
@@ -25,6 +31,34 @@ public class CampaignIngVO {
 	}
 	
 	
+	
+	
+	public CampaignIngVO(int campaign_idx, String title, String c_content, String goal, Date end_date, int base_point,
+			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
+			String emblem, String nickname, String keyword1, String keyword2, String keyword3) {
+		super();
+		this.campaign_idx = campaign_idx;
+		this.title = title;
+		this.c_content = c_content;
+		this.goal = goal;
+		this.end_date = end_date;
+		this.base_point = base_point;
+		this.estimated_point = estimated_point;
+		this.status = status;
+		this.c_file = c_file;
+		this.c_category = c_category;
+		this.c_totpoint = c_totpoint;
+		this.user_idx = user_idx;
+		this.emblem = emblem;
+		this.nickname = nickname;
+		this.keyword1 = keyword1;
+		this.keyword2 = keyword2;
+		this.keyword3 = keyword3;
+	}
+
+
+
+
 	public CampaignIngVO(String title, String c_content, String goal, Date end_date, int base_point,
 			int estimated_point, char status, String c_file, int c_category, int c_totpoint, int user_idx,
 			String emblem, String c_category_name) {
@@ -153,7 +187,35 @@ public class CampaignIngVO {
 		this.nickname = nickname;
 	}
 
+	public String getKeyword1() {
+		return keyword1;
+	}
 
+
+	public void setKeyword1(String keyword1) {
+		this.keyword1 = keyword1;
+	}
+
+
+	public String getKeyword2() {
+		return keyword2;
+	}
+
+
+	public void setKeyword2(String keyword2) {
+		this.keyword2 = keyword2;
+	}
+
+
+	public String getKeyword3() {
+		return keyword3;
+	}
+
+
+	public void setKeyword3(String keyword3) {
+		this.keyword3 = keyword3;
+		
+	}
 	public String getC_category_name() {
 		return c_category_name;
 	}
@@ -161,6 +223,7 @@ public class CampaignIngVO {
 
 	public void setC_category_name(String c_category_name) {
 		this.c_category_name = c_category_name;
+
 	}
 	
 	

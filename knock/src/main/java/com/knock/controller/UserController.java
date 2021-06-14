@@ -19,6 +19,7 @@ import com.knock.model.command.mypage.EndCamListCommand;
 import com.knock.model.command.mypage.MyInfoBtnCommand;
 import com.knock.model.command.mypage.MyInfoUpdateCommand;
 import com.knock.model.command.mypage.MypageListCommand;
+import com.knock.model.vo.UserVO;
 
 
 
@@ -26,6 +27,10 @@ import com.knock.model.command.mypage.MypageListCommand;
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session;
+
+
+	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
@@ -41,14 +46,26 @@ public class UserController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		session =request.getSession();
+
         //Integer user_idx = (Integer)session.getAttribute("user_idx");
 		Integer user_idx = 1;
+
+        Integer user_idx = (Integer)session.getAttribute("user_idx");
+        
+        
+		System.out.println("USerController 실행!!");
+        System.out.println("user_idx= " + user_idx);
+		
+
 		String type = request.getParameter("type");
 		Command command = null;
-		System.out.println("type:"+type);
 		
 		if(type.equals("moveMypage.do")) {
+
 			// 마이페이지로 이동 & 내 정보 출력
+
+			// 마이페이지로 이동 & 내 정보 출력m                                                                 m
+
 			command = new MypageListCommand(user_idx);
 			
 		} else if(type.equals("updateMyInfoBtn.do")) {
@@ -69,10 +86,13 @@ public class UserController extends HttpServlet {
 		
 		} else if(type.equals("campaigning.do")) {
 			// 현재 참여하는 캠페인 이동 버튼
-			String result = new CampaignIngCommand().exec(request, response);
-			PrintWriter out = response.getWriter();
-			out.print(result);
+			
+			String result = new CampaignIngCommand().exec(request, response); 
+			PrintWriter out = response.getWriter(); out.print(result);
+			
 			return;
+			
+			
 		} else if(type.equals("cdetail.do")) {
 			// 현재 진행중인 캠페인 상세보기
 			String result = new DetailCampaignCommand().exec(request, response);
@@ -88,8 +108,8 @@ public class UserController extends HttpServlet {
 		
 		
 		
-		
 		String path = command.exec(request, response);
+		System.out.println(path);
 		request.getRequestDispatcher(path).forward(request, response);
 		
 	}

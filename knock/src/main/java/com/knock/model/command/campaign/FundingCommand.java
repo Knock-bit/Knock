@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.knock.model.command.Command;
 import com.knock.model.dao.CampaignNomineeDAO;
 import com.knock.model.dao.NomUserDAO;
+import com.knock.model.dao.UserDAO;
 import com.knock.model.vo.NomUserVO;
 
 public class FundingCommand implements Command {
@@ -33,9 +34,12 @@ public class FundingCommand implements Command {
 		
 		// Campaign_nom_user에 insert 
 		NomUserDAO.insert(nomUser);
+		// Campaign_nominee에 funding
 		CampaignNomineeDAO.funding(nomUser);
 		// User table에 used_point = used_point + spent_point
 		// UserDAO==> UPDATE USER SET USED_POINT = USED_POINT + #{SPENT_POINT}
+		
+//		UserDAO.funding(nomUser);
 		
 		return "campaign?type=nominee";
 	}

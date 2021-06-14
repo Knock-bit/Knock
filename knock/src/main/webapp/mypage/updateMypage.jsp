@@ -150,8 +150,12 @@ $(function(){
                             <div class="myphoto">
                                 
                                 <img id="preview" src="${user.user_img }" width=180 height=200>
+
                                 <label id="photoUplodeBtn" for="input-file">사진 업로드</label>
                                 <input type="file" style="display:none;" name="imageFileName" onchange="readURL(this);" >
+
+                                <input type="file" name="imageFileName" onchange="readURL(this);" >
+
 
                             
                                 

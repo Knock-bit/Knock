@@ -34,7 +34,8 @@
 				</tr>
 				<tr>
 					<td> 목표 포인트 </td>
-					<td> <input type="number" name="goal_point" placeholder="목표 포인트를 입력하세요 "></td>
+				
+					<td> <input type="number" name="goal_point" min="2500"></td>
 				</tr>
 				<tr>
 					<td colspan="2">
@@ -59,7 +60,8 @@
 		</table>
 	
 	<input type="hidden" name="user_idx" value="${user_idx }">
-	<input type="submit" value="제안하기"> <input type="button" value="취소하기" onClick="location.href='main.jsp'">
+	<input type="submit" value="제안하기">
+	<input type="button" value="취소하기" onClick="location.href='main.jsp'">
 	
 	</form>
 </body>

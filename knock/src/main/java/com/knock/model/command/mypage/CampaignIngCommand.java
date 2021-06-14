@@ -16,15 +16,27 @@ import com.knock.model.vo.CampaignIngVO;
 public class CampaignIngCommand implements Command{  
 	int user_idx;
 	HttpSession session;
+
+
+	
+	public CampaignIngCommand() {
+	}
+
 // 페이징 처리 구현
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("cam커맨드 이동");
 		// 캠페인테이블과 연결된 user_idx 및 캠페인 완료날짜 가져오기
+
 		session =request.getSession();  
 		//Integer user_idx = (Integer)session.getAttribute("user_idx");
 		
 		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+
+		session =request.getSession();
+        Integer user_idx = (Integer)session.getAttribute("user_idx");
+		System.out.println("아이디엑스갖옴?: " + user_idx);
+
 		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 
 		System.out.println("아작스user_idx:"+user_idx);
 		

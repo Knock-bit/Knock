@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +81,7 @@
         <div class="campBtn">
             <div class="compaign">캠페인
                 <ul class="contents">
-                    <li><a href="#">진행 중 캠페인</a></li>
+                    <li><a href="${contextPath }/campaign?type=ingList">진행 중 캠페인</a></li>
                     <li><a href="#">종료된 캠페인</a></li>
                 </ul>
             </div>
@@ -87,8 +89,8 @@
         <div class="openCampaignBtn">
             <div class="compaign">캠페인 오픈하기
                 <ul class="contents">
-                    <li><a href="#">펀딩 중 캠페인</a></li>
-                    <li><a href="#">저는 이 캠페인을 진행하고 싶어요</a></li>
+                    <li><a href="${contextPath }/campaign?type=nominee">펀딩 중 캠페인</a></li>
+                    <li><a href="${contextPath }/campaign/proposalForm.jsp">저는 이 캠페인을 진행하고 싶어요</a></li>
                 </ul>
             </div>
         </div>

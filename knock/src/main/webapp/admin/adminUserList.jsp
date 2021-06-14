@@ -23,8 +23,6 @@ request.setCharacterEncoding("UTF-8");
  });
  
  function getActive(){  
-		// 새로고침
-		window.location.reload() 
 	 var str = "";
 	 var tdArr = new Array();
 	 var checkBtn = $(this);
@@ -43,7 +41,8 @@ request.setCharacterEncoding("UTF-8");
 			type: "post",
 			data: user_idx // 현재 상태 전송
 		})
-
+		// 새로고침
+		location.reload() 
  }
  
 

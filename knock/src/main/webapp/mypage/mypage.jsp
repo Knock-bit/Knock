@@ -77,6 +77,13 @@
                             <td>${user.address}</td>
                         </tr>
                         <tr>
+
+                        <fmt:formatDate var="myjoindate" value="${user.joindate}" pattern="yyyy.MM.dd"/>
+                            <th>가입일</th>
+                            <td>${myjoindate}</td>
+                        </tr> 
+                        <tr>
+
                         <c:if test="${user.gender==0 }">
                         	<c:set var="gender" value="Man"> </c:set>
                         </c:if>
