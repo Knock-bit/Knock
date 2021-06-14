@@ -64,14 +64,30 @@
 		FROM KEYWORD
 	</select>
 	<!-- 키워드 페이지 리스트 -->
-	<select id="keywordPageList" resultType="com.knock.model.vo.KeywordVO"
-		parameterType="map">
-		SELECT * FROM (SELECT ROWNUM k_idx, KEY.* FROM (SELECT *
+	<select id="keywordPageList"
+		resultType="com.knock.model.vo.KeywordVO" parameterType="map">
+		SELECT * FROM
+		(SELECT ROWNUM k_idx, KEY.* FROM (SELECT *
 		FROM KEYWORD ORDER
-		BY K_CONTENT ASC )
+		BY
+		K_CONTENT ASC )
 		KEY )
 		WHERE k_idx BETWEEN
 		#{begin} AND #{end}
 	</select>
+
+	<!-- 3. 캠페 -->
+	<!-- 캠페인 카테고리 -->
+	<select id="campaignCategory"
+		resultType="com.knock.model.vo.CampaignCategoryVO">
+		SELECT * FROM CAMPAIGN_CATEGORY
+	</select>
+	<insert id="campaignAdd" parameterType="map">
+		INSERT INTO
+		CAMPAIGN_ING(CAMPAIGN_IDX, TITLE, C_CONTENT, GOAL, END_DATE, EMBLEM,
+		C_CATEGORY, USER_IDX)
+		VALUES(CAMPAIGN_IDX_SEQ.nextval, #{title}, #{content}, #{goal}, TO_DATE(#{date},'YYYYMMDD'), #{path},
+		TO_NUMBER(#{category}), 1)
+	</insert>
 
 </mapper>
