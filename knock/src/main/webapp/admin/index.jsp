@@ -17,8 +17,10 @@
    <body>
 
       <div class="wrapper">
+
          <div class="inner">               
          <h1 text-align="center">관리자 페이지</h1>
+
                <h3>관리자로 접속하셨습니다.</h3>
                <p>원하는 페이지를 선택해주세요.</p>
                
