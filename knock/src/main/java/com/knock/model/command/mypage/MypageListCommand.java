@@ -42,11 +42,11 @@ public class MypageListCommand implements Command{
 
 		System.out.println("MyPageListCommand >> user_idx " + user_idx);
 //		String user_idx = request.getParameter("user_idx");
-		UserVO user = UserDAO.myPageList(user_idx);
+//		UserVO user = UserDAO.myPageList(user_idx);
 //		int user_idx = (UserVO)session.getAttribute("user");
 		
 		// 현재 참여중인 캠페인 리스트
-		List<CampaignIngVO> clist = UserDAO. camIngList(user_idx);
+//		List<CampaignIngVO> clist = UserDAO. camIngList(user_idx);
 		request.setAttribute("clist", clist);
 		request.setAttribute("user", user);
 		

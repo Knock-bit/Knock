@@ -34,7 +34,7 @@ public class CampaignIngCommand implements Command{
 		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
 
 		session =request.getSession();
-        Integer user_idx = (Integer)session.getAttribute("user_idx");
+		/* Integer user_idx = (Integer)session.getAttribute("user_idx"); */
 		System.out.println("아이디엑스갖옴?: " + user_idx);
 
 		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 

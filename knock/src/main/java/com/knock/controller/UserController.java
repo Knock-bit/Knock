@@ -48,7 +48,7 @@ public class UserController extends HttpServlet {
 		session =request.getSession();
 
         //Integer user_idx = (Integer)session.getAttribute("user_idx");
-		Integer user_idx = 1;
+		/* Integer user_idx = 1; */
 
         Integer user_idx = (Integer)session.getAttribute("user_idx");
         
