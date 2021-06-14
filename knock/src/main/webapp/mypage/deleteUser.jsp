@@ -1,24 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+    pageEncoding="UTF-8"
+    isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="today" class="java.util.Date" scope="request"/>
+<fmt:formatDate var="now" value="${today }" pattern ="yyyyMMdd" />
+<%@page import="java.util.List"%>
+<%@page import="com.knock.model.vo.CampaignIngVO"%>
+<%@ page import="com.knock.model.dao.CampaignIngDAO" %>
+
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 
-
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<!-- 구글폰트 넣어보기-->
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>knockKnock</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="${contextPath }/resources/js/scripts.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-<script>
-$(function(){
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
+        <link href="${contextPath }/mypage/end_campaign.css" rel="stylesheet" type="text/css">
+  
 
-	
+   <!-- Style /script-->
+   <script>
+ 
+$(function(){
     $(".ckpwdBtn").click(function(){
     	var pwd1 = ${user.pwd};
     	var pwd2 = $("#ckpwd").val();
@@ -33,8 +49,6 @@ $(function(){
 			$(".successPwd").css("color","blue");
 			$(".delBtn").removeAttr('disabled');
 			// 상태 바꾸기 checked가 false일때 alert 넣기
-
-
 		}	
     	
     });
@@ -46,9 +60,6 @@ $(function(){
         frm.submit();
 
     }
-    
-    
-
 
 </script>
 <style>
@@ -83,16 +94,56 @@ $(function(){
 	}
 
 </style>
-</head>
-<body>
- <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+   
+   <!--  -->
+   </head>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
             <%@ include file="../common/topmenubar2.jsp" %>
-        </nav>
-<div class="fullmain">
-	 <div class="mainMenu">
-	 	<%@ include file="/common/mypageMenubar.jsp" %>
-        <div class="deleteView">
-            <div>
+        </nav> 
+        <!-- nav -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+  
+  <body>
+      
+      <div class="wrapper d-flex align-items-stretch">
+         <nav id="sidebar" class="active">
+            <p><p><p><p><p><p><p><p>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="${contextPath }/main.jsp"><br><br> Home</a>
+          </li>
+          <li>
+              <a href="${contextPath }/mypage/mypage.jsp"><br><span class="fa fa-user">&nbsp; MY PAGE </span><br></a>
+          </li>
+          <li>
+            <a href="${contextPath }/userctr?type=updateMyInfoBtn.do"><br><span class="fa fa-cogs"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
+          </li>
+          <li>
+            <a href="${contextPath }/mypage/nowPoint.jsp"><br><span class="fa fa-sticky-note">&nbsp; 포인트 현황</span><br> </a>
+          </li>
+          <li>
+            <a href="${contextPath }/mypage/campaign_ing.jsp"><br><span class="fa fa-paper-plane">&nbsp; 진행 중인 캠페인</span> <br></a>
+          </li>
+          <li>
+            <a href="${contextPath }/userctr?type=endCam.do&user_idx=${user.user_idx }"><br><span class="fa fa-paper-plane">&nbsp; 종료된 캠페인</span> <br></a>
+          </li>
+        </ul>
+
+        <div class="footer">
+           <p>
+                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+               </p>
+        </div>
+       </nav>
+       
+
+        <div class="deleteView"style="margin-top:150px;">
+            <div >
                 <h2 style="font-familly:'Montserrat'; text-align:center;">[ 탈퇴 전 꼭 읽어주세요 ]</h2>
                 <ul style="font-size:13px; background-color:rgb(136, 136, 136); color:black; padding:10px; list-style:none;">
                     <li>▶ 회원탈퇴를 신청하시면 바로 로그아웃 됩니다.</li>
@@ -126,8 +177,8 @@ $(function(){
 		                    <input type="radio" name="deleteReason" value="otherSite">
 		                    <label for="otherSite">더 좋은 곳을 찾았어요</label><br>
 	                    </div>
-	                    <label for="etc" style="background-color:rgb(0, 64, 0); color:white; width:15%; font-size:13px; padding:5px 20px 5px 20px; text-align:center;"> 남기고 싶은 메세지가 있나요? </label><br>
-	                    <textarea id="etc" name="etc" rows="5" cols="33"></textarea><br><br>
+	                    <label for="etc" style="background-color:rgb(0, 64, 0); color:white; width:40%; font-size:13px; padding:5px 20px 5px 20px; text-align:center;"> 남기고 싶은 메세지가 있나요? </label><br>
+	                    <textarea id="etc" name="etc" rows="5" cols="50"></textarea><br><br>
 	                    
 	                    <!-- 탈퇴전 비밀번호 확인 -->
 	                    
@@ -142,10 +193,8 @@ $(function(){
 	            </div>
 			</div>
         </div>
-	 </div>
-	<%@ include file="/common/footer.jsp" %>
-
 </div>
+   <%@ include file="/common/footer2.jsp" %>
 
 </body>
 </html>
