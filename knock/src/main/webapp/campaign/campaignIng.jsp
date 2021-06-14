@@ -7,6 +7,7 @@
 <jsp:useBean id="today" class="java.util.Date" scope="request"/>
 <fmt:formatDate var="now" value="${today }" pattern ="yyyyMMdd" />
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
+
 <%-- <fmt:parseNumber var="now" value="${now.time / (1000*60*60*24)}" integerOnly ="true" /> --%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,8 @@
 margin-bottom:50px;}
 }
 </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -42,7 +45,7 @@ margin-bottom:50px;}
  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
             <%@ include file="../common/topmenubar2.jsp" %>
         </nav>
-
+<p><p>
 <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center ">
