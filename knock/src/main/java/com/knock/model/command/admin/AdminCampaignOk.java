@@ -72,7 +72,7 @@ public class AdminCampaignOk implements Command {
 			e.printStackTrace();
 		}
 //		페이지 다시 리로드 -> 리스트다시불러오기
-		return "admin?type=adminCampaign";
+		return "admin?type=adminUserList";
 	}
 
 }
