@@ -22,6 +22,8 @@ public class DAO {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("begin", begin);
 		map.put("end", end);
+		System.out.println("DAO : " + map);
+		System.out.println(map.getClass());
 		List<KeywordVO> list = ss.selectList("ADMIN.keywordPageList", map);
 		ss.close();
 		return list;

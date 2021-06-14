@@ -15,7 +15,7 @@ public class DeleteUserCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String user_idx = request.getParameter("user_idx");
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
 		int result = UserDAO.deleteUser(user_idx);
 		
 		if(result==1) {

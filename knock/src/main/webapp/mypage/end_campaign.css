@@ -1,0 +1,77 @@
+@charset "UTF-8";
+.endCamBoard {
+	width:80%;
+	float:left;
+	margin-left:20px;
+	
+}
+	.view {
+        width: 100%;
+    }
+    /* 
+    .endcampaign_text{
+        width:100%;
+        height:50px;
+    }
+    .endList {
+        width: 100%;
+        height:400px;
+    }
+    
+    .topdan{
+        width:100%;
+        height:600px;
+        text-align: center;
+    }
+    .board {
+    	text-align:center;
+    	width : 80%;
+    }
+    .title{
+    	border : 1px solid black;
+    
+    }
+    
+    boardList{
+    	text-decoration : none;
+    } */
+     /* 페이징 부분 스타일 */
+	.paging { list-style: none; }
+	.pagingNum {
+        width: 1170px;
+        height:150px;
+        text-align : center;
+    }
+    .paginging {
+    	width : 80%;
+    	margin:0 auto;
+    	text-align:center;
+    }
+    #tb{
+    	margin: 0 auto;
+    
+    }
+
+	.paging li {
+		float: left;
+		margin-right: 8px;
+	}
+	.paging li a {
+		text-decoration: none;
+		display: block;
+		padding: 3px 7px;
+		font-weight: bold;
+		color: black;
+	}
+	.paging .disable {
+		padding: 3px 7px;
+		color: silver;
+	}
+	.paging .now {
+		padding: 3px 7px;
+		background-color: gray;
+	}
+	.paging li a:hover {
+		background-color: gray;
+		color: white;
+	}

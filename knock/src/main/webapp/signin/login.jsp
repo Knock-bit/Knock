@@ -47,7 +47,7 @@
 		            </div>
 		            
 		          </form>
-		          <p class="text-center">아직 KNOCKKNOCK을 안하셨나요? <a data-toggle="tab" href="${contextPath}/login?type=SINGIN" ><br>노크하러 가기</a></p>
+		          <p class="text-center">아직 KNOCKKNOCK을 안하셨나요? <a data-toggle="tab" href="${contextPath }/signin/regForm.jsp" ><br>노크하러 가기</a></p>
 		        </div>
 		      
 		</div>

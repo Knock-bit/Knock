@@ -17,6 +17,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.knock.model.command.Command;
+import com.knock.model.command.admin.AdminCamapaign;
+import com.knock.model.command.admin.AdminCampaignOk;
 import com.knock.model.command.admin.AdminKeywordAdd;
 import com.knock.model.command.admin.AdminKeywordDel;
 import com.knock.model.command.admin.AdminKeywordList;
@@ -73,12 +75,18 @@ public class AdminController extends HttpServlet {
 		} else if("adminKeywordAdd".equals(type)) {
 //			String result = AdminKeywordAjax.keyAdd(request, response);
 			command = new AdminKeywordAdd();
+		} else if("adminCampaign".equals(type)) {
+		System.out.println("캠페인 2차");
+			command = new AdminCamapaign();
+		} else if("campaignOk".equals(type)) {
+			command = new AdminCampaignOk();
 		}
 		if (command == null || command.equals("")) {
 			System.out.println("command가 빈칸이거나 null임");
 			return;
 		} else {
 			String path = command.exec(request, response);
+			System.out.println(path);
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 	}

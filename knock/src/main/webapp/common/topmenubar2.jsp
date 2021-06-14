@@ -47,6 +47,7 @@
                         <c:if test="${!empty user_idx }">
                         <li class="nav-item"><a id="admin" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do&user_idx=${user_idx}">마이페이지</a></li>  
                         <li class="nav-item nav-link" ><a  href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
+
                         <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
           				<c:if test="${empty user_idx }">

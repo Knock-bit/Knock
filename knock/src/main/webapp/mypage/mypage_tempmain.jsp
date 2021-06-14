@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 function moveMypage(frm){
-	frm.action="${contextPath }/userctr?type=moveMypage.do"
+	frm.action="${contextPath }/userctr?type=moveMypage.do&user_idx=1"
 	frm.submit();
 }
 
@@ -19,7 +19,6 @@ function moveMypage(frm){
 </head>
 <body>
 	<form method="post">
-		<input type="hidden" name="user_idx" value="1">
 		<input type="submit" value="마이페이지" onclick="moveMypage(this.form)">
 	</form>
 </body>

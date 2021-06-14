@@ -27,13 +27,26 @@ public class MypageListCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		
+		
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+		UserVO user = UserDAO.myPageList(user_idx);
+		
+		// 현재 참여중인 캠페인 리스트(정보)
+		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx);
+		
+		// 앰블럼 갯수
+		int emblemCount = UserDAO.emblemCount(user_idx);
+
 		System.out.println("MyPageListCommand >> user_idx " + user_idx);
 //		String user_idx = request.getParameter("user_idx");
-		UserVO user = UserDAO.myPageList(user_idx);
+//		UserVO user = UserDAO.myPageList(user_idx);
 //		int user_idx = (UserVO)session.getAttribute("user");
 		
 		// 현재 참여중인 캠페인 리스트
-		List<CampaignIngVO> clist = UserDAO. camIngList(user_idx);
+//		List<CampaignIngVO> clist = UserDAO. camIngList(user_idx);
 		request.setAttribute("clist", clist);
 		request.setAttribute("user", user);
 		
@@ -41,9 +54,18 @@ public class MypageListCommand implements Command{
 ////			session.setAttribute("user", user);
 //			return "/mypage/mypage.jsp";
 //		}
+
 		
+		// 랭킹(누적포인트)
+		int rank = UserDAO.userRank(user_idx);
 		
+
+		
+		session.setAttribute("user", user);
+		session.setAttribute("emblemCount", emblemCount);
+		session.setAttribute("rank", rank);
+		session.setAttribute("clist", clist);
+
 		return "/mypage/mypage.jsp";
 	}
-
 }

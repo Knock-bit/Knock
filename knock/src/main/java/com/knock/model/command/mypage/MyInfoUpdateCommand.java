@@ -18,9 +18,7 @@ public class MyInfoUpdateCommand implements Command{
 		String pwd = request.getParameter("pwd");
 		String email = request.getParameter("email");
 		String user_img = request.getParameter("imageFileName");
-		
-		System.out.println("id : " + user_id + ", email : " + email + ", user_img : " + user_img + ", pwd : " + pwd );
-		
+
 		HashMap<String, String> map = new HashMap<>();
 		map.put("user_id", user_id);
 		map.put("pwd", pwd);
