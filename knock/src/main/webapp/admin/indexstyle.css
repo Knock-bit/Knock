@@ -206,8 +206,8 @@ h1{
       -o-box-shadow: none; }
   
     .wrapper {
-      background: #39459b;
-      border: 10px solid #0d99d7; } }
+      background: black;
+      border: none; } }
   
       .keyword-group {
         position: relative;
