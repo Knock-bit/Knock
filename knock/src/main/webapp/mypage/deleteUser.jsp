@@ -20,7 +20,7 @@ $(function(){
 
 	
     $(".ckpwdBtn").click(function(){
-    	var pwd1 = ${vo.pwd};
+    	var pwd1 = ${user.pwd};
     	var pwd2 = $("#ckpwd").val();
     	
 		if(pwd1 != pwd2){
@@ -104,17 +104,17 @@ $(function(){
             <div id="delForm">
 	            <div>
 	                <p style="color:rgb(0, 64, 0); font-weight:bold;">아이디</p>
-	                <p>${vo.user_id}</p>
+	                <p>${user.user_id}</p>
 	            </div>
 	            <div>
 	                <p style="color:rgb(0, 64, 0); font-weight:bold;">누적포인트</p>
-	                <p>${vo.total_point}</p>
+	                <p>${user.total_point}</p>
 	            </div>
 	            <div>
 	                <p style="color:rgb(0, 64, 0); font-weight:bold;">탈퇴사유</p>
 	                <form method="post">
 	                	<div style="margin:10px 10px 20px 10px; font-size:14px;">
-		                	<input type="hidden" name="user_idx" value="${vo.user_idx }">
+		                	<input type="hidden" name="user_idx" value="${user.user_idx }">
 		                    <input type="radio" name="deleteReason" value="noFunny">
 		                    <label for="noFunny">재미없어요</label><br>
 		                    <input type="radio" name="deleteReason" value="difficult">
