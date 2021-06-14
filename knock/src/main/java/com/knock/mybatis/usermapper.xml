@@ -8,6 +8,21 @@
 		SELECT * FROM USERS WHERE USER_IDX = #{user_idx}
 	</select>
 	
+	<select id="emblemCount" parameterType="int" resultType="int">
+		SELECT COUNT(EMBLEM) 
+		FROM CAMPAIGN_ING WHERE USER_IDX = #{user_idx}
+
+	</select>
+	
+	<select id="userRank" parameterType="int" resultType="int">
+		SELECT RANK FROM 
+		(SELECT USER_IDX, TOTAL_POINT, RANK() OVER(ORDER BY TOTAL_POINT DESC) 
+		AS RANK FROM USERS) WHERE USER_IDX=#{user_idx}
+	
+	</select>
+	
+	
+	
 	<update id="updateMypage" parameterType="hashmap">
 		UPDATE USERS SET 
 		PWD = #{pwd}, EMAIL = #{email}, USER_IMG = #{user_img}
