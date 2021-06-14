@@ -36,16 +36,27 @@
     	text-decoration : none;
     } */
      /* 페이징 부분 스타일 */
-	.paging { list-style: none; }
+	li { 
+		list-style: none; 
+	}
+	.paging {
+		text-align:center;
+		margin : 0 auto;
+		height:50px;
+		
+	}
 	.pagingNum {
-        width: 1170px;
-        height:150px;
+        width:1000px;
+        height:50px;
         text-align : center;
+        margin : 0 auto;
     }
     .paginging {
     	width : 80%;
     	margin:0 auto;
     	text-align:center;
+    	height:50px;
+ 
     }
     #tb{
     	margin: 0 auto;
@@ -75,3 +86,9 @@
 		background-color: gray;
 		color: white;
 	}
+	ol {
+		margin: 0 auto;
+		width:30%;
+	}
+	
+	
