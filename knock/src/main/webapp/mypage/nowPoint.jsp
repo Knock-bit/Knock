@@ -8,6 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 구글폰트 넣어보기-->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath }/mypage/nowPoint.css" rel="stylesheet" />
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -42,6 +45,9 @@ $(function(){
 </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+            <%@ include file="../common/topmenubar2.jsp" %>
+        </nav>
 <div class="fullmain">
 	<!-- top menu bar -->
 	<%@ include file="/common/topmenubar.jsp" %>
@@ -98,6 +104,8 @@ $(function(){
 	
 	</div>
 	<%@ include file="/common/footer.jsp" %>
+</div>
+</div>
 </div>
 
 </body>

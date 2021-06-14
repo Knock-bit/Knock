@@ -75,11 +75,9 @@
 	.bottomdan {
 		width:870px;
 		height: 500px;
-		background-image: url(/image/tree2.jpeg);
+		background-image: url(/image/tree2.png);
 		background-repeat : no-repeat;
         background-size : cover;
-        background-image : url(../image/ftree.png);
-        background-repeat: no-repeat;
         background-size:100% 100%;
         
 		
