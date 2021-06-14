@@ -70,7 +70,7 @@ public class ProposalCommand implements Command {
 		 * out.println("</script>");
 		 */
 		
-		return "campaign/TBC_CSSforProposal2.jsp";
+		return "campaign/proposalResult.jsp";
 	}
 
 }
