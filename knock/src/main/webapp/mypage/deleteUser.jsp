@@ -118,13 +118,13 @@ $(function(){
             <a href="${contextPath }/main.jsp"><br><br> Home</a>
           </li>
           <li>
-              <a href="${contextPath }/mypage/mypage.jsp"><br><span class="fa fa-user">&nbsp; MY PAGE </span><br></a>
+              <a href="${contextPath }/mypage/mypage2.jsp"><br><span class="fa fa-user">&nbsp; MY PAGE </span><br></a>
           </li>
           <li>
             <a href="${contextPath }/userctr?type=updateMyInfoBtn.do"><br><span class="fa fa-cogs"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
           </li>
           <li>
-            <a href="${contextPath }/mypage/nowPoint.jsp"><br><span class="fa fa-sticky-note">&nbsp; 포인트 현황</span><br> </a>
+            <a href="${contextPath }/mypage/nowPoint2.jsp"><br><span class="fa fa-sticky-note">&nbsp; 포인트 현황</span><br> </a>
           </li>
           <li>
             <a href="${contextPath }/mypage/campaign_ing.jsp"><br><span class="fa fa-paper-plane">&nbsp; 진행 중인 캠페인</span> <br></a>

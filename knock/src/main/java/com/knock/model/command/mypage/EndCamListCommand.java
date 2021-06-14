@@ -65,7 +65,7 @@ public class EndCamListCommand implements Command{
 		
 		request.setAttribute("pvo", p);
 		request.setAttribute("cclist", cclist);
-		return "/mypage/end_campaign.jsp";
+		return "/mypage/end_campaign2.jsp";
 	}
 
 }

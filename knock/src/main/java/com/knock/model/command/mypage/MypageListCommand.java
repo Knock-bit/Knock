@@ -66,6 +66,6 @@ public class MypageListCommand implements Command{
 		session.setAttribute("rank", rank);
 		session.setAttribute("clist", clist);
 
-		return "/mypage/mypage.jsp";
+		return "/mypage/mypage2.jsp";
 	}
 }
