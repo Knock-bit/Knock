@@ -20,7 +20,22 @@
 	}
 .camp-card {
 margin-bottom:50px;}
+.c-keyword{
+	border-radius:10px;
+	background-color:#DFFDFC;
+	padding-left:.5rem;
+	padding-right:.5rem;
+	display:inline-block;
+	color:#2C9AF4;
 }
+label {
+    display: inline-block;
+}
+label img {
+    pointer-events: none;
+}
+
+
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -58,16 +73,21 @@ margin-bottom:50px;}
                 <div class="row">
             <c:if test="${!empty campaignIngList }">
 			 <c:forEach var="vo" items="${campaignIngList}">
-			 <fmt:formatDate var="endDate" value="${vo.end_date }" pattern ="yyyyMMdd" />
+			<fmt:formatDate var="endDate" value="${vo.end_date }" pattern ="yyyyMMdd" />
 			 <div class="col-sm-12 col-lg-4 camp-card">
 			 <div class="card h-100">
-  <img src="${vo.c_file }" class="card-img-top" alt="...">
+  <label for="camp"><img src="${vo.c_file }" class="card-img-top" alt="..."></label>
   <div class="card-body">
-    <p class="card-text"><h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
-    <p class="text-muted"> ${vo.c_content } &nbsp;&nbsp;# ${vo.keyword1} # ${vo.keyword2}  # ${vo.keyword3}</p>
+    <p class="card-text"><h2><a id="camp" href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
+    <label for="camp"><p class="text-muted"> ${vo.c_content } </label>&nbsp;
+    
+    
+    <c:if test="${!empty vo.keyword1}"> <div class="c-keyword"> ${vo.keyword1}</div></c:if>
+    <c:if test="${!empty vo.keyword2}"> <div class="c-keyword"> ${vo.keyword2}</div></c:if>
+    <c:if test="${!empty vo.keyword3}"><div class="c-keyword">  ${vo.keyword3}</div></c:if>
     <div class="footer">
-	                 <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
-	                 <p class="txt3"><i class="far fa-clock"></i>${endDate - now}일 남았어요<span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
+	                     <p><a class="waves-effect waves-light btn" href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">Read More</a></p>
+	                 <p class="txt3"><i class="far fa-clock">${endDate - now}일 남았어요</i></p>
 	             </div>
   </div>
 </div></div>
@@ -98,18 +118,18 @@ margin-bottom:50px;}
 			 <fmt:formatDate var="endDate" value="${vo.end_date }" pattern ="yyyyMMdd" />
 			 <div class="col-sm-12 col-lg-4 camp-card">
 			 <div class="card h-100">
-  <img src="${vo.c_file }" class="card-img-top" alt="...">
+  <label for="camp"><img src="${vo.c_file }" class="card-img-top" alt="..."></label>
   <div class="card-body">
-    <p class="card-text"><h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
-    <p class="text-muted"> ${vo.c_content } &nbsp;&nbsp;
+    <p class="card-text"><h2><a id="camp" href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
+    <label for="camp"><p class="text-muted"> ${vo.c_content } </label>&nbsp;&nbsp;
     
     
-    <c:if test="${!empty vo.keyword1}"> # ${vo.keyword1}</c:if>
-    <c:if test="${!empty vo.keyword2}"> # ${vo.keyword2}</c:if>
-    <c:if test="${!empty vo.keyword3}"> # ${vo.keyword3}</c:if>
+    <c:if test="${!empty vo.keyword1}"> <div class="c-keyword"> ${vo.keyword1}</div></c:if>
+    <c:if test="${!empty vo.keyword2}"> <div class="c-keyword"> ${vo.keyword2}</div></c:if>
+    <c:if test="${!empty vo.keyword3}"><div class="c-keyword">  ${vo.keyword3}</div></c:if>
     <div class="footer">
-	                 <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
-	                 <p class="txt3"><i class="far fa-clock"></i></p>
+	                 <p><a class="waves-effect waves-light btn" href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">Read More</a></p>
+	                
 	             </div>
   </div>
 </div></div>
