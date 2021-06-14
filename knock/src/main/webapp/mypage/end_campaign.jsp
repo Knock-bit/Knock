@@ -9,6 +9,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 구글폰트 넣어보기-->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,10 +28,11 @@
 </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+            <%@ include file="../common/topmenubar2.jsp" %>
+        </nav>
 <div class="fullmain">
-	<!-- top menu bar -->
-	<%@ include file="/common/topmenubar.jsp" %>
-	<hr>
+
 	<div class="mainMenu">
 		<%@ include file="/common/mypageMenubar.jsp" %>
 		<div class="endCamBoard">
@@ -51,7 +55,7 @@
 			                <c:if test="${empty cclist }">
 			                    <tr>
 			                        <td colspan="4">
-			                            <h2>종료된 캠페인이 없습니다.</h2>
+			                            <h4 style="text-align:center">종료된 캠페인이 없습니다.</h4>
 			                        </td>
 			                    </tr>
 			                </c:if>
