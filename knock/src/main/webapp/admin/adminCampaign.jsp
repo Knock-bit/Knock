@@ -12,7 +12,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="style1.css">
+		<link href="${contextPath}/resources/css/style1.css" rel="stylesheet" >
+		
 	</head>
 
 	<body>

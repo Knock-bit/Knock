@@ -8,13 +8,12 @@
 		var admin = "${knock_admin}";
 		if(admin == 0){
 			
-			$("#myPage").html("회원관리");
-			$("#myPage").attr("href","/knock/admin?type=adminUserList");
-			$("#admin").html("키워드관리");
-			$("#admin").attr("href","/knock/admin?type=adminKeyword");
+			/* $("#myPage").html("회원관리");
+			$("#myPage").attr("href","/knock/admin?type=adminUserList"); */
+			$("#admin").html("관리자페이지");
+			$("#admin").attr("href","${contextPath}/admin/index.jsp");
 		}
 	})
-
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <div class="container">
@@ -46,8 +45,9 @@
                          
                         <c:set var="admin" value="${knock_admin }"/>
                         <c:if test="${!empty user_idx }">
-                        <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do&user_idx=${user_idx}">마이페이지</a></li>  
-                        <li class="nav-item nav-link" ><a id="admin" href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
+                        <li class="nav-item"><a id="admin" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do&user_idx=${user_idx}">마이페이지</a></li>  
+                        <li class="nav-item nav-link" ><a  href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
+
                         <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
           				<c:if test="${empty user_idx }">

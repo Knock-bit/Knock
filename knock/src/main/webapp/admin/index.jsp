@@ -17,21 +17,21 @@
    <body>
 
       <div class="wrapper">
-         <div class="inner">
-            <form id="campaignForm" method="post">
-               <h1 text-align="center">관리자 페이지</h1>
+
+         <div class="inner">               
+         <h1 text-align="center">관리자 페이지</h1>
+
                <h3>관리자로 접속하셨습니다.</h3>
                <p>원하는 페이지를 선택해주세요.</p>
                
                   <i class="zmdi zmdi-arrow-right"></i>
                <button class="button" onclick="location.href='${contextPath }/admin?type=adminUserList'">>&nbsp;&nbsp;회원관리 
-                <button class="button" onclick="location.href='${contextPath }/admin?type=adminUserList'">>&nbsp;&nbsp;키워드관리 
-                    <button class="button" onclick="location.href='${contextPath }/admin?type=adminUserList'">>&nbsp;&nbsp;캠페인관리 
+                <button class="button" onclick="location.href='${contextPath }/admin?type=adminKeyword'">>&nbsp;&nbsp;키워드관리 
+                    <button class="button" onclick="location.href='${contextPath }/admin?type=adminCampaign'">>&nbsp;&nbsp;캠페인관리 
                         <button class="button" onclick="location.href='${contextPath }/admin?type=logout'">>&nbsp;&nbsp;로그아웃 
 
                 <i class="zmdi zmdi-arrow-right"></i>
                </button>
-            </form>
          </div>
       </div>
    </body> 
