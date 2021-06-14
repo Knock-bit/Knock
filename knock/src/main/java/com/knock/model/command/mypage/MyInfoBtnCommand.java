@@ -26,7 +26,7 @@ public class MyInfoBtnCommand implements Command{
 		UserVO user = UserDAO.myPageList(user_idx);
 		request.setAttribute("user", user);
 		
-		return "mypage/updateMypage.jsp";
+		return "/mypage/updateMypage.jsp";
 	}
 	
 }

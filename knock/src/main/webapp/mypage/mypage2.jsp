@@ -31,7 +31,78 @@
   
    
    <!-- Style -->
-   
+   <style>
+   	.pointZone { 
+   		width:100%; 
+   		height:400px; 
+   		position:relative;
+   		margin : 0 auto;
+   	}
+   	.pointRecord{
+   		width : 100%;
+   		text-align: center;
+   		font-size : 15px;
+   		background-color : rgb(83, 83, 83);
+   		color:white;
+   	}
+   	.ppp{
+   		width:90%;
+   		margin : 0 auto;
+   		height:300px;
+   		position:relative;
+   		text-align:center;
+   		
+   	}
+   	#pointBar {
+   		width:12%;
+   		height:200px;
+		display: inline-block;
+		vertical-align:middle;
+		margin-top:70px;
+		margin-left:20px;
+		margin-right:20px;
+		position:relative;
+		color:white;
+		font-size:12px;
+
+   	}
+   	#usedPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color:rgb(248, 133, 133);
+   		margin:0;
+   	}
+   	#remainsPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color:rgb(248, 192, 120);
+   		margin:0;
+   	}
+   	#allPointBar{
+   		position:absolute;
+   		bottom:0;
+   		width:100%;
+   		background-color :rgb(203, 248, 120);
+   		margin:0;
+   	}
+   	.pText{
+   		width:90%;
+   		margin : 0 auto;
+   		text-align:center;
+   	
+   	}
+   	.pText p {
+   		width:20%;
+   		display:inline-block;
+   		vertical-align:middle;
+   		margin-left:10px;
+		margin-right:10px;
+		font-size:11px;
+		font-weight:bold;
+   	}
+   </style>
    
    <!--  -->
    </head>
@@ -59,7 +130,7 @@
               <a href="${contextPath }/mypage/mypage2.jsp"><br><span class="fa fa-user">&nbsp; MY PAGE </span><br></a>
           </li>
           <li>
-            <a href="${contextPath }/userctr?type=updateMyInfoBtn.do"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
+            <a href="${contextPath }/mypage/updateMypage.jsp"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
           </li>
           <li>
             <a href="${contextPath }/mypage/nowPoint2.jsp"><br><span class="fa fa-sticky-note">&nbsp; 포인트 현황</span><br> </a>
@@ -87,11 +158,9 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="/image/honggildong.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>John Doe</h4>
-                      <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <h4>${user.name }</h4>
                       <button class="btn btn-primary">Follow</button>
                       <button class="btn btn-outline-primary">Message</button>
                     </div>
@@ -131,7 +200,7 @@
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                      ${user.name }
                     </div>
                   </div>
                   <hr>
@@ -140,7 +209,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                     ${user.email}
                     </div>
                   </div>
                   <hr>
@@ -149,16 +218,16 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                      ${user.phone }
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
+                      <h6 class="mb-0">NickName</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                      ${user.nickname }
                     </div>
                   </div>
                   <hr>
@@ -167,7 +236,7 @@
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                     ${user.address}
                     </div>
                   </div>
                   <hr>
@@ -182,58 +251,52 @@
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
+                    <div class="pointZone">
+            <p class="pointRecord">[ MY POINT ]</p>
+                <div class="ppp">
+                	<div id="pointBar">
+                		<p id="usedPointBar" style="height:${user.used_point/user.total_point*100}%;">${user.used_point }</p>
+                	</div>
+                	<div id="pointBar">
+                		<p id="remainsPointBar" style="height:${100-(user.used_point/user.total_point*100)}%;">${user.total_point - user.used_point }</p>
+                	
+                	</div>
+                	<div id="pointBar">
+                		<p id="allPointBar"style="height:100%;">${user.total_point }</p>
+                		
+                	</div>
+
+                </div>
+                <div class="pText">
+                	<p>사용포인트</p>
+                	<p>보유포인트</p>
+                	<p>총 포인트</p>
+                </div>
+                
+            </div>
                   </div>
                 </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="emblemZone" style="float:left; width:300px;">
+            	<p class="myEmblems" style="text-align:center; background-color:gray; color:white;">[ MY EMBLEM / STATUS]</p>
+                <div class="treeimage">
+                    <img src="image/sprout.jpeg">    
                 </div>
+                <div class="myStatus">
+                    <div id="countEmb">
+                        <p>▶ EMBLEM : ${emblemCount }개</p>
+                        <div id="embImgZone">
+                        	<c:forEach var="eImg" items="${clist }">
+                        		<div id="embImg">
+                        			<img src="${eImg.emblem }">
+                        		</div>
+                        	</c:forEach>
+                        </div>
+                    </div>
+                    <div id="rank">
+                        <p>▶ RANK : ${rank }위</p>
+                    </div>
+                </div>
+            </div>
               </div>
                 
             </div>
