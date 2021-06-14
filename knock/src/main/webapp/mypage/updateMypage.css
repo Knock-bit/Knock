@@ -1,0 +1,149 @@
+@charset "UTF-8";
+	.mainMenu{
+		width:100%;
+		height:800px;
+	}
+	.updateMyInfoMain {
+	float:left;
+	width:80%;
+	height:100%;}
+	.dan1  {
+		width:20%;
+        float: left;
+        height: 100%;
+	}
+    .dan2 {
+        width:79%;
+        float: left;
+        height: 100%;
+    }
+    .update_form {
+    	width:100%;
+    	height:100%;
+    
+    }
+    .infoZone {
+       	padding-top:30px;
+        float: left;
+        width: 50%;
+        height: 550px;
+    }
+    .infoZone p {
+    	width:50%;
+    	margin:0 auto;
+    	text-align:left;
+    	font-size:13px;
+    	margin-bottom: 3px;
+    }
+    
+    .infoZone input {
+    	width:50%;
+    	height:20px;
+    	display: table; 
+	  	margin-left: auto; 
+	  	margin-right: auto; 
+    }
+    
+    #tId{
+    	width:100%;
+    	height:60px;
+    
+    }
+    #tPwd{
+    	width:100%;
+    	height:120px;
+    }
+    #pwd2{
+    	margin-top:-20px;
+    	margin-bottom:5px;
+    }
+    #pwd1, #pwd2 {
+    	font-size:10px;
+    
+    }
+    .pwdbtnss {
+        margin : 0 auto;
+        text-align: center;
+    }
+    .successPwd {
+        font-size: 9px;
+        height:5px;
+        float:left;
+        margin-left:70px;
+        
+    }
+    #showPwd {
+        width:29%;
+        font-size: 11px;
+        text-align: center;
+        margin-right: 70px;
+        float:right;
+    	outline : 0px;
+    	border : 0px;
+    	background-color:rgb(197, 197, 197);
+    	color:black;
+    	border-radius: 5%;
+    }
+    
+    .infoSubmit {
+    	width:100%;
+    	height: 20vh;
+    
+    }
+    
+    .infoSubmit input{
+    	height:30px;
+    	
+    }
+    
+    .photoZone {
+        float: left;
+        width: 30%;
+        height: 300px;
+        margin-top : 50px;
+        margin-left:20px;
+    }
+
+    .myphoto img {
+        width: 90%;
+        height: 200px;
+    }
+    #delBtn {
+    	width: 16%; 
+    	bottom:50px; 
+    	position: absolute;
+    	height:30px;
+    }
+    #delBtn input {
+    	width:100%;
+    	height:30px;
+    	outline : 0px;
+    	border : 0px;
+    	background-color:rgb(197, 197, 197);
+    	color:black;
+    	border-radius: 5%;
+
+    
+    }
+    .upBtn{
+    	outline : 0px;
+    	border : 0px;
+    	background-color:rgb(197, 197, 197);
+    	color:black;
+    	border-radius: 5%;
+    
+    }
+    #photoUplodeBtn{
+    	width: 50%;
+    	outline : 0px;
+    	border : 0px;
+    	background-color:rgb(197, 197, 197);
+    	color:black;
+    	font-size:13px;
+    	padding : 6px 37px;
+    
+    }
+  	
+  	.insertPw{
+  		color : red;
+  	}

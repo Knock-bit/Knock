@@ -14,7 +14,7 @@ public class DetailCampaignCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String campaign_idx = request.getParameter("campaign_idx");
+		int campaign_idx = Integer.parseInt(request.getParameter("campaign_idx"));
 		CampaignIngVO ccvo = UserDAO.cingList(campaign_idx);
 		System.out.println("pop창 idx: " + campaign_idx);
 		
