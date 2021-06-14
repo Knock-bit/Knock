@@ -102,6 +102,46 @@
 		font-size:11px;
 		font-weight:bold;
    	}
+   	   .emblemZone, .pointZone { float: left;}
+   .myStatus{
+   		width:80%;
+   		height:400px;
+   }
+   #countEmb {
+   		width:100%;
+   		height:300px;
+   }
+   #embImgZone{
+   		width:95%;
+   		height:250px;
+   		margin:0 auto;
+   		
+   
+   } 
+   #embImg{
+   		width:50px;
+   		height:50px;
+   		border-radius : 50%;
+   		border : solid 2px black;
+   		display:inline-block;
+   		margin-left:10px;
+		margin-right:10px;
+		overflow: hidden;
+		align-items: center;
+		justify-content: center;
+
+   } 
+   #embImg img{
+   		width: 100%;
+		height:auto;
+		opacity: 1;
+   
+   }
+   
+   #rank {
+   		width:100%;
+   		height:100px;
+   }
    </style>
    
    <!--  -->
@@ -158,7 +198,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="/image/honggildong.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="${user.user_img }" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>${user.name }</h4>
                       <button class="btn btn-primary">Follow</button>
@@ -278,9 +318,7 @@
                 </div>
                 <div class="emblemZone" style="float:left; width:300px;">
             	<p class="myEmblems" style="text-align:center; background-color:gray; color:white;">[ MY EMBLEM / STATUS]</p>
-                <div class="treeimage">
-                    <img src="image/sprout.jpeg">    
-                </div>
+                
                 <div class="myStatus">
                     <div id="countEmb">
                         <p>▶ EMBLEM : ${emblemCount }개</p>
