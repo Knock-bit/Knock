@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>campaign</title>
 <script type="text/javascript">
 	function goBack(){
 			window.history.back();
