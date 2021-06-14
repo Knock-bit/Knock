@@ -29,9 +29,10 @@ public class MypageListCommand implements Command{
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		String user_idx2 = String.valueOf(session.getAttribute("user_idx"));
+		int user_idx = Integer.parseInt(user_idx2);
 		
-		
-		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+		//int user_idx = Integer.parseInt(request.getParameter("user_idx"));
 		UserVO user = UserDAO.myPageList(user_idx);
 		
 		// 현재 참여중인 캠페인 리스트(정보)
@@ -47,8 +48,8 @@ public class MypageListCommand implements Command{
 		
 		// 현재 참여중인 캠페인 리스트
 //		List<CampaignIngVO> clist = UserDAO. camIngList(user_idx);
-		request.setAttribute("clist", clist);
-		request.setAttribute("user", user);
+//		request.setAttribute("clist", clist);
+//		request.setAttribute("user", user);
 		
 //		if(user_idx!=null) {
 ////			session.setAttribute("user", user);
