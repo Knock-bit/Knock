@@ -91,7 +91,6 @@ request.setCharacterEncoding("UTF-8");
 				<c:if test="${!empty userList }">
 					<c:forEach var="user" items="${userList }">
 						<c:set var="user_idx" value="${user.user_idx }"></c:set>
-						<p>${user.knock_active }
 						<tr>
 							<td class="cell100 column1">${user.user_idx }</td>
 							<td class="cell100 column1">${user.user_id }</td>
