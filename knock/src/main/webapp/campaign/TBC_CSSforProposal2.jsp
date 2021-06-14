@@ -16,7 +16,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="./style.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 
 	<body>
@@ -25,8 +25,7 @@
 			<div class="inner">
 				<form id="campaignForm" method="post" action="${contextPath}/campaign?type=proposal">
 					<h3>캠페인 아이디어</h3>
-					<p>KNOCK!KNOCK!의 캠페인 아이디어는 모두에게 열려 있습니다.<br>다음 회차에 진행될 캠페인 아이디어를 제안해주세요.
-					제안된 아이디어는 검토 후에 회원들의 펀딩 참여여부에 따라 다음회차 캠페인으로 선정됩니다.</p>
+					<p>KNOCK!KNOCK!의 캠페ewqrerqrweqrq차 캠페인으로 선정됩니다.</p>
 					<label class="form-group">
 						<input type="text" name="p_title" class="form-control"  required>
 						<span>캠페인 이름</span>
@@ -79,13 +78,4 @@
 			</div>
 		</div>
 	</body> 
-</html>
-
-
-
-
-
-
-
-</body>
 </html>

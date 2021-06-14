@@ -37,12 +37,18 @@
 						<span for="">목표 포인트(최소 2500점)</span>
 						<span class="border"></span>
 					</label>
+					
 					<label class="form-group" >
 						<textarea  name="goal" id="goal" class="form-control" required></textarea>
 						<span for="">캠페인 취지</span>
 						<span class="border"></span>
 					</label>
-
+					<label class="form-group" >
+						<textarea  name="p_content" id="p_content" class="form-control" required></textarea>
+						<span for="">캠페인 목표</span>
+						<span class="border"></span>
+					</label>
+					
 				
 					<p id=ptag>캠페인 키워드를 입력해주세요</p>
 					<label class="keyword-group ">						
@@ -72,6 +78,5 @@
 				</form>
 			</div>
 		</div>
-		
 	</body> 
 </html>

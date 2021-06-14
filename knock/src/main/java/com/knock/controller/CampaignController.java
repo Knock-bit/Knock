@@ -58,7 +58,7 @@ public class CampaignController extends HttpServlet{
 		} else if ("ingOne".equals(type)) {
 			command = new CampaignOneCommand();
 		} else if ("proposal".equals(type)) {
-			command = new ProposalCommand();
+			command = new ProposalCommand(user_idx);
 		} else if ("nominee".equals(type)) {
 			command = new NomineeCommand(user_idx);
 		} else if ("funding".equals(type)) {

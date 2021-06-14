@@ -1,6 +1,7 @@
 package com.knock.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
@@ -14,38 +15,41 @@ import com.knock.model.command.signin.MemberIdChkCommand;
 import com.knock.model.command.signin.UserJoinCommand;
 import com.knock.model.vo.MemberVO;
 
-@WebServlet("/signin/join")
+@WebServlet("/signin")
 public class UserJoinController extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getParameter("utf-8");
-		
-		Command command = null;
-		String id = req.getParameter("user_id");
-		String pwd = req.getParameter("pwd");
-		String name = req.getParameter("name");
-		String email = req.getParameter("email");
-		String nickname = req.getParameter("nickname");
-		String phone = req.getParameter("phone");
-		String birth = req.getParameter("birth");
-		int gender = Integer.parseInt(req.getParameter("gender"));
-		String address = req.getParameter("address");
-		
-		MemberVO vo = new MemberVO();
-		vo.setUser_id(id);
-		vo.setPwd(pwd);
-		vo.setName(nickname);
-		vo.setEmail(email);
-		vo.setNickname(nickname);
-		vo.setPhone(phone);
-		vo.setBirth(birth);
-		vo.setGender(gender);
-		vo.setAddress(address);	
-		command = new UserJoinCommand();
+   @Override
+   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+      req.setCharacterEncoding("utf-8");
+      System.out.println("==========");
+      Command command = null;
+      
+      resp.setContentType("text/html; charset=utf-8");
+      
+      MemberVO vo = new MemberVO();
+      String type = req.getParameter("type");
+      if(type.equals("join")) {
 
-		command.exec(req, resp);
-		
-	}	
+      command = new UserJoinCommand();
+      System.out.println("command로 보내기 전의 VO:");
+      System.out.println(vo);
+      }
+      String path = command.exec(req, resp);
+      
+      System.out.println("path>> " + path);
+      PrintWriter out = resp.getWriter();
+      
+		if(path == null||path.equals("")) {
+			System.out.println("실행했던 command의 리턴값이 빈칸이거나 null임");
+			return;
+		} else {
+			
+			out.println("<script>");
+			out.println("location.href='" +req.getContextPath()  +"/main.jsp';");		
+			out.println("</script>");
+			System.out.println("getRequestDispatcher 실행");
+			req.getRequestDispatcher(path).forward(req, resp);			
+		}
+   }   
 }
