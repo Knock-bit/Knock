@@ -7,12 +7,11 @@
 	$(function () {
 		var admin = "${knock_admin}";
 		if(admin == 0){
-			/* <a href="${contextPath }/admin?type=adminUserList">회원관리</a>
-			<a href="${contextPath }/admin?type=adminKeyword">키워드관리</a> */
+			
 			$("#myPage").html("회원관리");
-			$("#myPage").attr("href","${contextPath }/admin?type=adminUserList");
+			$("#myPage").attr("href","/knock/admin?type=adminUserList");
 			$("#admin").html("키워드관리");
-			$("#admin").attr("href","${contextPath }/admin?type=adminKeyword");
+			$("#admin").attr("href","/knock/admin?type=adminKeyword");
 		}
 	})
 
@@ -24,7 +23,7 @@
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <!-- <li class="nav-item"><a class="nav-link" href="#services">What is 놐놐</a>
                          -->
@@ -48,7 +47,7 @@
                         <c:set var="admin" value="${knock_admin }"/>
                         <c:if test="${!empty user_idx }">
                         <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do">마이페이지</a></li>  
-                        <li class="nav-item" ><a id="admin" class="nav-link" href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
+                        <li class="nav-item nav-link" ><a id="admin" href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
                         <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
           				<c:if test="${empty user_idx }">

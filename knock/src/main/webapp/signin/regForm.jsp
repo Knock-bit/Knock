@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,9 +14,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
- 
-</head>
+ <title>회원가입</title>
+      
+      <style>
+      .container{
+      margin-left:0px;
+      margin:auto;
+      }
+      
+      #reg-logo{
+      margin-bottom:20px;
+      }
+      </style>
+    </head>
+
+    <body>
+      <div class="main">
+        <div id="reg-logo"><center><a href="${contextPath }/main.jsp"><img
+              src="${contextPath }/resources/assets/img/knocklogo.png" alt="..." width="150px"/><br>
+            <img src="${contextPath }/resources/assets/img/knocktext.png" alt="..." width="500px" /></a>
+        </div>
 <body>
 <div class="main">
 <div class="container">
@@ -58,6 +76,13 @@
  <input type="submit" disabled="true" id="submit" value="가입" />
  <input type="reset" value="다시쓰기" />
 
+        	<p>
+        	<p>
+           
+ <center>
+    © 2021 Copyright: BITCAMP 1조
+        
+        	<p><p><p><p><p>
+    </body>
 
-</body>
 </html>
