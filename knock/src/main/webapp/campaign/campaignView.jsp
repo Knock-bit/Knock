@@ -46,6 +46,16 @@ float: left}
 .camp-right{
 float: right;
 margin-right:50px}
+.c-keyword{
+border-radious:.25rem;
+color:skyblue;
+display:inline;}
+.c-goal{
+font-size:1rem;
+margin-bottom:1rem;
+}
+#c-content{
+width:350px;}
 
 </style> 
 </head>
@@ -71,41 +81,41 @@ margin-right:50px}
   <img src="${campaignIng.c_file }" class="card-img-top" alt="...">
   </div>
   
+  <div class="img order-md-last" style="background-image: url(images/work-2.jpg);"></div>
   <div class="col-lg-4 camp-right">
   <center>
   <br><br>
   <br>
-  ${campaignIng.goal }<br>
-  
+   <h2 class="section-heading text-uppercase">${campaignIng.title }</h2>
+                    <h3 class="c-goal section-subheading text-muted">suggested by ${campaignIng.nickname } </h3>
+  <h3 class="c-goal text-muted"> ${campaignIng.goal } </h3>
+  <c:if test="${!empty campaignIng.keyword1}"> <div class="c-keyword"># ${campaignIng.keyword1}</div></c:if>
+    <c:if test="${!empty campaignIng.keyword2}"> <div class="c-keyword"># ${campaignIng.keyword2}</div></c:if>
+    <c:if test="${!empty campaignIng.keyword3}"><div class="c-keyword"> # ${campaignIng.keyword3}</div></c:if>
 	<br>
-	<p class="card-text"><h2>${campaignIng.title }</h2></p>
-	${campaignIng.c_content }
-    <p class="text-muted">  
-    <p class="camp-emblem"> 획득엠블럼 <br>
-    <img src="${campaignIng.emblem }" width="100px"></p>
-    <c:if test="${!empty campaignIng.keyword1}"> # ${campaignIng.keyword1}</c:if>
-    <c:if test="${!empty campaignIng.keyword2}"> # ${campaignIng.keyword2}</c:if>
-    <c:if test="${!empty campaignIng.keyword3}"> # ${campaignIng.keyword3}</c:if>
+    <p class="camp-emblem">
+    <img src="${campaignIng.emblem }" width="200px"></p>
+   <div id="c-content"> 캠페인 소개 내용. 왜 사냐건 웃지요 나를. 왜 사냐건 웃지요 나를.왜 사냐건 웃지요 나를.왜 사냐건 웃지요 나를 .왜 사냐건 웃지요 나를. 왜 사냐건 웃지요 나를.</div>
   <div class="footer">
-	                 <p>
-	                 <p class="txt3"></p><div class="ingUser">
-	참여중인 user<br>
-	<c:if test="${empty ing_userList }">
-	참가중인 사용자가 없습니다. 
-	</c:if> 
-	<c:if test="${!empty ing_userList}">
-		<c:forEach var="vo" items="${ing_userList}">
-		${vo }
-		</c:forEach>
-		님이 참여중
-	</c:if>
-	</div></p>
-	                 <p class="txt3"><i class="far fa-clock"></i>${endDate - now}일 남았어요<span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
-	             </div>
+	                 <p class="txt3"></p><div class="ingUser"><center>
+	    <div class="item">
+        <div>
+            <textarea cols=43 >참가중인참여자명단
+                <c:if test="${!empty ing_userList}">
+<c:forEach var="vo" items="${ing_userList}">
+${vo }
+</c:forEach>
+님이 참여중
+</c:if>
+</textarea></div>
+	                 <p class="txt3"><i class="far fa-clock"></i>${endDate - now}일 남았어요&nbsp;<span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
+	             
   </div>
-  <
-  <button id="participate" class="form-control btn btn-primary rounded submit px-3"
-  onclick="location.href='#'">참여하기</button>
+  
+   <button id="participate" class="btn btn-outline-dark mb-2 py-3 px-4" onclick="location.href='/signin/login.jsp'">로그인하고 캠페인 참여하기</button>
+                        <button type="button" class="btn btn-dark mb-2 py-3 px-4" onclick="location.href='#'">후기보기</button>
+  
+  
   <div class="card-body">
     
     

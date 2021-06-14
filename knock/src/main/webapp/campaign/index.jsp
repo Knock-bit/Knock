@@ -29,7 +29,6 @@
             <%@ include file="../common/topmenubar2.jsp" %>
         </nav>
 <body>
-	<%@ include file="tempinclude.jsp" %>
 	
 <hr>
 <a href="${contextPath }/campaign?type=nominee">현재 펀딩중인 캠페인</a><br>
