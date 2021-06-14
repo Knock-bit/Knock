@@ -58,6 +58,8 @@ public class UserController extends HttpServlet {
 		
 
 		String type = request.getParameter("type");
+		String rq_user_idx = request.getParameter("user_idx");
+		System.out.println("rq_user_idx : " + rq_user_idx);
 		Command command = null;
 		
 		if(type.equals("moveMypage.do")) {

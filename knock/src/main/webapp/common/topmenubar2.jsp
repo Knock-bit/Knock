@@ -40,13 +40,13 @@
       </li>
                          
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign?type=ingList">캠페인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign/TBC_CSSforProposal.jsp">캠페인 오픈하기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign/proposalForm.jsp">캠페인 오픈하기</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">커뮤니티</a></li>
                         
                          
                         <c:set var="admin" value="${knock_admin }"/>
                         <c:if test="${!empty user_idx }">
-                        <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do">마이페이지</a></li>  
+                        <li class="nav-item"><a id="myPage" class="nav-link" href="${contextPath }/userctr?type=moveMypage.do&user_idx=${user_idx}">마이페이지</a></li>  
                         <li class="nav-item nav-link" ><a id="admin" href="#">${nickname}님 보유포인트: ${total_point - used_point }</a></li>                      
                         <li class="nav-item"><a class="nav-link" href="${contextPath}/logout.jsp">로그아웃</a></li>  
                         </c:if>
