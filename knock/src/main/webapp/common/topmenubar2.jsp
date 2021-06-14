@@ -11,7 +11,7 @@
 			/* $("#myPage").html("회원관리");
 			$("#myPage").attr("href","/knock/admin?type=adminUserList"); */
 			$("#admin").html("관리자페이지");
-			$("#admin").attr("href","/knock/index.jsp");
+			$("#admin").attr("href","${contextPath}/admin/index.jsp");
 		}
 	})
 </script>
