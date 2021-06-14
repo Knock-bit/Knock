@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
+<fmt:formatDate var="now" value="${today }" pattern ="yyyyMMdd" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,7 +113,7 @@ ${vo }
 	             
   </div>
   
-   <button id="participate" class="btn btn-outline-dark mb-2 py-3 px-4" onclick="location.href='/signin/login.jsp'">로그인하고 캠페인 참여하기</button>
+   <button id="participate" class="btn btn-outline-dark mb-2 py-3 px-4" onclick="location.href='${contextPath}/signin/login.jsp'">로그인하고 캠페인 참여하기</button>
                         <button type="button" class="btn btn-dark mb-2 py-3 px-4" onclick="location.href='#'">후기보기</button>
   
   
