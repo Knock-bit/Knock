@@ -18,6 +18,7 @@ Paging p = new Paging();
 
 // setTotalRegord : 전체 게시글 수 
 p.setTotalRecord(DAO.getTotalCount());
+
 // 나와야할 페이지 수 , 전체게시글  / numPerPage
 // 나머지 존재시 +1 
 p.setTotalPage();
@@ -156,7 +157,7 @@ pageContext.setAttribute("pvo", p);
 											<li class="now">${pageNo }</li>
 										</c:when>
 										<c:otherwise>
-											<li><a href="admin?type=adminKeyword&cPage=${pageNo }">${pageNo }</a></li>
+											<li><a href="${contextPath }/admin?type=adminKeyword&cPage=${pageNo }">${pageNo }</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
