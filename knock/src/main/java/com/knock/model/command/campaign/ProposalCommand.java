@@ -63,13 +63,14 @@ public class ProposalCommand implements Command {
 		int result = ProposalDAO.insert(proposal);
 		System.out.println(result);
 		
-			out.println("<script>");
-			out.println("alert('성공적으로 제안하였습니다');");
-			out.println("location.href='campaign/TBC_CSSforProposal.jsp';");
-
-			out.println("</script>");
+		/*
+		 * out.println("<script>"); out.println("alert('성공적으로 제안하였습니다');");
+		 * out.println("location.href='campaign/TBC_CSSforProposal2.jsp';");
+		 * 
+		 * out.println("</script>");
+		 */
 		
-		return "main.jsp";
+		return "campaign/TBC_CSSforProposal2.jsp";
 	}
 
 }
