@@ -50,7 +50,7 @@ h1{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url("bg.jpeg") no-repeat;
+    background: url("resultbg.jpg") no-repeat;
     background-size: cover; }
   
   .inner {
