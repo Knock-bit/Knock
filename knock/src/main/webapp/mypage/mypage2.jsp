@@ -45,7 +45,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="style.css" rel="stylesheet" type="text/css">
-  </head>
+  
   <body>
 		
 		<div class="wrapper d-flex align-items-stretch">
@@ -77,7 +77,7 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
+         <div id="content" class="p-4 p-md-5">
       
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
