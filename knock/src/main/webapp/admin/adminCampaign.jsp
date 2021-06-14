@@ -17,14 +17,13 @@
 	</head>
 
 	<body>
-
 		<div class="wrapper">
 			<div class="inner">
 				<form method="post" action="${contextPath }/admin?type=campaignOk"
 				class="regCampaign" enctype="multipart/form-data">
 					<h3>캠페인 등록하기</h3>
 						<label class="form-group">
-						<input type="text" name="p_title" class="form-control"  required>
+						<input type="text" name="title" class="form-control"  required>
 						<span>캠페인 제목</span>
 						<span class="border"></span>
 					</label>					
@@ -34,13 +33,13 @@
 						<span class="border"></span>
 					</label>
 					<label class="form-group" >
-						<textarea  name="p_content" id="p_content" class="form-control" required></textarea>
+						<textarea  name="content" id="content" class="form-control" required></textarea>
 						<span for="">캠페인 목표</span>
 						<span class="border"></span>
 					</label>
 					<label class="form-group" for="End-date">
 						<input type="date"  id="start" name="trip-start" value="2021-06-15"
-						min="2021-01-01" max="2040-12-31" class="form-control" required></textarea>
+						min="2021-01-01" max="2040-12-31" class="form-control" required>
 						<span for="">종료날짜</span>
 						<span class="border"></span>
 					</label>
@@ -59,8 +58,7 @@
 		
 					<p id=ptag>파일첨부</p>
 					<label class="form-group">
-						<input type="file" name="file" class="file-form"  surequired>
-                  <input type="submit" id="filesubmit" value= "전송">						
+						<input type="file" name="file" class="file-form"  surequired>				
 						<span class="border"></span>
 					</label>
 
