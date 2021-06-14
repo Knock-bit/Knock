@@ -55,7 +55,6 @@ public class loginCommand implements Command {
 				out.println("alert('오늘도 노크해주셔서 감사합니다 :-)');");
 				out.println("location.href='main.jsp';");
 
-				out.println("alert('로그인성공');");
 				out.println("location.href='" + request.getContextPath() +"/main.jsp';");
 				out.println("</script>");
 				
