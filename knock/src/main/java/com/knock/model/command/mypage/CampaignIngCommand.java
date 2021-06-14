@@ -16,39 +16,49 @@ import com.knock.model.vo.CampaignIngVO;
 public class CampaignIngCommand implements Command{  
 	int user_idx;
 	HttpSession session;
+
+
 	
 	public CampaignIngCommand() {
 	}
+
 // 페이징 처리 구현
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("cam커맨드 이동");
 		// 캠페인테이블과 연결된 user_idx 및 캠페인 완료날짜 가져오기
+
+		session =request.getSession();  
+		//Integer user_idx = (Integer)session.getAttribute("user_idx");
+		
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+
 		session =request.getSession();
         Integer user_idx = (Integer)session.getAttribute("user_idx");
 		System.out.println("아이디엑스갖옴?: " + user_idx);
-		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 
-		System.out.println("caom목록:" + clist);
 
+		List<CampaignIngVO> clist = UserDAO.camIngList(user_idx); 
+		System.out.println("아작스user_idx:"+user_idx);
+		
 		// json데이터 만들기
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		for(CampaignIngVO vo : clist){
+		for(CampaignIngVO cvo : clist){
 			sb.append("{");
-			sb.append("\"campaign_idx\":" + vo.getCampaign_idx() + ",");
-			sb.append("\"title\": \"" + vo.getTitle() + "\",");
-			sb.append("\"c_content\": \"" + vo.getC_content() + "\",");
-			sb.append("\"goal\": \"" + vo.getGoal() + "\",");
-			sb.append("\"end_date\": \""  + vo.getEnd_date() + "\",");
-			sb.append("\"base_point\": \"" + vo.getBase_point() + "\",");
-			sb.append("\"estimated_point\": \"" + vo.getEstimated_point() + "\",");
-			sb.append("\"status\": \"" + vo.getStatus() + "\",");
-			sb.append("\"c_file\": \"" + vo.getC_file() + "\",");
-			sb.append("\"emblem\": \"" + vo.getEmblem() + "\",");
-			sb.append("\"user_idx\": \"" + vo.getUser_idx() + "\",");
-			sb.append("\"c_category\": \"" + vo.getC_category() + "\",");
-			sb.append("\"c_category_name\": \"" + vo.getC_category_name() + "\",");
-			sb.append("\"c_totpoint\":" + vo.getC_totpoint());	
+			sb.append("\"campaign_idx\":" + cvo.getCampaign_idx() + ",");
+			sb.append("\"title\": \"" + cvo.getTitle() + "\",");
+			sb.append("\"c_content\": \"" + cvo.getC_content() + "\",");
+			sb.append("\"goal\": \"" + cvo.getGoal() + "\",");
+			sb.append("\"end_date\": \""  + cvo.getEnd_date() + "\",");
+			sb.append("\"base_point\": \"" + cvo.getBase_point() + "\",");
+			sb.append("\"estimated_point\": \"" + cvo.getEstimated_point() + "\",");
+			sb.append("\"status\": \"" + cvo.getStatus() + "\",");
+			sb.append("\"c_file\": \"" + cvo.getC_file() + "\",");
+			sb.append("\"emblem\": \"" + cvo.getEmblem() + "\",");
+			sb.append("\"user_idx\": \"" + cvo.getUser_idx() + "\",");
+			sb.append("\"c_category\": \"" + cvo.getC_category() + "\",");
+			sb.append("\"c_category_name\": \"" + cvo.getC_category_name() + "\",");
+			sb.append("\"c_totpoint\":" + cvo.getC_totpoint());	
 			sb.append("},");
 
 		}

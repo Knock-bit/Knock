@@ -16,7 +16,7 @@ public class EndCamListCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String user_idx = request.getParameter("user_idx");
+		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
 		MyCampaignPagingVO p = new MyCampaignPagingVO();
 		
 		// 카테고리 번호 받아와서 카테고리 네임으로 리턴하기
@@ -60,7 +60,6 @@ public class EndCamListCommand implements Command{
 		
 		// 현재 페이지 기준으로 db 데이터 가져오기
 		List<CampaignIngVO> cclist = UserDAO.getEndList(p.getBegin(), p.getEnd(), user_idx);
-		System.out.println("cclist: " + cclist);
 		
 		
 		

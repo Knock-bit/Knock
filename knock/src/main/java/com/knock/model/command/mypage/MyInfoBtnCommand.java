@@ -18,6 +18,7 @@ public class MyInfoBtnCommand implements Command{
 		this.user_idx = user_idx;
 	}
 	
+
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

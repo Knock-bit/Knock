@@ -27,7 +27,10 @@ import com.knock.model.vo.UserVO;
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session;
+
+
 	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
@@ -43,17 +46,26 @@ public class UserController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		session =request.getSession();
+
+        //Integer user_idx = (Integer)session.getAttribute("user_idx");
+		Integer user_idx = 1;
+
         Integer user_idx = (Integer)session.getAttribute("user_idx");
         
         
 		System.out.println("USerController 실행!!");
         System.out.println("user_idx= " + user_idx);
 		
+
 		String type = request.getParameter("type");
 		Command command = null;
 		
 		if(type.equals("moveMypage.do")) {
+
+			// 마이페이지로 이동 & 내 정보 출력
+
 			// 마이페이지로 이동 & 내 정보 출력m                                                                 m
+
 			command = new MypageListCommand(user_idx);
 			
 		} else if(type.equals("updateMyInfoBtn.do")) {

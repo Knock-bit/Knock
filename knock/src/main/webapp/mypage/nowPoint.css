@@ -1,0 +1,130 @@
+@charset "UTF-8";
+	body{
+		width:1100px;
+	
+	}
+	.pointMain {
+		float : left;
+		width:850px;
+		margin-left:20px;
+	}
+	.topdan {
+		width:950px;
+		height :300px;
+	}
+
+	
+	#pointNow {
+		text-align:left;
+		padding-left : 30px;
+		border-bottom: 1px solid black;
+		font-size : 23px;
+		width:90%;
+	
+	}
+	
+	
+	
+	.pointGraph {
+		width:950px;
+		padding : 10px;
+		overflow: auto;
+	}
+
+	.point_view{
+		width : 850px;
+	}
+	.graph {
+		height : 40px;	
+		margin:0 0 30px;
+		
+	}
+	.graph p{
+		font-size:14px;
+		margin-bottom:0px;
+		width: 15%;
+		text-align:left;
+		padding-left:10px;
+		color : black;;
+	
+	}
+	.graph span {
+		display: block;
+		padding: 0 10px;
+		height: 30px;
+		line-height: 40px;
+		text-align: right;
+		background: gray;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-top-right-radius: 40px;
+		border-bottom-right-radius: 40px;
+		box-sizing: border-box;
+		color: #fff;
+		
+		
+	}
+	.graph.stack1 span {background: rgb(203, 248, 120); animation: stack1 2s 1;}
+	.graph.stack2 span {background: rgb(141, 248, 120); animation: stack2 2s 1;}
+	.graph.stack3 span {background: rgb(0, 104, 0); animation: stack3 2s 1;}
+	
+	
+
+	
+
+	.bottomdan {
+		width:870px;
+		height: 500px;
+		background-image: url(/image/tree2.jpeg);
+		background-repeat : no-repeat;
+        background-size : cover;
+        background-image : url(../image/ftree.png);
+        background-repeat: no-repeat;
+        background-size:100% 100%;
+        
+		
+	}
+
+	#emblem {
+		width:80px;
+		height:80px;
+		border-radius: 50%;
+		border : solid 5px black;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color : white;
+
+	}
+	#emblem img {
+		width: 100%;
+		height:auto;
+		opacity: 1;
+	}
+
+	.e1{
+		position:relative;
+		top:150px;
+		left:150px;
+	}
+	.e2{
+		position:relative;
+		top:180px;
+		left:550px;
+	}
+	.e3{
+		position:relative;
+		top:-100px;
+		left:400px;
+	}
+	.e4{
+		position:relative;
+		top:0px;
+		left:230px;
+	}
+	.e5{
+		position:relative;
+		top:-300px;
+		left:600px;
+	}
