@@ -21,7 +21,7 @@ public class DeleteUserCommand implements Command{
 		if(result==1) {
 			
 			request.setAttribute("msg", "회원탈퇴가 완료되었습니다. 이용해주셔서 감사합니다.");
-			request.setAttribute("loc", "/mypage/mypage_tempmain.jsp");
+			request.setAttribute("loc", "/main.jsp.jsp");
 			session.invalidate();
 			return "/common/view.jsp";
 		} else {
