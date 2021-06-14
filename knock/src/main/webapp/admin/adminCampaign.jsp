@@ -5,42 +5,72 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<%@ include file="admininclude.jsp"%>
-</head>
-<body>
-	<div class="main">
-		<div class="container">
-			<form method="post" action="${contextPath }/admin?type=campaignOk"
+	<head>
+		<meta charset="utf-8">
+		<title>Suggest Campaign</title>
+		<!-- 구글폰트 넣어보기-->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="style1.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<form method="post" action="${contextPath }/admin?type=campaignOk"
 				class="regCampaign" enctype="multipart/form-data">
-				<div class="form-group-1">
-					<label for="Campaign-title" class="form-label">캠페인 제목</label> <br>
-					<input class="form-control form-control-sm" type="text"
-						name="title" placeholder="캠페인 제목 입력" /> <br> <br> <label
-						for="Campaign-content" class="form-label">캠페인 내용</label>
-					<textarea class="form-control" id="c_content" name="content"
-						rows="3"></textarea>
+					<h3>캠페인 등록하기</h3>
+						<label class="form-group">
+						<input type="text" name="p_title" class="form-control"  required>
+						<span>캠페인 제목</span>
+						<span class="border"></span>
+					</label>					
+					<label class="form-group" >
+						<textarea  name="goal" id="goal" class="form-control" required></textarea>
+						<span for="">캠페인 내용</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group" >
+						<textarea  name="p_content" id="p_content" class="form-control" required></textarea>
+						<span for="">캠페인 목표</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group" for="End-date">
+						<input type="date"  id="start" name="trip-start" value="2021-06-15"
+						min="2021-01-01" max="2040-12-31" class="form-control" required></textarea>
+						<span for="">종료날짜</span>
+						<span class="border"></span>
+					</label>
 
-					<br> <label for="Campaign-goal" class="form-label">캠페인
-						목표</label>
-					<textarea class="form-control" id="goal" name="goal" rows="2"></textarea>
-
-					<br> <label for="End-date" class="form-label">종료 날짜</label> <input
-						type="date" id="start" name="trip-start" value="2021-06-15"
-						min="2021-01-01" max="2040-12-31"> <br> <select
-						name="category">
-						<c:forEach var="item" items="${list }">
+               <label class="form-group" >
+                  <span for="">캠페인 카테고리</span><br>
+                  <span class="border"></span>
+               <select name="category" class="form-control">
+                   <c:forEach var="item" items="${list }">
 							<option value="${item.c_category }" name="category">
 								${item.c_category_name }</option>
-						</c:forEach>
-					</select> <br> <br> file: <input type="file" name="file">
-					<br> <input type="submit" value="전송">
-				</div>
-			</form>
-		</div>
-	</div>
+                  </c:forEach>
+               </select>
+               </label>
+				
+		
+					<p id=ptag>파일첨부</p>
+					<label class="form-group">
+						<input type="file" name="file" class="file-form"  surequired>
+                  <input type="submit" id="filesubmit" value= "전송">						
+						<span class="border"></span>
+					</label>
 
-</body>
+					<button type=submit class="button">&nbsp;&nbsp;등록 
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+					<button type=reset onClick="location.href='main.jsp'"  class="button">&nbsp;&nbsp;취소
+                  						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</body> 
 </html>

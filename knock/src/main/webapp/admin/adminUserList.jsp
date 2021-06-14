@@ -7,11 +7,19 @@
 <%
 request.setCharacterEncoding("UTF-8");
 %>
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link
+	<meta charset = "UTF-8">
+	<title></title>
+	<!--jQuery import방식 2(CDN방식)-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="stylemanagemembers.css">
+
+	<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
@@ -47,54 +55,67 @@ request.setCharacterEncoding("UTF-8");
  
 
  </script>
-<title>관리자 - 회원관리</title>
+ <title>관리자 - 회원관리</title>
 </head>
 <body>
-	<div id="container">
-		<table class="table" id="activeTable">
-			<thead>
-				<tr>
-					<td>번호</td>
-					<td>아이디</td>
-					<td>이름</td>
-					<td>닉네임</td>
-					<td>가입일</td>
-					<td>최근접속일</td>
-					<td>계정활성화상태</td>
-					<td>활성/비활성</td>
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${empty userList }">
-					<tr>
-						<td colspan="5" align="center"><b>가입한 회원이 없습니다.</b></td>
+	<h1>회원관리하기</h1>
+	<div class="table100 ver3 m-b-110">
+		
+		<div class="table100-head">
+			<table>
+				<thead>
+					<tr class="row100 head">
+						<th class="cell100 column1">번호</th>
+						<th class="cell100 column2">ID</th>
+						<th class="cell100 column3">이름</th>
+						<th class="cell100 column4">닉네임</th>
+						<th class="cell100 column5">가입일</th>
+						<th class="cell100 column5">최근접속일</th>
+						<th class="cell100 column5">계정활성화상태</th>
+						<th class="cell100 column5">활성/비활성</th>
 					</tr>
-				</c:if>
+				</thead>
+			</table>
+		</div>
+
+		<div class="table100-body js-pscroll">
+			<table>
+				<thead>					<c:if test="${empty userList }">
+
+					<tr class="row100 body">
+						<td class="cell100 column1" colspan="7" align="center">가입한 회원이 없습니다.</td>
+					</tr>
+					</c:if>
+
+				</thead>
 				<c:if test="${!empty userList }">
 					<c:forEach var="user" items="${userList }">
 						<c:set var="user_idx" value="${user.user_idx }"></c:set>
 						<p>${user.knock_active }
 						<tr>
-							<td>${user.user_idx }</td>
-							<td>${user.user_id }</td>
-							<td>${user.name }</td>
-							<td>${user.nickname }</td>
-							<td><fmt:formatDate value="${user.joindate }"
-									pattern="yyyy.MM.dd" /></td>
-							<td><fmt:formatDate value="${user.last_login_date }"
-									pattern="yyyy.MM.dd" /></td>
-							<c:if test="${user.knock_active eq 1}">
-								<td>활성</td>
-							</c:if>
-							<c:if test="${user.knock_active eq 0}">
-								<td>비활성</td>
-							</c:if>
-							<td><input type="button" class="activeButton" value="활성/비활성" /></td>
+							<td class="cell100 column1">${user.user_idx }</td>
+							<td class="cell100 column1">${user.user_id }</td>
+							<td class="cell100 column1">${user.name }</td>
+							<td class="cell100 column1">${user.nickname }</td>
+							<td class="cell100 column5"><fmt:formatDate value="${user.joindate }"
+								pattern="yyyy.MM.dd" /><</td>
+							<td class="cell100 column1"><fmt:formatDate value="${user.last_login_date }"
+								pattern="yyyy.MM.dd" /></td>
+								<c:if test="${user.knock_active eq 1}">
+								<td class="cell100 column1">활성</td>
+								</c:if>
+								<c:if test="${user.knock_active eq 0}">
+								<td class="cell100 column1">비활성</td>
+								</c:if>
+								<td class="cell100 column1"><input type="button" class="activeButton" value="활성/비활성"></td>
+
 						</tr>
 					</c:forEach>
 				</c:if>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
+
 </body>
 </html>
