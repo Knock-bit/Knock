@@ -1,6 +1,7 @@
 package com.knock.model.command.campaign;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,14 @@ import com.knock.model.dao.ProposalDAO;
 
 public class ProposalCommand implements Command {
 	
+	int user_idx;
 	
+	public ProposalCommand(int user_idx) {
+		
+		this.user_idx = user_idx;
+	}
+
+
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">> Proposal Command 실행");
@@ -23,7 +31,7 @@ public class ProposalCommand implements Command {
 		String goal = request.getParameter("goal");
 		int goal_point = Integer.parseInt(request.getParameter("goal_point"));
 		String p_content = request.getParameter("p_content");
-		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
+//		int user_idx = Integer.parseInt(request.getParameter("user_idx"));
 		String[] p_keyword = request.getParameterValues("p_keyword");
 		
 		ProposalVO proposal = new ProposalVO();
@@ -35,7 +43,7 @@ public class ProposalCommand implements Command {
 	
 		System.out.println(p_keyword[0]);
 		System.out.println(p_keyword.length);
-		
+		PrintWriter out = response.getWriter();
 		
 		switch(p_keyword.length) {
 		case 3 :
@@ -52,9 +60,16 @@ public class ProposalCommand implements Command {
 		}	
 		
 		System.out.println(proposal.getP_keyword1());
-		ProposalDAO.insert(proposal);
+		int result = ProposalDAO.insert(proposal);
+		System.out.println(result);
 		
-		return "campaign/proposalResult.jsp";
+			out.println("<script>");
+			out.println("alert('성공적으로 제안하였습니다');");
+			out.println("location.href='campaign/TBC_CSSforProposal.jsp';");
+
+			out.println("</script>");
+		
+		return "main.jsp";
 	}
 
 }

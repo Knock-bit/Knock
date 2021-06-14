@@ -3,6 +3,12 @@
     isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="today" class="java.util.Date" scope="request"/>
+<fmt:formatDate var="now" value="${today }" pattern ="yyyyMMdd" />
+<%@page import="java.util.List"%>
+<%@page import="com.knock.model.vo.CampaignIngVO"%>
+<%@ page import="com.knock.model.dao.CampaignIngDAO" %>
+
 <c:set var="contextPath" value ="${pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
@@ -37,6 +43,7 @@
             </div>
         </header>
         <!-- Services-->
+      
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
@@ -74,7 +81,44 @@
             </div>
         </section>
         <!-- Portfolio Grid-->
-        <section class="page-section bg-light" id="portfolio">
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center ">
+                    <h2 class="section-heading text-uppercase">진행중인 캠페인</h2>
+                    <h3 class="section-subheading text-muted">Join Campaign and Get Point!</h3>
+                </div>
+                <!-- <div class="text-center"> -->
+                
+                
+                <div class="row">
+              <% CampaignIngDAO campaignIngDAO = new CampaignIngDAO ();
+					List<CampaignIngVO> list = campaignIngDAO.list();%>
+				<jsp:useBean id="dao" class="com.knock.model.dao.CampaignIngDAO" scope="session" />
+        		<c:forEach var="vo" items="${dao.list() }" end="2">
+        		
+        		<fmt:formatDate var="endDate" value="${vo.end_date }" pattern ="yyyyMMdd" />
+			 <div class="col-sm-12 col-lg-4 camp-card">
+			 <div class="card h-100">
+  <img src="${vo.c_file }" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"><h2><a href="${contextPath }/campaign?type=ingOne&idx=${vo.campaign_idx }">${vo.title }</a></h2></p>
+    <p class="text-muted"> ${vo.c_content } &nbsp;&nbsp;# ${vo.keyword1} # ${vo.keyword2}  # ${vo.keyword3}</p>
+    <div class="footer">
+	                 <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
+	                 <p class="txt3"><i class="far fa-clock"></i> ${endDate - now}일 남았어요
+	             </div>
+  </div>
+</div></div>
+			 
+       			 </c:forEach>
+		
+                    
+                 </div></div>   
+        </section>
+        
+        
+        
+        <%-- <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">진행중인 캠페인</h2>
@@ -173,7 +217,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --%>
         <!-- About-->
         <section class="page-section" id="about">
             <div class="container">

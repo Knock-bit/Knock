@@ -64,5 +64,9 @@
 	<input type="button" value="취소하기" onClick="location.href='main.jsp'">
 	
 	</form>
+	<footer class="footer py-4">
+        	<%@ include file="../common/footer2.jsp" %>
+           
+        </footer>
 </body>
 </html>
