@@ -62,7 +62,7 @@ $('#pwd2').on('blur',function(){
  			if($("#pwd").val() == $("#pwd2").val()){
 				//비밀번호 일치하는 경우
 				$('#pwd').css({
-				    'background': "yellow",
+				    'background': "#6BDF8F",
 				    'color': "black",
 				    'border': "0.7px solid balck"
 				   });
@@ -280,5 +280,11 @@ $('#pwd2').on('blur',function(){
 				document.getElementById('addr2').focus(); 
 			} 
 		}).open(); 
+	});
+	
+	$("submit").on("click",function(){
+		alert("회원가입이 완료되었습니다.\n녹녹에 오신걸 환영합니다!");	
+		location.href="${contextPath }/signin?type=main.jsp";
+		
 	});
 }); 
