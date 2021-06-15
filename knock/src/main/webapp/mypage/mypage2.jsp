@@ -32,115 +32,115 @@
    
    <!-- Style -->
    <style>
-   	.pointZone { 
-   		width:100%; 
-   		height:400px; 
-   		position:relative;
-   		margin : 0 auto;
-   	}
-   	.pointRecord{
-   		width : 100%;
-   		text-align: center;
-   		font-size : 15px;
-   		background-color : rgb(83, 83, 83);
-   		color:white;
-   	}
-   	.ppp{
-   		width:90%;
-   		margin : 0 auto;
-   		height:300px;
-   		position:relative;
-   		text-align:center;
-   		
-   	}
-   	#pointBar {
-   		width:12%;
-   		height:200px;
-		display: inline-block;
-		vertical-align:middle;
-		margin-top:70px;
-		margin-left:20px;
-		margin-right:20px;
-		position:relative;
-		color:white;
-		font-size:12px;
+      .pointZone { 
+         width:100%; 
+         height:400px; 
+         position:relative;
+         margin : 0 auto;
+      }
+      .pointRecord{
+         width : 100%;
+         text-align: center;
+         font-size : 15px;
+         background-color : rgb(83, 83, 83);
+         color:white;
+      }
+      .ppp{
+         width:90%;
+         margin : 0 auto;
+         height:300px;
+         position:relative;
+         text-align:center;
+         
+      }
+      #pointBar {
+         width:12%;
+         height:200px;
+      display: inline-block;
+      vertical-align:middle;
+      margin-top:70px;
+      margin-left:20px;
+      margin-right:20px;
+      position:relative;
+      color:white;
+      font-size:12px;
 
-   	}
-   	#usedPointBar{
-   		position:absolute;
-   		bottom:0;
-   		width:100%;
-   		background-color:rgb(248, 133, 133);
-   		margin:0;
-   	}
-   	#remainsPointBar{
-   		position:absolute;
-   		bottom:0;
-   		width:100%;
-   		background-color:rgb(248, 192, 120);
-   		margin:0;
-   	}
-   	#allPointBar{
-   		position:absolute;
-   		bottom:0;
-   		width:100%;
-   		background-color :rgb(203, 248, 120);
-   		margin:0;
-   	}
-   	.pText{
-   		width:90%;
-   		margin : 0 auto;
-   		text-align:center;
-   	
-   	}
-   	.pText p {
-   		width:20%;
-   		display:inline-block;
-   		vertical-align:middle;
-   		margin-left:10px;
-		margin-right:10px;
-		font-size:11px;
-		font-weight:bold;
-   	}
-   	   .emblemZone, .pointZone { float: left;}
+      }
+      #usedPointBar{
+         position:absolute;
+         bottom:0;
+         width:100%;
+         background-color:rgb(248, 133, 133);
+         margin:0;
+      }
+      #remainsPointBar{
+         position:absolute;
+         bottom:0;
+         width:100%;
+         background-color:rgb(248, 192, 120);
+         margin:0;
+      }
+      #allPointBar{
+         position:absolute;
+         bottom:0;
+         width:100%;
+         background-color :rgb(203, 248, 120);
+         margin:0;
+      }
+      .pText{
+         width:90%;
+         margin : 0 auto;
+         text-align:center;
+      
+      }
+      .pText p {
+         width:20%;
+         display:inline-block;
+         vertical-align:middle;
+         margin-left:10px;
+      margin-right:10px;
+      font-size:11px;
+      font-weight:bold;
+      }
+         .emblemZone, .pointZone { float: left;}
    .myStatus{
-   		width:80%;
-   		height:400px;
+         width:80%;
+         height:400px;
    }
    #countEmb {
-   		width:100%;
-   		height:300px;
+         width:100%;
+         height:300px;
    }
    #embImgZone{
-   		width:95%;
-   		height:250px;
-   		margin:0 auto;
-   		
+         width:95%;
+         height:250px;
+         margin:0 auto;
+         
    
    } 
    #embImg{
-   		width:50px;
-   		height:50px;
-   		border-radius : 50%;
-   		border : solid 2px black;
-   		display:inline-block;
-   		margin-left:10px;
-		margin-right:10px;
-		overflow: hidden;
-		align-items: center;
-		justify-content: center;
+         width:50px;
+         height:50px;
+         border-radius : 50%;
+         border : solid 2px black;
+         display:inline-block;
+         margin-left:10px;
+      margin-right:10px;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
 
    } 
    #embImg img{
-   		width: 100%;
-		height:auto;
-		opacity: 1;
+         width: 100%;
+      height:auto;
+      opacity: 1;
    
    }
    
    #rank {
-   		width:100%;
-   		height:100px;
+         width:100%;
+         height:100px;
    }
    </style>
    
@@ -294,40 +294,40 @@
                     <div class="pointZone">
             <p class="pointRecord">[ MY POINT ]</p>
                 <div class="ppp">
-                	<div id="pointBar">
-                		<p id="usedPointBar" style="height:${user.used_point/user.total_point*100}%;">${user.used_point }</p>
-                	</div>
-                	<div id="pointBar">
-                		<p id="remainsPointBar" style="height:${100-(user.used_point/user.total_point*100)}%;">${user.total_point - user.used_point }</p>
-                	
-                	</div>
-                	<div id="pointBar">
-                		<p id="allPointBar"style="height:100%;">${user.total_point }</p>
-                		
-                	</div>
+                   <div id="pointBar">
+                      <p id="usedPointBar" style="height:${user.used_point/user.total_point*100}%;">${user.used_point }</p>
+                   </div>
+                   <div id="pointBar">
+                      <p id="remainsPointBar" style="height:${100-(user.used_point/user.total_point*100)}%;">${user.total_point - user.used_point }</p>
+                   
+                   </div>
+                   <div id="pointBar">
+                      <p id="allPointBar"style="height:100%;">${user.total_point }</p>
+                      
+                   </div>
 
                 </div>
                 <div class="pText">
-                	<p>사용포인트</p>
-                	<p>보유포인트</p>
-                	<p>총 포인트</p>
+                   <p>사용포인트</p>
+                   <p>보유포인트</p>
+                   <p>총 포인트</p>
                 </div>
                 
             </div>
                   </div>
                 </div>
                 <div class="emblemZone" style="float:left; width:300px;">
-            	<p class="myEmblems" style="text-align:center; background-color:gray; color:white;">[ MY EMBLEM / STATUS]</p>
+               <p class="myEmblems" style="text-align:center; background-color:gray; color:white;">[ MY EMBLEM / STATUS]</p>
                 
                 <div class="myStatus">
                     <div id="countEmb">
                         <p>▶ EMBLEM : ${emblemCount }개</p>
                         <div id="embImgZone">
-                        	<c:forEach var="eImg" items="${clist }">
-                        		<div id="embImg">
-                        			<img src="${eImg.emblem }">
-                        		</div>
-                        	</c:forEach>
+                           <c:forEach var="eImg" items="${clist }">
+                              <div id="embImg">
+                                 <img src="${eImg.emblem }">
+                              </div>
+                           </c:forEach>
                         </div>
                     </div>
                     <div id="rank">
