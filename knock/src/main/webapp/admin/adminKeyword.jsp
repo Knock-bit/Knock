@@ -12,27 +12,20 @@
 
 <!-- 페이징처리 자바코드 -->
 <%
+
 Paging p = new Paging();
 
-// 1. 전체 게시글 수량
-
-// setTotalRegord : 전체 게시글 수 
 p.setTotalRecord(DAO.getTotalCount());
-
-// 나와야할 페이지 수 , 전체게시글  / numPerPage
-// 나머지 존재시 +1 
 p.setTotalPage();
 System.out.println("> 전체 게시글 수 : " + p.getTotalRecord());
 System.out.println("> 전체 페이지 수 : " + p.getTotalPage());
 
-// 2. 현재 페이지 구하기
 String cPage = request.getParameter("cPage");
 if (cPage != null) {
 	p.setNowPage(Integer.parseInt(cPage));
 }
 
-// 3. 현재 페이지에 표시한 게시글 시작번호(begin), 끝번호(end) 구하기
-p.setEnd(p.getNowPage() * p.getNumPerPage()); //현재페이지번호 * 페이지당 게시글 수
+p.setEnd(p.getNowPage() * p.getNumPerPage());
 p.setBegin(p.getEnd() - p.getNumPerPage() + 1);
 
 if (p.getEnd() > p.getTotalRecord()) {
@@ -42,27 +35,20 @@ System.out.println(">>현재페이지 : " + p.getNowPage());
 System.out.println(">>시작번호(begin) : " + p.getBegin());
 System.out.println(">>끝번호(end) : " + p.getEnd());
 
-// 4. 페이지 블록 계산하기
-// 페이지의 시작, 끝페이지 구하기 
 int nowPage = p.getNowPage();
 int beginPage = (nowPage - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1;
 p.setBeginPage(beginPage);
 p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
 
-// 4-1. 끝 페이지(endPage)가 전체페이지 수 (totalPage)보다 크면
-// 끝 페이지를 전체페이지 수로 변경
 if (p.getEndPage() > p.getTotalPage()) {
 	p.setEndPage(p.getTotalPage());
 }
 System.out.println(">>시작페이지(beginPage) : " + p.getBeginPage());
 System.out.println(">>끝페이지(endPage) : " + p.getEndPage());
 
-// 현재 페이지 기준으로 DB데이터 가져오기
-// 시작번호(begin) 끝번호(end) 사용 
 List<KeywordVO> list = DAO.getList(p.getBegin(), p.getEnd());
 System.out.println("> 현재페이지 글목록(list) : " + list);
 
-// scope에 데이터 등록
 pageContext.setAttribute("list", list);
 pageContext.setAttribute("pvo", p);
 %>

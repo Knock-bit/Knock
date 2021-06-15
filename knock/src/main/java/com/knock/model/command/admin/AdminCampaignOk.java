@@ -27,8 +27,7 @@ public class AdminCampaignOk implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/Users/hanjeongseol/git/Knock/knock/upload";
-
+		String path = "/Users/hanjeongseol/git/Knock/knock/src/main/webapp/resources/assets/img";
 		int size = 1024 * 1024 * 10; // 저장가능한 파일 크기
 		String file = ""; // 업로드 한 파일의 이름(이름이 변경될수 있다)
 		String originalFile = ""; // 이름이 변경되기 전 실제 파일 이름
@@ -72,7 +71,7 @@ public class AdminCampaignOk implements Command {
 			e.printStackTrace();
 		}
 //		페이지 다시 리로드 -> 리스트다시불러오기
-		return "admin?type=adminUserList";
+		return "main.jsp";
 	}
 
 }

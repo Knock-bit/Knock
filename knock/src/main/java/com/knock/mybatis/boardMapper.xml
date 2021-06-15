@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<!-- 게시글 등록 --> 
+	<insert id="insertBoard" parameterType="com.knock.model.vo.BoardVO">
+      INSERT INTO BOARD (BOARD_IDX, SUBJECT, B_CONTENT, USER_IDX, 	
+      						WRITEDATE, B_CATEGORY, CAMPAIGN_IDX, SUBTITLE_IDX)
+            VALUES (BOARD_IDX_SEQ.nextval, #{subject}, #{b_content}, #{user_idx},
+            			#{writeDate}, #{b_category}, #{campaign_idx}, #{subtitle_idx})
+   </insert>
+	 
+	<!--  자유게시판 목록 
+	<select id="list2" resultType="com.knock.model.vo.BoardVO" parameterType="map">
+		SELECT *
+		  FROM (SELECT ROWNUM AS R_NUM, BOARD.*
+		  		  FROM ( SELECT * FROM BOARD ORDER BY BOARD_IDX DESC ) BOARD )
+		 WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	 인증게시판 목록 
+	<select id="list1" resultType="com.knock.model.vo.BoardVO" parameterType="map">
+		SELECT *
+		  FROM (SELECT ROWNUM AS R_NUM, BOARD.*
+		  		  FROM ( SELECT * FROM BOARD ORDER BY BOARD_IDX DESC ) BOARD )
+		 WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>  -->
+	
+	<!-- 게시글 상세보기 -->
+	<select id="one" parameterType="String" resultType="BoardVO">
+		SELECT * FROM BOARD WHERE BOARD_IDX = #{board_idx}
+	</select>
+	
+	<!-- 자유게시판 조회-->
+	<select id="totalCount2" resultType="int">
+		SELECT COUNT(*) AS CNT FROM BOARD WHERE B_CATEGORY = 1010
+	</select>
+	
+	<!-- 인증게시판 조회-->
+	<select id="totalCount1" resultType="int">
+		SELECT COUNT(*) AS CNT FROM BOARD WHERE B_CATEGORY = 1000
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="BoardVO">
+		UPDATE BOARD
+		   SET USER_IDX = #{user_idx},
+		   		SUBJECT = #{subject},
+		   		B_CONTENT = #{b_content},
+		   		B_FILE = #{b_file}
+		 WHERE BOARD_IDX = #{board_idx}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM BOARD WHERE BOARD_IDX = #{board_idx}
+	</delete>
+	
+	<!-- 조회수 처리 -->
+	<select id="updateHit" parameterType="int" resultType="com.knock.model.vo.BoardVO">
+		UPDATE BOARD SET HIT = HIT + 1
+		 WHERE BOARD_IDX = #{board_idx}
+	</select>
+	
+	<!-- 자유게시판 조회 -->
+	<select id="list2" parameterType="map" resultType="com.knock.model.vo.SubtitleVO">
+		SELECT *
+  		  FROM (SELECT ROWNUM AS R_NUM, BOARD.*
+          FROM ( SELECT * FROM BOARD WHERE B_CATEGORY = 1010
+         ORDER BY BOARD_IDX DESC ) BOARD ) B, SUBTITLE S
+        WHERE B.SUBTITLE_IDX = S.SUBTITLE_IDX AND R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!-- 인증게시판 조회 -->
+	<select id="list1" parameterType="map" resultType="com.knock.model.vo.SubtitleVO">
+		SELECT *
+  		  FROM (SELECT ROWNUM AS R_NUM, BOARD.*
+          FROM ( SELECT * FROM BOARD WHERE B_CATEGORY = 1000
+         ORDER BY BOARD_IDX DESC ) BOARD ) B, SUBTITLE S
+        WHERE B.SUBTITLE_IDX = S.SUBTITLE_IDX AND R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!-- 게시글 댓글 등록 -->
+	<insert id="insertComments" parameterType="com.knock.model.vo.CommentsVO">
+		INSERT INTO COMMENTS (COMMENT_IDX, COM_CONTENT, BOARD_IDX, USER_IDX, WRITETIME)
+			VALUES (COMMENT_IDX_SEQ.NEXTVAL, #{COM_CONTENT}, #{board_idx}, #{user_idx}, #{writetime})
+	</insert>
+	
+	<!-- 게시글 댓글 목록 -->
+	<select id="commentsList" parameterType="String" resultType="com.knock.model.vo.CommentsVO">
+		SELECT * FROM COMMENTS
+		 WHERE BOARD_IDX = #{board_idx}
+		 ORDER BY COMMENT_IDX DESC
+	</select>
+</mapper>

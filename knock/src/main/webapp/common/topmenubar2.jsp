@@ -40,7 +40,7 @@
                          
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign?type=ingList">캠페인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${contextPath }/campaign/proposalForm.jsp">캠페인 오픈하기</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${contextPath }/board/index.jsp">커뮤니티</a></li>
                         
                          
                         <c:set var="admin" value="${knock_admin }"/>

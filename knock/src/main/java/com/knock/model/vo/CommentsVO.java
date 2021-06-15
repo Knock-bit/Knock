@@ -6,17 +6,17 @@ public class CommentsVO {
 	
 	private int comment_idx, board_idx, user_idx;
 	private String com_content;
-	private TIMESTAMP writetime;
+	private TIMESTAMP writeTime;
 	
 	public CommentsVO() {}
 	
-	public CommentsVO(int comment_idx, int board_idx, int user_idx, String com_content, TIMESTAMP writetime) {
+	public CommentsVO(int comment_idx, int board_idx, int user_idx, String com_content, TIMESTAMP writeTime) {
 		super();
 		this.comment_idx = comment_idx;
 		this.board_idx = board_idx;
 		this.user_idx = user_idx;
 		this.com_content = com_content;
-		this.writetime = writetime;
+		this.writeTime = writeTime;
 	}
 	public int getComment_idx() {
 		return comment_idx;
@@ -42,16 +42,16 @@ public class CommentsVO {
 	public void setCom_content(String com_content) {
 		this.com_content = com_content;
 	}
-	public TIMESTAMP getWritetime() {
-		return writetime;
+	public TIMESTAMP getWriteTime() {
+		return writeTime;
 	}
-	public void setWritetime(TIMESTAMP writetime) {
-		this.writetime = writetime;
+	public void setWriteTime(TIMESTAMP writeTime) {
+		this.writeTime = writeTime;
 	}
 	@Override
 	public String toString() {
 		return "CommentsVO [comment_idx=" + comment_idx + ", board_idx=" + board_idx + ", user_idx=" + user_idx
-				+ ", com_content=" + com_content + ", writetime=" + writetime + "]";
+				+ ", com_content=" + com_content + ", writeTime=" + writeTime + "]";
 	}
 	
 }
