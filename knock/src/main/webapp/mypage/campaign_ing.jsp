@@ -82,7 +82,7 @@ function ajaxSuccess(data){
    $.each(data, function(){
       htmlTag += "<div class='topdan4'><div class='cpInfo'>";
       htmlTag += "<div class='imgarea'>";
-      htmlTag += "<img src='#'></div>";
+      htmlTag += "<img src='"+this.c_file+"'></div>";
       htmlTag += "<div class='textarea'><div class='eftDiv'><div class='DivTop'>";
       htmlTag += "<li id='fli'>" + this.title +"</li>";
       htmlTag += "<li id='sli'>[카테고리]" + this.c_category_name +"</li></div>";
