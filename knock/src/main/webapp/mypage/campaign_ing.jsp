@@ -29,9 +29,85 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
         <link href="${contextPath }/mypage/end_campaign.css" rel="stylesheet" type="text/css">
+     <link href="${contextPath }/mypage/campaign_ing.css" rel="stylesheet" type="text/css">
+  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
    <!-- Style -->
+   <script>
+$(function(){
+   fnAjax();
+
+});
+/* function camDetails(){
+   // 상세보기 페이지 이동 링크 연결하기
+   location.href=${contextPath};
    
+} */
+
+
+</script>
+<script type="text/javascript">
+
+function fnAjax(){
+   console.log("-- fnAjax() 실행");
+   /* alert(user.user_idx); */
+   let user_idx = ${user.user_idx};
+   $.ajax("${contextPath }/userctr?type=campaigning.do",{
+      type:"get",
+      data:"user_idx="+user_idx,
+      dataType : "json",
+      success : ajaxSuccess,
+      error : fnAjaxError
+   
+   });
+}
+
+function ajaxSuccess(data){
+   
+   if(data.length==0){
+      $indan = $(".indan");
+      $indan.empty();
+      let htmlTag = ""; 
+      $.each(data, function(){
+         htmlTag += "<div id='notCamapaign'>현재 참가하고 있는 캠페인이 없습니다.</div>";
+      });
+      $indan.html(htmlTag);
+      
+   } else {
+
+   console.log(data);
+   $indan = $(".indan");
+   $indan.empty();
+   let htmlTag = ""; 
+   $.each(data, function(){
+      htmlTag += "<div class='topdan4'><div class='cpInfo'>";
+      htmlTag += "<div class='imgarea'>";
+      htmlTag += "<img src='"+this.c_file+"'></div>";
+      htmlTag += "<div class='textarea'><div class='eftDiv'><div class='DivTop'>";
+      htmlTag += "<li id='fli'>" + this.title +"</li>";
+      htmlTag += "<li id='sli'>[카테고리]" + this.c_category_name +"</li></div>";
+      htmlTag += "<div class='middleDiv'>";
+      htmlTag += "<div class='ingEmblem'>";
+      htmlTag += "<img src='/image/think-green.png'></div></div>";
+      htmlTag += "<div class='bottomDiv'>";
+      htmlTag += "<div class='etime'>마감일:"+this.end_date+"</div>"; 
+      htmlTag += "</div></div>";
+      htmlTag += "<input type='button' value='상세보기'";
+      htmlTag += "id='cdetail' onclick='camDetails()'>";
+      htmlTag += "</div></div></div>";
+   });
+   $indan.html(htmlTag);
+   }
+
+}
+
+function fnAjaxError(jqXHR, textStatus, errorThrown){
+   alert("Ajax 처리 실패 : \n"
+         + "jqXHR.readyState : " + jqXHR.readyState + "\n"
+         + "textStatus : " + textStatus + "\n"
+         + "errorThrown : " + errorThrown);
+}
+</script>
    
    <!--  -->
    </head>

@@ -10,9 +10,9 @@
       padding: 30px;
    }
    .indan {
-      margin:0 auto;
+      margin:100px 0 0 0;
       width:100%;
-      height:600px;
+      height:400px;
         text-align: center;
    }
    .topdan4 {
@@ -34,7 +34,15 @@
       height:200px;
       display: inline-block;
       border : 1px solid black;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
       
+   }
+   .imgarea img {
+   	object-fit:cover;
+   	width:100%;
+   
    }
    .textarea {
       width: 80%;
@@ -48,10 +56,13 @@
        text-align:center;
        list-style:none;
        margin:5px;
+       font-size:20px;
+       background-color:rgb(51, 153, 102);
+       color:white;
 
     }
     #sli{
-       text-align:center;
+       text-align:left;
        list-style:none;
        margin:5px;
        font-size:12px;
