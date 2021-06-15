@@ -48,7 +48,7 @@ public class loginCommand implements Command {
 				session.setAttribute("user_idx", vo.getUser_idx());
 				session.setAttribute("knock_admin", vo.getKnock_admin());
 				session.setAttribute("nickname", vo.getName());
-				session.setAttribute("totalpoint", vo.getTotal_point());
+				session.setAttribute("total_point", vo.getTotal_point());
 				session.setAttribute("used_point", vo.getUsed_point());
 				
 				out.println("<script>");
