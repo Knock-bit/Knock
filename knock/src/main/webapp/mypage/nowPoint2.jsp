@@ -139,7 +139,7 @@ $(function(){
          
             <div class="bottomdan">
             
-                  <img src="${contextPath }/image/tree_emblem.png">
+                  <img src="../resources/tree_emblem.png">
       
                </div>
             </div>
