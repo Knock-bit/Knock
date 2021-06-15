@@ -134,7 +134,7 @@ function fnAjaxError(jqXHR, textStatus, errorThrown){
               <a href="${contextPath }/mypage/mypage2.jsp"><br><span class="fa fa-user">&nbsp; MY PAGE </span><br></a>
           </li>
           <li>
-            <a href="${contextPath }/mypage/updateMypage.jsp"><br><span class="fa fa-cogs"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
+            <a href="${contextPath }/mypage/updateMypage.jsp"><br><span class="fa fa-cogs">&nbsp; 내 정보 수정</span><br></a>
           </li>
           <li>
             <a href="${contextPath }/mypage/nowPoint2.jsp"><br><span class="fa fa-sticky-note">&nbsp; 포인트 현황</span><br> </a>
