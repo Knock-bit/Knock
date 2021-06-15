@@ -29,7 +29,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
         <link href="${contextPath }/mypage/end_campaign.css" rel="stylesheet" type="text/css">
-  
+  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	
    <style>
    #emble {
    width:80px;

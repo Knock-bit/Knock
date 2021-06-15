@@ -13,31 +13,25 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>knockKnock</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="${contextPath }/resources/js/scripts.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
-        <link href="${contextPath }/mypage/nowPoint.css" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>knockKnock</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="${contextPath }/resources/js/scripts.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" />
+    <link href="${contextPath }/mypage/nowPoint.css" rel="stylesheet" type="text/css">
   
-   <style>
-   #emble {
-   width:80px;
-   height:80px;
-   }
-   </style>
    <!-- Style -->
-   <script>
+<script>
 $(function(){
 	var uPoint = ${user.used_point/user.total_point*100};
 	var ePoint = ${100-(user.used_point/user.total_point*100)};
@@ -126,12 +120,12 @@ $(function(){
                   <div class="point_view">
                      <div class="graph stack1">
                         <p>사용한 포인트</p>
-                        <span id="uPoint" >${user.used_point}</span>
+                        <span style="width: 37.5%" id="uPoint" >${user.used_point}</span>
                         
                      </div>
                      <div class="graph stack2">
                         <p>남은 포인트</p>
-                        <span id="ePoint" >${user.total_point-user.used_point}</span>
+                        <span id="ePoint" style="width: 62.5%" >${user.total_point-user.used_point}</span>
                         
                      </div>
                      <div class="graph stack3">
