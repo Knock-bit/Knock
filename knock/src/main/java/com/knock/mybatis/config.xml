@@ -36,8 +36,8 @@
 					value="jdbc:oracle:thin:@localhost:1521:xe" />
 
 
-				<property name="username" value="KNOCKTEST" />
-				<property name="password" value="KNOCKTESTpwd" />
+				<property name="username" value="KNOCK" />
+				<property name="password" value="knock" />
 			</dataSource>
 		</environment>
 	</environments>
