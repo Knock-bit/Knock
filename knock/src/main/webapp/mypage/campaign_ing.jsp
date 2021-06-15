@@ -88,7 +88,7 @@ function ajaxSuccess(data){
       htmlTag += "<li id='sli'>[카테고리]" + this.c_category_name +"</li></div>";
       htmlTag += "<div class='middleDiv'>";
       htmlTag += "<div class='ingEmblem'>";
-      htmlTag += "<img src='/image/think-green.png'></div></div>";
+      htmlTag += "<img src='"+this.emblem+"'></div></div>";
       htmlTag += "<div class='bottomDiv'>";
       htmlTag += "<div class='etime'>마감일:"+this.end_date+"</div>"; 
       htmlTag += "</div></div>";
@@ -120,8 +120,7 @@ function fnAjaxError(jqXHR, textStatus, errorThrown){
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
       
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="style.css" rel="stylesheet" type="text/css">
-  
+<link href="${contextPath }/resources/css/style.css" rel="stylesheet" type="text/css">  
   <body>
       
       <div class="wrapper d-flex align-items-stretch">

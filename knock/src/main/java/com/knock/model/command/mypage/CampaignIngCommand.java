@@ -41,7 +41,7 @@ public class CampaignIngCommand implements Command{
          sb.append("\"estimated_point\": \"" + cvo.getEstimated_point() + "\",");
          sb.append("\"status\": \"" + cvo.getStatus() + "\",");
          sb.append("\"c_file\": \"" + cvo.getC_file() + "\",");
-         sb.append("\"emblem\": \"" + 123 + "\",");   //cvo.getEmblem()
+         sb.append("\"emblem\": \"" + cvo.getEmblem() + "\",");  
          sb.append("\"user_idx\": \"" + cvo.getUser_idx() + "\",");
          sb.append("\"c_category\": \"" + cvo.getC_category() + "\",");
          sb.append("\"c_category_name\": \"" + cvo.getC_category_name() + "\",");
