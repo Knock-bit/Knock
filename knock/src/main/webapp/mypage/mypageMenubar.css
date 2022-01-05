@@ -1,0 +1,91 @@
+
+
+   .menubar {
+        float: left; 
+        width:15%; 
+        height:700px; 
+        border-right: 2px inset #6BDF8F;
+    }
+    .mypage {
+        background-color: #6BDF8F; 
+        height: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;}
+
+    .mypage input {
+        background-color: #6BDF8F;
+        color: white;
+        outline: 0;
+        border: 0;
+        font-size: 25px;
+        font-family: "Roboto";
+        font-weight: bold;
+    }
+
+    .mylist {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .infoUpdateBtn, .nowPointBtn{
+        background-color: white;
+        box-shadow: none;
+        border: 0;
+        font-size: 16px;
+        font-weight:800;
+        margin-top:10px;
+    }
+    .campaign {
+        font-size: 16px;
+        margin-left: 5px;
+        font-weight:800;
+        margin-top:5px;
+        
+
+
+    }
+    .infoUpdateBtn:hover, .nowPointBtn:hover, .campaign:hover {
+        color: #58ca7c;
+        font-weight: bold;
+        font-size: large;
+        text-decoration: underline;
+    }
+
+
+    .campaignBtn{
+        position:relative; 
+        display: inline-block;
+        width:100%;
+        margin-top:3px;}
+    
+    
+
+    .campaign-content {
+        width: 90%;
+        display:none; 
+        position:absolute;
+        
+        }
+    
+
+    .campaign-content a {
+        text-decoration: none;
+        color: black;
+        font-weight: normal;
+        font-size: 13px;
+        
+        
+        }
+    .campaign-content li {
+        list-style: none;
+        margin : 0 auto;
+        }
+
+    .campaignBtn:hover .campaign-content {
+        display: block;
+    }
+
+    .campaign-content a:hover {
+        color: #6BDF8F;
+        font-weight: 800;
+    }

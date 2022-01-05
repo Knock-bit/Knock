@@ -35,6 +35,15 @@ public class CampaignNomineeDAO {
 		int result = ss.update("campaign.funding", nomUser);
 		ss.commit();
 		ss.close();
+		
+		return result;
+	}
+
+	public static int expire() {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession(true);
+		result = ss.update("campaign.expireNom");
+		ss.close();
 		return result;
 	}
 
