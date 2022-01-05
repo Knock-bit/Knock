@@ -15,11 +15,10 @@ public class CampaignOneCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">> CampaignOne Command 실행");
+		System.out.println(">> CampaignOne!! Command 실행");
 		int campaign_idx = Integer.parseInt(request.getParameter("idx"));
 		CampaignIngVO campaignIng = CampaignIngDAO.one(campaign_idx);
 		List<String> ing_userList = CampaignIngDAO.participant(campaign_idx);
-
 		request.setAttribute("campaignIng", campaignIng);
 		request.setAttribute("ing_userList", ing_userList);
 		return "campaign/campaignView.jsp";

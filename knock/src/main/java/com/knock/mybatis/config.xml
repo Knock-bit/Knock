@@ -9,7 +9,7 @@
 
 	<typeAliases>
 		<!-- 여기부터 campaign -->
-		
+
 		<typeAlias type="com.knock.model.vo.CampaignIngVO"
 			alias="CampaignIngVO"></typeAlias>
 		<typeAlias type="com.knock.model.vo.ProposalVO"
@@ -18,26 +18,40 @@
 			alias="NomineeVO"></typeAlias>
 		<typeAlias type="com.knock.model.vo.NomUserVO"
 			alias="NomUserVO"></typeAlias>
+		<typeAlias type="com.knock.model.vo.CommentsVO"
+			alias="CommentsVO"></typeAlias>
+		<typeAlias type="com.knock.model.vo.BoardVO" alias="BoardVO"></typeAlias>
 		<!-- 여기까지 campaign -->
-			
-			
-			
+
+
+
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url"
 					value="jdbc:oracle:thin:@localhost:1521:xe" />
+
+
 				<property name="username" value="KNOCK" />
 				<property name="password" value="knock" />
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
 		<mapper resource="com/knock/mybatis/campaignmapper.xml" />
+
+		<mapper resource="com/knock/mybatis/adminmapper.xml" />
+		<mapper resource="com/knock/mybatis/signInmapper.xml" />
+		<mapper resource="com/knock/mybatis/usermapper.xml" />
+		<mapper resource="com/knock/mybatis/boardMapper.xml" />
+
 		<!-- <mapper resource="com/knock/mybatis/mapper.xml" /> -->
 	</mappers>
+
+
 </configuration>

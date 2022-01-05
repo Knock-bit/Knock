@@ -17,7 +17,8 @@ public class CampaignIngDAO {
 //		
 //		return totalCount;
 //	}
-	
+	public CampaignIngDAO() {
+	}
 	
 	public static List<CampaignIngVO> list(){
 		SqlSession ss = DBService.getFactory().openSession(true);
@@ -42,6 +43,25 @@ public class CampaignIngDAO {
 		List<String> userList = ss.selectList("campaign.participant", campaign_idx);
 		ss.close();
 		return userList;
+	}
+	
+	public static int expire() {
+		int result = 0;
+		SqlSession ss = DBService.getFactory().openSession(true);
+		result = ss.update("campaign.expireIng");
+		ss.close();
+		return result;
+	}
+
+	public static List<CampaignIngVO> endList() {
+		SqlSession ss = DBService.getFactory().openSession(true);
+		List<CampaignIngVO> campaignedList = ss.selectList("campaign.edList");
+		ss.close();
+		for (CampaignIngVO campaigned : campaignedList) {
+			System.out.println(campaigned.getTitle());
+		}
+		
+		return campaignedList;
 	}
 	
 	
