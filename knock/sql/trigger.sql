@@ -16,4 +16,5 @@ BEGIN
                 AND NOMINEE_IDX = :NEW.NOMINEE_IDX);
     END IF;
 END;
--- TEST 
+
+-- TEST @@@@@@@@@
